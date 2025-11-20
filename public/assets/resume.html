@@ -3,52 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Currículo Ultra Avançado · Luiz Felippe Andrade</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>Currículo · Luiz Felippe Andrade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      /* Palette alinhada ao portfolio (tema Dark Matter) */
-      --color-background: 5 5 15;
-      --color-foreground: 241 245 249;
-      --color-accent: #7f5af0;
-      --color-secondary: #2cb67d;
-      --accent: var(--color-accent);
-      --secondary: var(--color-secondary);
-      --color-surface: rgba(255, 255, 255, 0.04);
-      --color-border: rgba(255, 255, 255, 0.12);
-      --color-muted: rgba(241, 245, 249, 0.65);
-      --color-shadow: rgba(0, 0, 0, 0.8);
-      --gradient-1: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
-      --gradient-2: linear-gradient(135deg, #ff6b9d, #ffa500);
-      --gradient-3: linear-gradient(135deg, var(--color-accent), #ff6b9d, var(--color-secondary));
-
-      --mono: 'IBM Plex Mono', monospace;
-      --sans: 'Space Grotesk', sans-serif;
-      --display: 'Sora', sans-serif;
-      --body: 'Inter', sans-serif;
-      font-family: var(--sans);
-    }
-
-    [data-theme="dark"] {
-      --bg: rgb(var(--color-background));
-      --surface: rgba(5, 5, 15, 0.85);
-      --text: rgb(var(--color-foreground));
-      --muted: var(--color-muted);
-      --border: var(--color-border);
-      --shadow: var(--color-shadow);
-      --card-bg: rgba(255, 255, 255, 0.02);
-      --card-hover: rgba(255, 255, 255, 0.05);
-    }
-
-    [data-theme="light"] {
-      --bg: #f8f9fc;
-      --surface: rgba(255, 255, 255, 0.95);
-      --text: #1a1a2e;
-      --muted: rgba(26, 26, 46, 0.65);
-      --border: rgba(26, 26, 46, 0.12);
-      --shadow: rgba(0, 0, 0, 0.15);
-      --card-bg: rgba(255, 255, 255, 0.6);
-      --card-hover: rgba(255, 255, 255, 0.9);
+      --bg: #000000;
+      --accent: #8b5cf6;
+      --accent-bright: #a78bfa;
+      --secondary: #10b981;
+      --secondary-bright: #34d399;
+      --tertiary: #06b6d4;
+      --text: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.7);
+      --text-dim: rgba(255, 255, 255, 0.5);
+      --border: rgba(139, 92, 246, 0.2);
+      --glow: rgba(139, 92, 246, 0.5);
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     * {
@@ -57,115 +27,57 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
       cursor: none;
-      transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      min-height: 100vh;
       position: relative;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.18), transparent 42%),
-        radial-gradient(circle at 80% 0%, rgba(44, 182, 125, 0.14), transparent 40%),
-        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.12), transparent 52%);
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0;
-      animation: fadeIn 1s ease 0.5s forwards;
-    }
-
-    [data-theme="light"] body::before {
-      background: 
-        radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.08), transparent 42%),
-        radial-gradient(circle at 80% 0%, rgba(44, 182, 125, 0.06), transparent 40%),
-        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.06), transparent 52%);
-    }
-
-    #cursor {
-      width: 20px;
-      height: 20px;
-      border: 2px solid var(--color-accent);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 10000;
-      transition: transform 0.15s ease, border-color 0.3s ease, background 0.3s ease;
-      mix-blend-mode: difference;
-    }
-
-    #cursor.active {
-      transform: scale(2.5);
-      border-color: var(--color-secondary);
-      background: rgba(44, 182, 125, 0.12);
-    }
-
-    #cursor.text {
-      transform: scale(0.5);
-      background: var(--color-accent);
-    }
-
-    #cursorTrail {
-      position: fixed;
-      width: 6px;
-      height: 6px;
-      background: var(--color-accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.5;
-      transition: opacity 0.3s ease;
-    }
-
-    #particles {
+    /* ========== CANVAS BACKGROUND ========== */
+    #bgCanvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1;
-      pointer-events: none;
-      overflow: hidden;
+      z-index: 0;
+      opacity: 0.6;
     }
 
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: var(--accent);
+    /* ========== CUSTOM CURSOR ========== */
+    #cursor {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--accent-bright);
       border-radius: 50%;
-      animation: float 8s infinite ease-in-out;
-      opacity: 0.3;
-      filter: blur(1px);
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      mix-blend-mode: screen;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 0 20px var(--glow);
     }
 
-    .particle.large {
-      width: 4px;
-      height: 4px;
-      opacity: 0.4;
+    #cursorGlow {
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, var(--glow), transparent 70%);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.8;
     }
 
-    .particle.glow {
-      box-shadow: 0 0 10px var(--accent);
+    #cursor.active {
+      transform: scale(2);
+      border-color: var(--secondary-bright);
+      box-shadow: 0 0 30px var(--secondary);
     }
 
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(50px, -50px) rotate(90deg); }
-      50% { transform: translate(-30px, -100px) rotate(180deg); }
-      75% { transform: translate(70px, -50px) rotate(270deg); }
-    }
-
+    /* ========== LOADER ========== */
     #loader {
       position: fixed;
       inset: 0;
@@ -174,98 +86,156 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      z-index: 10001;
+      transition: opacity 0.8s ease;
     }
 
     #loader.hide {
       opacity: 0;
-      transform: scale(1.1);
       pointer-events: none;
     }
 
-    .loader-content {
-      text-align: center;
-    }
-
-    .loader-text {
-      font-family: var(--mono);
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      color: var(--accent);
+    .loader-logo {
+      font-family: 'Sora', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-bright), var(--secondary-bright), var(--tertiary));
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientFlow 3s ease infinite, glitchText 2s infinite;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      letter-spacing: 0.3em;
-      animation: glitch 1s infinite, pulse 2s ease infinite;
-      margin-bottom: 2rem;
     }
 
     .loader-bar {
       width: 300px;
-      height: 4px;
-      background: var(--border);
-      border-radius: 999px;
+      height: 3px;
+      background: rgba(139, 92, 246, 0.2);
+      border-radius: 10px;
+      margin-top: 2rem;
       overflow: hidden;
       position: relative;
     }
 
-    .loader-progress {
-      height: 100%;
-      background: var(--gradient-1);
-      width: 0%;
-      animation: loadProgress 2s ease forwards;
-      border-radius: 999px;
-      position: relative;
-    }
-
-    .loader-progress::after {
+    .loader-bar::after {
       content: '';
       position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      animation: shimmer 1s infinite;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      animation: loadProgress 2s ease forwards;
+      box-shadow: 0 0 20px var(--accent);
     }
 
     @keyframes loadProgress {
       to { width: 100%; }
     }
 
-    @keyframes shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+    @keyframes glitchText {
+      0%, 90%, 100% { transform: translate(0); }
+      92% { transform: translate(-3px, 2px); }
+      94% { transform: translate(3px, -2px); }
+      96% { transform: translate(-2px, -1px); }
     }
 
-    @keyframes glitch {
-      0%, 100% { transform: translate(0); text-shadow: none; }
-      20% { transform: translate(-2px, 2px); text-shadow: 2px -2px 0 var(--secondary), -2px 2px 0 var(--tertiary); }
-      40% { transform: translate(2px, -2px); text-shadow: -2px 2px 0 var(--secondary), 2px -2px 0 var(--tertiary); }
-      60% { transform: translate(-2px, -2px); text-shadow: 2px 2px 0 var(--secondary), -2px -2px 0 var(--tertiary); }
-      80% { transform: translate(2px, 2px); text-shadow: -2px -2px 0 var(--secondary), 2px 2px 0 var(--tertiary); }
+    @keyframes gradientFlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+    /* ========== SCROLL PROGRESS ========== */
+    #scrollProgress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary), var(--tertiary));
+      z-index: 9998;
+      box-shadow: 0 0 20px var(--accent);
     }
 
-    main {
+    /* ========== FLOATING SHAPES ========== */
+    .shape {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(80px);
+      opacity: 0.3;
+    }
+
+    .shape-1 {
+      width: 500px;
+      height: 500px;
+      background: var(--accent);
+      top: -200px;
+      left: -200px;
+      animation: float1 20s ease-in-out infinite;
+    }
+
+    .shape-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--secondary);
+      bottom: -150px;
+      right: -150px;
+      animation: float2 18s ease-in-out infinite;
+    }
+
+    .shape-3 {
+      width: 350px;
+      height: 350px;
+      background: var(--tertiary);
+      top: 50%;
+      right: -100px;
+      animation: float3 22s ease-in-out infinite;
+    }
+
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(100px, 100px) rotate(120deg); }
+      66% { transform: translate(-50px, 150px) rotate(240deg); }
+    }
+
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(-100px, -80px) rotate(120deg); }
+      66% { transform: translate(50px, -120px) rotate(240deg); }
+    }
+
+    @keyframes float3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-80px, 80px) scale(1.2); }
+    }
+
+    /* ========== MAIN CONTAINER ========== */
+    body {
+      min-height: 100vh;
+      padding: 4rem 1.5rem;
       position: relative;
       z-index: 2;
-      padding: 3rem 1.5rem 4rem;
     }
 
     .sheet {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
-      background: var(--surface);
+      background: rgba(0, 0, 0, 0.7);
       border: 1px solid var(--border);
-      border-radius: 32px;
-      padding: 3rem 3.5rem;
-      box-shadow: 0 40px 120px var(--shadow);
-      backdrop-filter: blur(20px);
+      border-radius: 40px;
+      padding: 3rem;
+      box-shadow: 
+        0 0 80px rgba(139, 92, 246, 0.15),
+        0 50px 100px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(40px) saturate(180%);
       position: relative;
       overflow: hidden;
       opacity: 0;
-      animation: fadeInUp 1s ease 0.3s forwards;
-      transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+      animation: fadeInUp 1s ease 0.5s forwards;
     }
 
     @keyframes fadeInUp {
@@ -275,230 +245,45 @@
       }
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
       }
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-      from { opacity: 0; }
     }
 
     .sheet::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: var(--gradient-3);
+      inset: -2px;
+      background: linear-gradient(135deg, var(--accent), var(--secondary), var(--tertiary));
+      border-radius: 40px;
       opacity: 0;
+      z-index: -1;
       transition: opacity 0.5s ease;
-      pointer-events: none;
-      background-size: 200% 200%;
-      animation: gradientFlow 10s ease infinite;
-    }
-
-    @keyframes gradientFlow {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      filter: blur(20px);
     }
 
     .sheet:hover::before {
-      opacity: 0.03;
+      opacity: 0.3;
     }
 
-    .theme-toggle {
-      position: fixed;
-      top: 2rem;
-      right: 2rem;
-      z-index: 1000;
-      min-width: 140px;
-      padding: 0.9rem 1.1rem;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 2px solid var(--border);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 30px var(--shadow);
-      overflow: hidden;
-      font-family: var(--mono);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
-
-    .theme-toggle:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-      box-shadow: 0 15px 40px rgba(127, 90, 240, 0.35);
-    }
-
-    .theme-toggle::before {
+    /* ========== GRID LINES OVERLAY ========== */
+    .sheet::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--gradient-1);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-    }
-
-    .theme-toggle:hover::before {
-      opacity: 0.12;
-    }
-
-    .theme-icon {
-      font-size: 1rem;
-      position: relative;
-      z-index: 1;
-      color: var(--text);
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .lang-selector {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      z-index: 1000;
-      background: var(--surface);
-      border: 2px solid var(--border);
-      border-radius: 20px;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 30px var(--shadow);
-      font-family: var(--mono);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .lang-selector:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-      box-shadow: 0 15px 40px rgba(127, 90, 240, 0.4);
-    }
-
-    .lang-flag {
-      font-size: 1.5rem;
-      animation: wave 2s ease infinite;
-    }
-
-    @keyframes wave {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(-10deg); }
-      75% { transform: rotate(10deg); }
-    }
-
-    .lang-dropdown {
-      position: fixed;
-      top: 5.5rem;
-      left: 2rem;
-      z-index: 999;
-      background: var(--surface);
-      border: 2px solid var(--border);
-      border-radius: 20px;
-      padding: 1rem;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-      opacity: 0;
-      transform: translateY(-20px) scale(0.95);
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 20px 60px var(--shadow);
-      max-height: 400px;
-      overflow-y: auto;
-    }
-
-    .lang-dropdown.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: all;
-    }
-
-    .lang-option {
-      padding: 0.75rem 1rem;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .lang-option:hover {
-      transform: translateX(5px);
-      border-color: var(--accent);
-      background: var(--card-hover);
-    }
-
-    .lang-option.active {
-      border-color: var(--accent);
-      background: rgba(127, 90, 240, 0.1);
-    }
-
-    #scrollProgress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 4px;
-      background: var(--gradient-1);
-      z-index: 9998;
-      transition: width 0.1s ease;
-      box-shadow: 0 2px 10px rgba(127, 90, 240, 0.5);
-    }
-
-    .music-visualizer {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 1000;
-      display: flex;
-      gap: 4px;
-      align-items: flex-end;
-      opacity: 0.3;
+      background-image: 
+        linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
       pointer-events: none;
     }
 
-    .music-bar {
-      width: 4px;
-      background: var(--gradient-1);
-      border-radius: 999px;
-      animation: musicBounce 0.8s ease infinite;
-    }
-
-    .music-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
-    .music-bar:nth-child(2) { height: 30px; animation-delay: 0.1s; }
-    .music-bar:nth-child(3) { height: 25px; animation-delay: 0.2s; }
-    .music-bar:nth-child(4) { height: 35px; animation-delay: 0.3s; }
-    .music-bar:nth-child(5) { height: 28px; animation-delay: 0.4s; }
-    .music-bar:nth-child(6) { height: 32px; animation-delay: 0.5s; }
-
-    @keyframes musicBounce {
-      0%, 100% { transform: scaleY(1); }
-      50% { transform: scaleY(1.8); }
-    }
-
+    /* ========== HEADER ========== */
     header {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 2px solid var(--border);
+      border-bottom: 1px solid var(--border);
       padding-bottom: 2rem;
       margin-bottom: 3rem;
       position: relative;
@@ -507,64 +292,47 @@
     header::after {
       content: '';
       position: absolute;
-      bottom: -2px;
+      bottom: -1px;
       left: 0;
       width: 0;
-      height: 4px;
-      background: var(--gradient-1);
-      animation: expandWidth 2s ease forwards;
-      box-shadow: 0 2px 15px rgba(127, 90, 240, 0.6);
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      animation: expandWidth 2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      box-shadow: 0 0 20px var(--accent);
     }
 
     @keyframes expandWidth {
       to { width: 100%; }
     }
 
-    .header-left {
-      flex: 1;
-      min-width: 300px;
-    }
-
     header h1 {
-      font-family: var(--display);
+      font-family: 'Sora', sans-serif;
       font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      background: var(--gradient-3);
+      background: linear-gradient(135deg, #fff, var(--accent-bright), var(--secondary-bright));
       background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradientShift 6s ease infinite;
-      line-height: 1.1;
-      margin-bottom: 0.75rem;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      animation: gradientFlow 4s ease infinite;
+      text-shadow: 0 0 80px var(--glow);
+      position: relative;
+      z-index: 1;
     }
 
     .subtitle {
-      font-family: var(--body);
+      margin: 0.5rem 0 0;
       font-size: 1.1rem;
-      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.3em;
-      color: var(--muted);
+      color: var(--text-muted);
       opacity: 0;
-      animation: fadeIn 1s ease 0.5s forwards;
-      margin-bottom: 1rem;
+      animation: fadeIn 1s ease 0.8s forwards;
     }
 
-    .tagline {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      opacity: 0;
-      animation: fadeIn 1s ease 0.7s forwards;
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     .contact {
@@ -576,9 +344,9 @@
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
       opacity: 0;
-      animation: slideInRight 0.6s ease forwards;
+      animation: slideInRight 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
       transition: transform 0.3s ease;
     }
 
@@ -586,11 +354,11 @@
       transform: translateX(5px);
     }
 
-    .contact-item:nth-child(1) { animation-delay: 0.6s; }
-    .contact-item:nth-child(2) { animation-delay: 0.7s; }
-    .contact-item:nth-child(3) { animation-delay: 0.8s; }
-    .contact-item:nth-child(4) { animation-delay: 0.9s; }
-    .contact-item:nth-child(5) { animation-delay: 1s; }
+    .contact-item:nth-child(1) { animation-delay: 0.5s; }
+    .contact-item:nth-child(2) { animation-delay: 0.6s; }
+    .contact-item:nth-child(3) { animation-delay: 0.7s; }
+    .contact-item:nth-child(4) { animation-delay: 0.8s; }
+    .contact-item:nth-child(5) { animation-delay: 0.9s; }
 
     @keyframes slideInRight {
       to {
@@ -599,7 +367,7 @@
       }
       from {
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateX(30px);
       }
     }
 
@@ -608,32 +376,52 @@
       text-decoration: none;
       position: relative;
       transition: color 0.3s ease;
-      font-weight: 500;
     }
 
-    .contact a::after {
+    .contact a::before {
       content: '';
       position: absolute;
-      bottom: -2px;
+      bottom: -3px;
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--gradient-1);
-      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      transition: width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: 0 0 10px var(--accent);
     }
 
     .contact a:hover {
-      color: var(--accent);
+      color: var(--accent-bright);
     }
 
-    .contact a:hover::after {
+    .contact a:hover::before {
       width: 100%;
     }
 
+    .icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(16, 185, 129, 0.2));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    }
+
+    .contact-item:hover .icon {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 30px var(--accent);
+    }
+
+    /* ========== SECTIONS ========== */
     section {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(50px);
+      transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                  transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     section.visible {
@@ -646,47 +434,51 @@
     }
 
     h2 {
-      font-family: var(--display);
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.25em;
+      font-family: 'Sora', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--text);
       margin-bottom: 1.5rem;
       display: inline-flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
       position: relative;
     }
 
     h2::after {
       content: '';
-      flex: 1;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
       height: 2px;
-      background: var(--gradient-1);
-      opacity: 0.3;
-      margin-left: 1rem;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      box-shadow: 0 0 10px var(--accent);
     }
 
     .icon-chip {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 18px;
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4);
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+      font-size: 1.3rem;
+      box-shadow: 
+        0 10px 30px rgba(139, 92, 246, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       position: relative;
     }
 
     .icon-chip::before {
       content: '';
       position: absolute;
-      inset: -3px;
-      background: var(--gradient-1);
+      inset: -2px;
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
       border-radius: 20px;
       opacity: 0;
       filter: blur(10px);
@@ -695,19 +487,22 @@
 
     h2:hover .icon-chip {
       transform: rotate(360deg) scale(1.15);
-      box-shadow: 0 15px 50px rgba(127, 90, 240, 0.7);
+      box-shadow: 
+        0 15px 50px rgba(139, 92, 246, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
     h2:hover .icon-chip::before {
-      opacity: 0.6;
+      opacity: 0.8;
     }
 
+    /* ========== CARDS ========== */
     .card {
-      border: 2px solid var(--border);
+      border: 1px solid var(--border);
       border-radius: 28px;
       padding: 2rem;
-      background: var(--card-bg);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.03), rgba(0, 0, 0, 0.4));
+      transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
       position: relative;
       overflow: hidden;
       backdrop-filter: blur(10px);
@@ -717,88 +512,129 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--gradient-3);
+      background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.1) 0%, 
+        transparent 50%, 
+        rgba(16, 185, 129, 0.1) 100%);
       opacity: 0;
       transition: opacity 0.5s ease;
-      background-size: 200% 200%;
-      animation: gradientFlow 10s ease infinite;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
     }
 
     .card:hover {
       border-color: var(--accent);
-      transform: translateY(-8px);
-      box-shadow: 0 25px 70px rgba(127, 90, 240, 0.3);
-      background: var(--card-hover);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 
+        0 30px 80px rgba(139, 92, 246, 0.3),
+        0 0 0 1px rgba(139, 92, 246, 0.2);
     }
 
     .card:hover::before {
-      opacity: 0.08;
+      opacity: 1;
+    }
+
+    .card:hover::after {
+      top: -100%;
+      left: -100%;
     }
 
     .grid {
       display: grid;
-      gap: 1.75rem;
+      gap: 1.5rem;
     }
 
     .grid.two {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
-    .grid.three {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* ========== EXPERIENCE ========== */
+    .experience-item {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 0;
+      background: linear-gradient(180deg, var(--accent), var(--secondary));
+      box-shadow: 0 0 10px var(--accent);
+      transition: height 0.6s ease;
+    }
+
+    .card:hover .experience-item::before {
+      height: 100%;
     }
 
     .experience-item + .experience-item {
-      border-top: 2px solid var(--border);
-      margin-top: 1.75rem;
-      padding-top: 1.75rem;
+      border-top: 1px solid rgba(139, 92, 246, 0.1);
+      margin-top: 2rem;
+      padding-top: 2rem;
     }
 
     .role {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 1.05rem;
-      font-weight: 700;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.1em;
       margin-bottom: 1rem;
     }
 
     .role strong {
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, var(--text), var(--accent-bright));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-size: 1.15rem;
+      text-shadow: 0 0 30px var(--glow);
     }
 
-    .role-date {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--muted);
-      padding: 0.35rem 0.75rem;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: var(--card-bg);
+    .role span {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      font-weight: 500;
     }
 
     ul {
-      padding-left: 1.25rem;
+      padding-left: 1.5rem;
       margin: 1rem 0;
-      color: var(--muted);
+      color: var(--text-muted);
       line-height: 1.8;
     }
 
     li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
       display: flex;
-      gap: 0.75rem;
+      gap: 0.6rem;
       align-items: flex-start;
-      transition: transform 0.3s ease, color 0.3s ease;
-      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-left: 0.3rem;
+    }
+
+    li::before {
+      content: '▸';
+      font-size: 1rem;
+      color: var(--accent-bright);
+      margin-top: 0.1rem;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 10px var(--accent);
     }
 
     li:hover {
@@ -806,508 +642,97 @@
       color: var(--text);
     }
 
-    li::before {
-      content: '◆';
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-top: 0.3rem;
-      animation: pulse 2s ease infinite;
-      flex-shrink: 0;
+    li:hover::before {
+      color: var(--secondary-bright);
+      text-shadow: 0 0 15px var(--secondary);
+      transform: scale(1.3);
     }
 
+    /* ========== PILLS ========== */
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.25rem;
+      gap: 0.7rem;
+      margin-top: 1.5rem;
       font-size: 0.85rem;
     }
 
     .pill {
-      border: 2px solid rgba(127, 90, 240, 0.4);
-      background: rgba(127, 90, 240, 0.1);
-      padding: 0.6rem 1.1rem;
+      border: 1px solid var(--accent);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05));
+      padding: 0.5rem 1.2rem;
       border-radius: 999px;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-weight: 600;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.15em;
+      font-weight: 500;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       position: relative;
       overflow: hidden;
-      cursor: default;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
     }
 
     .pill::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
       opacity: 0;
       transition: opacity 0.4s ease;
+    }
+
+    .pill span {
+      position: relative;
+      z-index: 1;
     }
 
     .pill:hover {
-      border-color: var(--accent);
+      border-color: var(--accent-bright);
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 12px 35px rgba(127, 90, 240, 0.4);
+      box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
     }
 
     .pill:hover::before {
-      opacity: 0.25;
+      opacity: 0.3;
     }
 
     .pill.alt {
-      border-color: rgba(130, 243, 196, 0.4);
-      background: rgba(130, 243, 196, 0.1);
+      border-color: var(--secondary);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    }
+
+    .pill.alt::before {
+      background: linear-gradient(135deg, var(--secondary), var(--tertiary));
     }
 
     .pill.alt:hover {
-      border-color: var(--secondary);
-      box-shadow: 0 12px 35px rgba(130, 243, 196, 0.4);
-    }
-
-    .pill.tertiary {
-      border-color: rgba(255, 107, 157, 0.4);
-      background: rgba(255, 107, 157, 0.1);
-    }
-
-    .pill.tertiary:hover {
-      border-color: var(--tertiary);
-      box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
+      border-color: var(--secondary-bright);
+      box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
     }
 
     .mono {
-      font-family: var(--mono);
-      color: var(--secondary);
-      letter-spacing: 0.15em;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--secondary-bright);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 500;
+      text-shadow: 0 0 10px var(--secondary);
     }
 
-    .icon {
-      width: 2rem;
-      height: 2rem;
-      border-radius: 12px;
-      background: rgba(127, 90, 240, 0.2);
-      color: var(--secondary);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      flex-shrink: 0;
-    }
-
-    .contact-item:hover .icon {
-      background: rgba(127, 90, 240, 0.4);
-      transform: rotate(360deg) scale(1.15);
-      box-shadow: 0 5px 20px rgba(127, 90, 240, 0.5);
-    }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .stat-card {
-      text-align: center;
-      padding: 1.5rem;
-      border: 2px solid var(--border);
-      border-radius: 20px;
-      background: var(--card-bg);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--gradient-2);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px) scale(1.05);
-      border-color: var(--tertiary);
-      box-shadow: 0 15px 40px rgba(255, 107, 157, 0.3);
-    }
-
-    .stat-card:hover::before {
-      opacity: 0.1;
-    }
-
-    .stat-number {
-      font-family: var(--display);
-      font-size: 2.5rem;
-      font-weight: 800;
-      background: var(--gradient-2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .stat-label {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      position: relative;
-      z-index: 1;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 2.5rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: var(--gradient-1);
-      border-radius: 999px;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -2.95rem;
-      top: 0.5rem;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px var(--bg), 0 0 20px var(--accent);
-      animation: pulse 2s ease infinite;
-    }
-
-    .skill-bar-container {
-      margin: 1rem 0;
-    }
-
-    .skill-bar-label {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .skill-bar {
-      height: 8px;
-      background: var(--border);
-      border-radius: 999px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .skill-bar-fill {
-      height: 100%;
-      background: var(--gradient-1);
-      border-radius: 999px;
-      position: relative;
-      transition: width 1s ease;
-    }
-
-    .skill-bar-fill::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      animation: shimmer 2s infinite;
-    }
-
-    .project-card {
-      border: 2px solid var(--border);
-      border-radius: 24px;
-      padding: 2rem;
-      background: var(--card-bg);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--gradient-1);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s ease;
-    }
-
-    .project-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-      box-shadow: 0 25px 70px rgba(127, 90, 240, 0.3);
-    }
-
-    .project-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .project-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      background: var(--gradient-2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-      box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
-      flex-shrink: 0;
-    }
-
-    .project-title {
-      font-family: var(--display);
-      font-size: 1.3rem;
-      font-weight: 700;
-      background: var(--gradient-1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .project-description {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
-    }
-
-    .badge:hover {
-      transform: scale(1.05);
-      border-color: var(--accent);
-    }
-
-    .badge.success {
-      border-color: var(--secondary);
-      color: var(--secondary);
-    }
-
-    .badge.warning {
-      border-color: var(--quaternary);
-      color: var(--quaternary);
-    }
-
-    .badge.info {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .floating-shapes {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .shape {
-      position: absolute;
-      opacity: 0.1;
-      animation: floatShape 20s infinite ease-in-out;
-    }
-
-    .shape.circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: var(--gradient-1);
-      top: 20%;
-      left: 10%;
-    }
-
-    .shape.square {
-      width: 80px;
-      height: 80px;
-      background: var(--gradient-2);
-      top: 60%;
-      right: 15%;
-      animation-delay: -5s;
-    }
-
-    .shape.triangle {
-      width: 0;
-      height: 0;
-      border-left: 50px solid transparent;
-      border-right: 50px solid transparent;
-      border-bottom: 90px solid var(--secondary);
-      top: 40%;
-      left: 80%;
-      animation-delay: -10s;
-    }
-
-    @keyframes floatShape {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(50px, -50px) rotate(90deg); }
-      50% { transform: translate(-30px, -100px) rotate(180deg); }
-      75% { transform: translate(70px, -50px) rotate(270deg); }
-    }
-
-    .tooltip {
-      position: relative;
-      cursor: help;
-    }
-
-    .tooltip::before {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%) translateY(10px);
-      padding: 0.5rem 0.75rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.8rem;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      z-index: 1000;
-      box-shadow: 0 10px 30px var(--shadow);
-    }
-
-    .tooltip::after {
-      content: '';
-      position: absolute;
-      bottom: 110%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 6px solid transparent;
-      border-top-color: var(--border);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .tooltip:hover::before,
-    .tooltip:hover::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .glass-panel {
-      background: rgba(127, 90, 240, 0.05);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(127, 90, 240, 0.2);
-      border-radius: 20px;
-      padding: 1.5rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-
-    .neon-text {
-      color: var(--accent);
-      text-shadow: 
-        0 0 10px rgba(127, 90, 240, 0.8),
-        0 0 20px rgba(127, 90, 240, 0.6),
-        0 0 30px rgba(127, 90, 240, 0.4);
-      animation: neonFlicker 3s infinite alternate;
-    }
-
-    @keyframes neonFlicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.8; }
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      left: 2rem;
-      z-index: 1000;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--surface);
-      border: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 30px var(--shadow);
-      pointer-events: none;
-    }
-
-    .back-to-top.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: all;
-    }
-
-    .back-to-top:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-      box-shadow: 0 15px 40px rgba(127, 90, 240, 0.4);
-    }
-
-    .back-to-top::before {
-      content: '↑';
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
+    /* ========== RESPONSIVE ========== */
     @media (max-width: 768px) {
       body {
         cursor: auto;
+        padding: 2rem 1rem;
       }
       
-      #cursor,
-      #cursorTrail {
+      #cursor, #cursorGlow {
         display: none;
       }
 
       .sheet {
         padding: 2rem 1.5rem;
-        border-radius: 24px;
+        border-radius: 28px;
       }
 
       header {
@@ -1315,50 +740,34 @@
         gap: 1.5rem;
       }
 
-      .theme-toggle,
-      .lang-selector {
-        top: 1rem;
+      header h1 {
+        font-size: 2rem;
       }
 
-      .theme-toggle {
-        right: 1rem;
-      }
-
-      .lang-selector {
-        left: 1rem;
-      }
-
-      .lang-dropdown {
-        left: 1rem;
-        top: 4rem;
-        grid-template-columns: 1fr;
-      }
-
-      .music-visualizer {
-        bottom: 1rem;
-        right: 1rem;
-      }
-
-      .back-to-top {
-        bottom: 1rem;
-        left: 1rem;
-      }
-
-      h1 {
-        font-size: 2rem !important;
+      .subtitle {
+        font-size: 0.85rem;
       }
 
       h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
 
-      .grid.two,
-      .grid.three {
+      .icon-chip {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .grid.two {
         grid-template-columns: 1fr;
       }
 
-      .stat-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .shape {
+        display: none;
       }
     }
 
@@ -1367,1115 +776,396 @@
         cursor: auto;
       }
       
-      #cursor,
-      #cursorTrail {
+      #cursor, #cursorGlow {
         display: none;
-      }
-    }
-
-    @media print {
-      .theme-toggle,
-      .lang-selector,
-      .lang-dropdown,
-      .music-visualizer,
-      .back-to-top,
-      #particles,
-      #cursor,
-      #cursorTrail,
-      #scrollProgress,
-      .floating-shapes {
-        display: none !important;
-      }
-
-      body {
-        cursor: auto;
-        background: white;
-      }
-
-      .sheet {
-        box-shadow: none;
-        border: 1px solid #ddd;
       }
     }
   </style>
 </head>
-<body data-theme="dark">
+<body>
+  <!-- Loader -->
   <div id="loader">
-    <div class="loader-content">
-      <div class="loader-text">LOADING...</div>
-      <div class="loader-bar">
-        <div class="loader-progress"></div>
-      </div>
-    </div>
+    <div class="loader-logo">LF</div>
+    <div class="loader-bar"></div>
   </div>
 
+  <!-- Scroll Progress -->
   <div id="scrollProgress"></div>
+
+  <!-- Custom Cursor -->
   <div id="cursor"></div>
-  <div id="cursorTrail"></div>
-  <div id="particles"></div>
+  <div id="cursorGlow"></div>
 
-  <div class="floating-shapes">
-    <div class="shape circle"></div>
-    <div class="shape square"></div>
-    <div class="shape triangle"></div>
-  </div>
+  <!-- Floating Shapes -->
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
 
-  <div class="theme-toggle" id="themeToggle">
-    <span class="theme-icon" id="themeIcon">🌙</span>
-  </div>
+  <!-- Canvas Background -->
+  <canvas id="bgCanvas"></canvas>
 
-  <div class="lang-selector" id="langSelector">
-    <span class="lang-flag" id="currentFlag">🇧🇷</span>
-    <span id="currentLang">PT</span>
-  </div>
+  <!-- Main Content -->
+  <article class="sheet">
+    <header>
+      <div>
+        <h1>Luiz Felippe Andrade</h1>
+        <p class="subtitle">Software Engineer · Experience Architect</p>
+      </div>
+      <div class="contact">
+        <p class="contact-item">
+          <span class="icon">📍</span>
+          <span class="mono">São Paulo · Remote</span>
+        </p>
+        <p class="contact-item">
+          <span class="icon">✉️</span>
+          <a href="mailto:luizfelippeandrade@outlook.com">luizfelippeandrade@outlook.com</a>
+        </p>
+        <p class="contact-item">
+          <span class="icon">🔗</span>
+          <a href="https://www.instagram.com/luizfelippe.e" target="_blank">@luizfelippe.e</a>
+        </p>
+        <p class="contact-item">
+          <span class="icon">💬</span>
+          <span>WhatsApp · +55 11 9 0000-0000</span>
+        </p>
+        <p class="contact-item">
+          <span class="icon">🌐</span>
+          <span>Portfolio · https://localhost:5173</span>
+        </p>
+      </div>
+    </header>
 
-  <div class="lang-dropdown" id="langDropdown">
-    <div class="lang-option active" data-lang="pt" data-flag="🇧🇷">🇧🇷 Português</div>
-    <div class="lang-option" data-lang="en" data-flag="🇺🇸">🇺🇸 English</div>
-    <div class="lang-option" data-lang="es" data-flag="🇪🇸">🇪🇸 Español</div>
-    <div class="lang-option" data-lang="fr" data-flag="🇫🇷">🇫🇷 Français</div>
-    <div class="lang-option" data-lang="de" data-flag="🇩🇪">🇩🇪 Deutsch</div>
-    <div class="lang-option" data-lang="it" data-flag="🇮🇹">🇮🇹 Italiano</div>
-    <div class="lang-option" data-lang="ja" data-flag="🇯🇵">🇯🇵 日本語</div>
-    <div class="lang-option" data-lang="zh" data-flag="🇨🇳">🇨🇳 中文</div>
-  </div>
-
-  <div class="music-visualizer">
-    <div class="music-bar"></div>
-    <div class="music-bar"></div>
-    <div class="music-bar"></div>
-    <div class="music-bar"></div>
-    <div class="music-bar"></div>
-    <div class="music-bar"></div>
-  </div>
-
-  <div class="back-to-top" id="backToTop"></div>
-
-  <main>
-    <article class="sheet">
-      <header>
-        <div class="header-left">
-          <h1 data-translate="name">Luiz Felippe Andrade</h1>
-          <p class="subtitle" data-translate="subtitle">Software engineer · Experience architect</p>
-          <p class="tagline" data-translate="tagline">// Transforming ideas into immersive digital experiences</p>
+    <section>
+      <h2><span class="icon-chip">🧠</span>Resumo</h2>
+      <div class="card">
+        <p>
+          Engenheiro de software (graduação em andamento) especializado em plataformas cloud-native com foco em UX
+          sensorial. Desenho e implemento backends escaláveis (Node/Nest, Redis, Mongo/Postgres), frontends
+          cinematográficos (React/Three.js) e pipelines de observabilidade/CI que mantêm produtos premium ativos 24/7.
+          Me posiciono como parceiro estratégico para líderes que precisam transformar ideias em software mensurável.
+        </p>
+        <div class="pill-row">
+          <span class="pill"><span>Back-end resiliente</span></span>
+          <span class="pill"><span>Front-end imersivo</span></span>
+          <span class="pill"><span>Cloud & DevOps</span></span>
+          <span class="pill"><span>Realtime & IA</span></span>
         </div>
-        <div class="contact">
-          <p class="contact-item">
-            <span class="icon">📍</span>
-            <span class="mono">São Paulo · Remote</span>
-          </p>
-          <p class="contact-item">
-            <span class="icon">✉️</span>
-            <a href="mailto:luizfelippeandrade@outlook.com">luizfelippeandrade@outlook.com</a>
-          </p>
-          <p class="contact-item">
-            <span class="icon">🔗</span>
-            <a href="https://www.instagram.com/luizfelippe.e" target="_blank">@luizfelippe.e</a>
-          </p>
-          <p class="contact-item">
-            <span class="icon">💬</span>
-            <span>WhatsApp · +55 11 9 0000-0000</span>
-          </p>
-          <p class="contact-item">
-            <span class="icon">🌐</span>
-            <a href="https://localhost:5173" target="_blank">Portfolio · localhost:5173</a>
-          </p>
-        </div>
-      </header>
+      </div>
+    </section>
 
-      <section>
-        <h2><span class="icon-chip">🧠</span><span data-translate="summary">Resumo</span></h2>
-        <div class="card">
-          <p data-translate="summaryText">
-            Engenheiro de software (graduação em andamento) especializado em plataformas cloud-native com foco em UX
-            sensorial. Desenho e implemento backends escaláveis (Node/Nest, Redis, Mongo/Postgres), frontends
-            cinematográficos (React/Three.js) e pipelines de observabilidade/CI que mantêm produtos premium ativos 24/7.
-            Me posiciono como parceiro estratégico para líderes que precisam transformar ideias em software mensurável.
-          </p>
+    <section>
+      <h2><span class="icon-chip">🛰️</span>Experiência</h2>
+      <div class="card">
+        <div class="experience-item">
+          <div class="role">
+            <strong>Nebula Labs · Staff Software Engineer</strong>
+            <span>2022 · Atual</span>
+          </div>
+          <ul>
+            <li>Projetou dashboards volumétricos em React/Three.js consumindo dados via Kafka e Redis Streams.</li>
+            <li>Implementou pipelines de observabilidade (Grafana/Prometheus) com matriz de alertas em tempo real.</li>
+            <li>Guiou o rollout de um design system tipado, reduzindo tempo de entrega em 35%.</li>
+          </ul>
           <div class="pill-row">
-            <span class="pill" data-translate="pill1">Back-end resiliente</span>
-            <span class="pill" data-translate="pill2">Front-end imersivo</span>
-            <span class="pill" data-translate="pill3">Cloud & DevOps</span>
-            <span class="pill" data-translate="pill4">Realtime & IA</span>
-          </div>
-          
-          <div class="stat-grid">
-            <div class="stat-card">
-              <div class="stat-number">8+</div>
-              <div class="stat-label" data-translate="yearsExp">Anos de experiência</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">50+</div>
-              <div class="stat-label" data-translate="projects">Projetos entregues</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">15+</div>
-              <div class="stat-label" data-translate="technologies">Tecnologias dominadas</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">99.9%</div>
-              <div class="stat-label" data-translate="uptime">Uptime médio</div>
-            </div>
+            <span class="pill"><span>React 19</span></span>
+            <span class="pill"><span>Three.js</span></span>
+            <span class="pill"><span>Node.js</span></span>
+            <span class="pill"><span>Kafka</span></span>
+            <span class="pill"><span>AWS</span></span>
           </div>
         </div>
-      </section>
-
-      <section>
-        <h2><span class="icon-chip">🛰️</span><span data-translate="experience">Experiência</span></h2>
-        <div class="card">
-          <div class="timeline">
-            <div class="timeline-item experience-item">
-              <div class="role">
-                <strong>Nebula Labs · Staff Software Engineer</strong>
-                <span class="role-date">2022 · <span data-translate="current">Atual</span></span>
-              </div>
-              <ul>
-                <li data-translate="exp1_1">Projetou dashboards volumétricos em React/Three.js consumindo dados via Kafka e Redis Streams.</li>
-                <li data-translate="exp1_2">Implementou pipelines de observabilidade (Grafana/Prometheus) com matriz de alertas em tempo real.</li>
-                <li data-translate="exp1_3">Guiou o rollout de um design system tipado, reduzindo tempo de entrega em 35%.</li>
-              </ul>
-              <div class="pill-row">
-                <span class="pill alt">React 19</span>
-                <span class="pill alt">Three.js</span>
-                <span class="pill alt">Node.js</span>
-                <span class="pill alt">Kafka</span>
-                <span class="pill alt">AWS</span>
-                <span class="pill tertiary">TypeScript</span>
-              </div>
-            </div>
-            
-            <div class="timeline-item experience-item">
-              <div class="role">
-                <strong>Atlas Cloud · Senior Full-Stack Engineer</strong>
-                <span class="role-date">2019 · 2022</span>
-              </div>
-              <ul>
-                <li data-translate="exp2_1">Construiu painéis financeiros realtime com WebSockets redundantes e rastreio de insights.</li>
-                <li data-translate="exp2_2">Automatizou provisionamento multi-tenant usando IaC e GitHub Actions.</li>
-                <li data-translate="exp2_3">Reduziu p95 de APIs de 400ms para 120ms com caching inteligente e feature flags.</li>
-              </ul>
-              <div class="pill-row">
-                <span class="pill alt">Next.js</span>
-                <span class="pill alt">NestJS</span>
-                <span class="pill alt">Redis</span>
-                <span class="pill alt">PostgreSQL</span>
-                <span class="pill alt">Kubernetes</span>
-                <span class="pill tertiary">Docker</span>
-              </div>
-            </div>
-            
-            <div class="timeline-item experience-item">
-              <div class="role">
-                <strong>Futurio Studio · Product Engineer</strong>
-                <span class="role-date">2016 · 2019</span>
-              </div>
-              <ul>
-                <li data-translate="exp3_1">Entregou portfolios interativos globais, alinhando storytelling e performance.</li>
-                <li data-translate="exp3_2">Adotou GraphQL + feature flags para personalização e conteúdo headless.</li>
-                <li data-translate="exp3_3">Mentorou devs focando em DX, testes automatizados e micro-interações acessíveis.</li>
-              </ul>
-              <div class="pill-row">
-                <span class="pill alt">React</span>
-                <span class="pill alt">GraphQL</span>
-                <span class="pill alt">MongoDB</span>
-                <span class="pill alt">Storybook</span>
-                <span class="pill tertiary">Jest</span>
-              </div>
-            </div>
+        <div class="experience-item">
+          <div class="role">
+            <strong>Atlas Cloud · Senior Full-Stack Engineer</strong>
+            <span>2019 · 2022</span>
           </div>
-        </div>
-      </section>
-
-      <section class="grid two">
-        <div class="card glass-panel">
-          <h2><span class="icon-chip">🧩</span><span data-translate="skills">Stack & Skills</span></h2>
-          
-          <div class="skill-bar-container">
-            <div class="skill-bar-label">
-              <span>React / Next.js</span>
-              <span class="neon-text">98%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 98%"></div>
-            </div>
-          </div>
-          
-          <div class="skill-bar-container">
-            <div class="skill-bar-label">
-              <span>Node.js / NestJS</span>
-              <span class="neon-text">95%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 95%"></div>
-            </div>
-          </div>
-          
-          <div class="skill-bar-container">
-            <div class="skill-bar-label">
-              <span>Three.js / WebGL</span>
-              <span class="neon-text">90%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 90%"></div>
-            </div>
-          </div>
-          
-          <div class="skill-bar-container">
-            <div class="skill-bar-label">
-              <span>AWS / Cloud Architecture</span>
-              <span class="neon-text">92%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 92%"></div>
-            </div>
-          </div>
-          
+          <ul>
+            <li>Construiu painéis financeiros realtime com WebSockets redundantes e rastreio de insights.</li>
+            <li>Automatizou provisionamento multi-tenant usando IaC e GitHub Actions.</li>
+            <li>Reduziu p95 de APIs de 400ms para 120ms com caching inteligente e feature flags.</li>
+          </ul>
           <div class="pill-row">
-            <span class="pill alt tooltip" data-tooltip="Frontend Framework">React 19</span>
-            <span class="pill alt tooltip" data-tooltip="Build Tool">Vite</span>
-            <span class="pill alt tooltip" data-tooltip="3D Graphics">Three.js</span>
-            <span class="pill alt tooltip" data-tooltip="Animation">Framer Motion</span>
-            <span class="pill alt tooltip" data-tooltip="Backend Runtime">Node.js</span>
-            <span class="pill alt tooltip" data-tooltip="Framework">NestJS</span>
-            <span class="pill alt tooltip" data-tooltip="API Layer">GraphQL</span>
-            <span class="pill alt tooltip" data-tooltip="Database">MongoDB</span>
-            <span class="pill alt tooltip" data-tooltip="Database">PostgreSQL</span>
-            <span class="pill alt tooltip" data-tooltip="Cache">Redis</span>
-            <span class="pill alt tooltip" data-tooltip="Containerization">Docker</span>
-            <span class="pill alt tooltip" data-tooltip="Cloud Provider">AWS</span>
-            <span class="pill alt tooltip" data-tooltip="Orchestration">Kubernetes</span>
-            <span class="pill alt tooltip" data-tooltip="Monitoring">Grafana</span>
-            <span class="pill alt tooltip" data-tooltip="CI/CD">GitHub Actions</span>
-            <span class="pill alt tooltip" data-tooltip="Infrastructure">Terraform</span>
+            <span class="pill"><span>Next.js</span></span>
+            <span class="pill"><span>NestJS</span></span>
+            <span class="pill"><span>Redis</span></span>
+            <span class="pill"><span>PostgreSQL</span></span>
+            <span class="pill"><span>Kubernetes</span></span>
           </div>
         </div>
+        <div class="experience-item">
+          <div class="role">
+            <strong>Futurio Studio · Product Engineer</strong>
+            <span>2016 · 2019</span>
+          </div>
+          <ul>
+            <li>Entregou portfolios interativos globais, alinhando storytelling e performance.</li>
+            <li>Adotou GraphQL + feature flags para personalização e conteúdo headless.</li>
+            <li>Mentorou devs focando em DX, testes automatizados e micro-interações acessíveis.</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill"><span>React</span></span>
+            <span class="pill"><span>GraphQL</span></span>
+            <span class="pill"><span>MongoDB</span></span>
+            <span class="pill"><span>Storybook</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="card glass-panel">
-          <h2><span class="icon-chip">🎓</span><span data-translate="education">Formação & Certificações</span></h2>
-          <p><strong data-translate="degree">Engenharia de Software</strong> · <span data-translate="university">Universidade Presbiteriana Mackenzie</span></p>
-          <ul>
-            <li data-translate="cert1">Especialização em Cloud & DevOps (AWS / GCP / Azure)</li>
-            <li data-translate="cert2">Google Cloud Professional Cloud Architect</li>
-            <li data-translate="cert3">Scrum Foundation Professional Certificate</li>
-            <li data-translate="cert4">Design Systems & Accessibility Specialist · Alura</li>
-            <li data-translate="cert5">AWS Certified Solutions Architect - Professional</li>
-            <li data-translate="cert6">Kubernetes Application Developer (CKAD)</li>
-          </ul>
-          
-          <div class="pill-row" style="margin-top: 1.5rem;">
-            <span class="badge success">✓ AWS Certified</span>
-            <span class="badge info">✓ GCP Certified</span>
-            <span class="badge warning">✓ Scrum Master</span>
-          </div>
+    <section class="grid two">
+      <div class="card">
+        <h2><span class="icon-chip">🧩</span>Stack & Skills</h2>
+        <div class="pill-row">
+          <span class="pill alt"><span>React 19</span></span>
+          <span class="pill alt"><span>Vite</span></span>
+          <span class="pill alt"><span>Three.js</span></span>
+          <span class="pill alt"><span>Framer Motion</span></span>
+          <span class="pill alt"><span>Node.js</span></span>
+          <span class="pill alt"><span>NestJS</span></span>
+          <span class="pill alt"><span>GraphQL</span></span>
+          <span class="pill alt"><span>MongoDB</span></span>
+          <span class="pill alt"><span>PostgreSQL</span></span>
+          <span class="pill alt"><span>Redis</span></span>
+          <span class="pill alt"><span>Docker</span></span>
+          <span class="pill alt"><span>AWS</span></span>
+          <span class="pill alt"><span>CI/CD</span></span>
+          <span class="pill alt"><span>Observability</span></span>
+          <span class="pill alt"><span>Feature Flags</span></span>
+          <span class="pill alt"><span>Micro front-ends</span></span>
+          <span class="pill alt"><span>Edge runtimes</span></span>
         </div>
-      </section>
+      </div>
 
-      <section>
-        <h2><span class="icon-chip">🎯</span><span data-translate="keyProjects">Projetos-chave</span></h2>
-        <div class="grid three">
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🧬</div>
-              <div class="project-title">660 Digital</div>
-            </div>
-            <p class="project-description" data-translate="project1">Experiência principal com dashboards interativos, galeria multimídia e admin em realtime.</p>
-            <div class="pill-row">
-              <span class="pill tertiary">React</span>
-              <span class="pill tertiary">Three.js</span>
-              <span class="pill tertiary">WebGL</span>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🛰️</div>
-              <div class="project-title">Sentinel Ops</div>
-            </div>
-            <p class="project-description" data-translate="project2">Command center para operações críticas: sockets, alertas, scripts IA e export seguro.</p>
-            <div class="pill-row">
-              <span class="pill tertiary">WebSocket</span>
-              <span class="pill tertiary">Node.js</span>
-              <span class="pill tertiary">Redis</span>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">💹</div>
-              <div class="project-title">Lux Finance</div>
-            </div>
-            <p class="project-description" data-translate="project3">Aplicação financeira multicloud com análises em tempo real, compliance e auditoria.</p>
-            <div class="pill-row">
-              <span class="pill tertiary">AWS</span>
-              <span class="pill tertiary">PostgreSQL</span>
-              <span class="pill tertiary">Kafka</span>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">📚</div>
-              <div class="project-title">Cypher Edu</div>
-            </div>
-            <p class="project-description" data-translate="project4">Experiência educacional WebGL com narração interativa, badges e métricas de progresso.</p>
-            <div class="pill-row">
-              <span class="pill tertiary">Next.js</span>
-              <span class="pill tertiary">GraphQL</span>
-              <span class="pill tertiary">MongoDB</span>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🎨</div>
-              <div class="project-title">Design System Pro</div>
-            </div>
-            <p class="project-description" data-translate="project5">Sistema de design escalável com tokens, componentes React e documentação interativa.</p>
-            <div class="pill-row">
-              <span class="pill tertiary">Storybook</span>
-              <span class="pill tertiary">TypeScript</span>
-              <span class="pill tertiary">Figma API</span>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🤖</div>
-              <div class="project-title">AI Assistant Hub</div>
-            </div>
-            <p class="project-description" data-translate="project6">Plataforma de automação com IA integrada para workflows empresariais complexos.</p>
-            <div class="pill-row">
-              <span class="pill tertiary">OpenAI</span>
-              <span class="pill tertiary">Python</span>
-              <span class="pill tertiary">FastAPI</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div class="card">
+        <h2><span class="icon-chip">🎓</span>Formação & Certificações</h2>
+        <p><strong>Engenharia de Software</strong> · Universidade Presbiteriana Mackenzie</p>
+        <ul>
+          <li>Especialização em Cloud & DevOps (AWS / GCP / Azure)</li>
+          <li>Google Cloud Professional Cloud Architect</li>
+          <li>Scrum Foundation Professional Certificate</li>
+          <li>Design Systems & Accessibility Specialist · Alura</li>
+        </ul>
+      </div>
+    </section>
 
-      <section class="grid two">
-        <div class="card">
-          <h2><span class="icon-chip">🛠️</span><span data-translate="softwareProjects">Projetos de software</span></h2>
-          <ul>
-            <li data-translate="software1">
-              <strong>Front-end imersivo:</strong> design systems tipados, animações Framer Motion, integrações WebGL,
-              microsserviços de conteúdo e acessibilidade WCAG.
-            </li>
-            <li data-translate="software2">
-              <strong>Back-end escalável:</strong> APIs GraphQL/REST com NestJS, Redis Streams para filas, Mongo/Postgres
-              e testes automatizados (Vitest/Jest).
-            </li>
-            <li data-translate="software3">
-              <strong>Automação & DevOps:</strong> pipelines GitHub Actions, IaC com Terraform/CDK, feature flags e
-              observabilidade (Grafana, Prometheus, OpenTelemetry).
-            </li>
-            <li data-translate="software4">
-              <strong>APIs para produtos mobile:</strong> contratos versionados com tRPC/GraphQL, geração automática de
-              tipos e SDKs internos, controle de rollout e monitoramento transacional.
-            </li>
-            <li data-translate="software5">
-              <strong>Plataformas educacionais e de eventos:</strong> streaming de métricas, chat moderado, painéis para
-              produtores de conteúdo e experiências gamificadas.
-            </li>
-          </ul>
-        </div>
-        
-        <div class="card">
-          <h2><span class="icon-chip">☁️</span><span data-translate="cloudIntegrations">Cloud & integrações</span></h2>
-          <ul>
-            <li data-translate="cloud1">AWS Lightsail + ECS para workloads de produção com autoscaling.</li>
-            <li data-translate="cloud2">Infra multi-cloud (AWS/GCP/Azure) com CDN, Storage, filas gerenciadas e rotinas Lambda/Cloud Run.</li>
-            <li data-translate="cloud3">Integrações com Stripe, Cloudinary, SendGrid, Twilio, Socket.IO, Workflows IA (OpenAI/Vertex).</li>
-            <li data-translate="cloud4">SaaS internos com autenticação multi-tenant, auditoria, RBAC granular e exportação criptografada.</li>
-            <li data-translate="cloud5">Implementação de edge computing com Cloudflare Workers e Vercel Edge Functions.</li>
-            <li data-translate="cloud6">Arquiteturas serverless com AWS Lambda, DynamoDB e API Gateway.</li>
-          </ul>
-        </div>
-      </section>
+    <section class="grid two">
+      <div class="card">
+        <h2><span class="icon-chip">🛠️</span>Projetos de software</h2>
+        <ul>
+          <li>
+            <strong>Front-end imersivo:</strong> design systems tipados, animações Framer Motion, integrações WebGL,
+            microsserviços de conteúdo e acessibilidade WCAG.
+          </li>
+          <li>
+            <strong>Back-end escalável:</strong> APIs GraphQL/REST com NestJS, Redis Streams para filas, Mongo/Postgres
+            e testes automatizados (Vitest/Jest).
+          </li>
+          <li>
+            <strong>Automação & DevOps:</strong> pipelines GitHub Actions, IaC com Terraform/CDK, feature flags e
+            observabilidade (Grafana, Prometheus, OpenTelemetry).
+          </li>
+          <li>
+            <strong>APIs para produtos mobile:</strong> contratos versionados com tRPC/GraphQL, geração automática de
+            tipos e SDKs internos, controle de rollout e monitoramento transacional.
+          </li>
+          <li>
+            <strong>Plataformas educacionais e de eventos:</strong> streaming de métricas, chat moderado, painéis para
+            produtores de conteúdo e experiências gamificadas.
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2><span class="icon-chip">☁️</span>Cloud & integrações</h2>
+        <ul>
+          <li>AWS Lightsail + ECS para workloads de produção com autoscaling.</li>
+          <li>Infra multi-cloud (AWS/GCP/Azure) com CDN, Storage, filas gerenciadas e rotinas Lambda/Cloud Run.</li>
+          <li>Integrações com Stripe, Cloudinary, SendGrid, Twilio, Socket.IO, Workflows IA (OpenAI/Vertex).</li>
+          <li>SaaS internos com autenticação multi-tenant, auditoria, RBAC granular e exportação criptografada.</li>
+        </ul>
+      </div>
+    </section>
 
-      <section class="grid two">
-        <div class="card">
-          <h2><span class="icon-chip">📐</span><span data-translate="methodologies">Metodologias & pilares</span></h2>
-          <ul>
-            <li data-translate="method1">Product discovery guiado por dados, com research, jornadas e definição de KPIs.</li>
-            <li data-translate="method2">Design ops + engenharia: tokens, bibliotecas compartilhadas, sistemas de versionamento e documentação.</li>
-            <li data-translate="method3">Planejamento de releases inspirado em SLOs, health scores e matrizes de risco.</li>
-            <li data-translate="method4">Feature toggles, progressive delivery e monitoramento de impacto em tempo real.</li>
-            <li data-translate="method5">Práticas de trunk-based development com deployment contínuo e rollback automático.</li>
-            <li data-translate="method6">Cultura de blameless postmortems e continuous improvement loops.</li>
-          </ul>
-        </div>
-        
-        <div class="card">
-          <h2><span class="icon-chip">🔬</span><span data-translate="labs">Labs & pesquisas</span></h2>
-          <ul>
-            <li data-translate="lab1">Explorações com WebGPU, shaders e narrativas 3D reativas a dados financeiros.</li>
-            <li data-translate="lab2">ChatOps e automações acionadas por IA para gerar scripts DevOps e políticas de alerta.</li>
-            <li data-translate="lab3">Modelos de recomendação em Python/TypeScript utilizando embeddings e pipelines de ETL.</li>
-            <li data-translate="lab4">Protótipos de dashboards de realidade aumentada para monitoramento industrial.</li>
-            <li data-translate="lab5">Experimentos com Web3 e smart contracts para aplicações descentralizadas.</li>
-            <li data-translate="lab6">Desenvolvimento de microservices com arquitetura hexagonal e event sourcing.</li>
-          </ul>
-        </div>
-      </section>
+    <section class="grid two">
+      <div class="card">
+        <h2><span class="icon-chip">📐</span>Metodologias & pilares</h2>
+        <ul>
+          <li>Product discovery guiado por dados, com research, jornadas e definição de KPIs.</li>
+          <li>Design ops + engenharia: tokens, bibliotecas compartilhadas, sistemas de versionamento e documentação.</li>
+          <li>Planejamento de releases inspirado em SLOs, health scores e matrizes de risco.</li>
+          <li>Feature toggles, progressive delivery e monitoramento de impacto em tempo real.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2><span class="icon-chip">🔬</span>Labs & pesquisas</h2>
+        <ul>
+          <li>Explorações com WebGPU, shaders e narrativas 3D reativas a dados financeiros.</li>
+          <li>ChatOps e automações acionadas por IA para gerar scripts DevOps e políticas de alerta.</li>
+          <li>Modelos de recomendação em Python/TypeScript utilizando embeddings e pipelines de ETL.</li>
+          <li>Protótipos de dashboards de realidade aumentada para monitoramento industrial.</li>
+        </ul>
+      </div>
+    </section>
 
-      <section class="grid two">
-        <div class="card">
-          <h2><span class="icon-chip">🚀</span><span data-translate="recentEngagements">Engajamentos recentes</span></h2>
-          <ul>
-            <li data-translate="engage1">
-              <strong>Varejo de luxo:</strong> plataforma omnichannel com headless CMS, badge system e exportação fiscal.
-            </li>
-            <li data-translate="engage2">
-              <strong>Healthtech:</strong> hub de dados com anonimização, trilhas de auditoria e alertas clínicos
-              instantâneos.
-            </li>
-            <li data-translate="engage3">
-              <strong>Educação:</strong> rebranding e migração completa para microsserviços, com analytics em tempo real
-              e streaming de aulas.
-            </li>
-            <li data-translate="engage4">
-              <strong>Fintech:</strong> plataforma de investimentos com cálculo de risco em tempo real e compliance automatizado.
-            </li>
-            <li data-translate="engage5">
-              <strong>E-commerce:</strong> marketplace B2B2C com gestão de inventário distribuído e logística inteligente.
-            </li>
-          </ul>
-        </div>
-        
-        <div class="card">
-          <h2><span class="icon-chip">🌐</span><span data-translate="verticals">Verticais atendidos</span></h2>
-          <p class="mono" data-translate="verticalsList">Finanças · Educação · Saúde · Varejo · Telecom · Startups SaaS · E-commerce · Logística</p>
-          <p data-translate="verticalsText">
-            Atuo como parceiro direto de fundadores, CMOs e heads de produto para estruturar roadmaps e montar
-            fundações técnicas que suportam escalar equipes internas e agências colaboradoras.
-          </p>
-          <div class="pill-row" style="margin-top: 1.5rem;">
-            <span class="pill">B2B</span>
-            <span class="pill">B2C</span>
-            <span class="pill">SaaS</span>
-            <span class="pill">Enterprise</span>
-            <span class="pill">Startup</span>
-          </div>
-        </div>
-      </section>
+    <section class="grid two">
+      <div class="card">
+        <h2><span class="icon-chip">🚀</span>Engajamentos recentes</h2>
+        <ul>
+          <li>
+            <strong>Varejo de luxo:</strong> plataforma omnichannel com headless CMS, badge system e exportação fiscal.
+          </li>
+          <li>
+            <strong>Healthtech:</strong> hub de dados com anonimização, trilhas de auditoria e alertas clínicos
+            instantâneos.
+          </li>
+          <li>
+            <strong>Educação:</strong> rebranding e migração completa para microsserviços, com analytics em tempo real
+            e streaming de aulas.
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2><span class="icon-chip">🌐</span>Verticais atendidos</h2>
+        <p class="mono">Finanças · Educação · Saúde · Varejo · Telecom · Startups SaaS</p>
+        <p>
+          Atuo como parceiro direto de fundadores, CMOs e heads de produto para estruturar roadmaps e montar
+          fundações técnicas que suportam escalar equipes internas e agências colaboradoras.
+        </p>
+      </div>
+    </section>
 
-      <section>
-        <h2><span class="icon-chip">🌎</span><span data-translate="languages">Idiomas</span></h2>
-        <div class="grid three">
-          <div class="card glass-panel">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-              <span style="font-size: 2rem;">🇧🇷</span>
-              <div>
-                <p class="mono" style="font-size: 1.1rem; font-weight: 700;">Português</p>
-                <p style="color: var(--muted); font-size: 0.9rem;" data-translate="native">Nativo</p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 100%"></div>
-            </div>
-          </div>
-          
-          <div class="card glass-panel">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-              <span style="font-size: 2rem;">🇺🇸</span>
-              <div>
-                <p class="mono" style="font-size: 1.1rem; font-weight: 700;">English</p>
-                <p style="color: var(--muted); font-size: 0.9rem;" data-translate="fluent">Fluente</p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 95%"></div>
-            </div>
-          </div>
-          
-          <div class="card glass-panel">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-              <span style="font-size: 2rem;">🇪🇸</span>
-              <div>
-                <p class="mono" style="font-size: 1.1rem; font-weight: 700;">Español</p>
-                <p style="color: var(--muted); font-size: 0.9rem;" data-translate="advanced">Avançado</p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 85%"></div>
-            </div>
-          </div>
-          
-          <div class="card glass-panel">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-              <span style="font-size: 2rem;">🇫🇷</span>
-              <div>
-                <p class="mono" style="font-size: 1.1rem; font-weight: 700;">Français</p>
-                <p style="color: var(--muted); font-size: 0.9rem;" data-translate="intermediate">Intermediário</p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 70%"></div>
-            </div>
-          </div>
-          
-          <div class="card glass-panel">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-              <span style="font-size: 2rem;">🇩🇪</span>
-              <div>
-                <p class="mono" style="font-size: 1.1rem; font-weight: 700;">Deutsch</p>
-                <p style="color: var(--muted); font-size: 0.9rem;" data-translate="intermediate">Intermediário</p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 65%"></div>
-            </div>
-          </div>
-          
-          <div class="card glass-panel">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-              <span style="font-size: 2rem;">🇮🇹</span>
-              <div>
-                <p class="mono" style="font-size: 1.1rem; font-weight: 700;">Italiano</p>
-                <p style="color: var(--muted); font-size: 0.9rem;" data-translate="basic">Básico</p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 50%"></div>
-            </div>
-          </div>
-          
-          <div class="card glass-panel">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-              <span style="font-size: 2rem;">🇯🇵</span>
-              <div>
-                <p class="mono" style="font-size: 1.1rem; font-weight: 700;">日本語</p>
-                <p style="color: var(--muted); font-size: 0.9rem;" data-translate="basic">Básico</p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 45%"></div>
-            </div>
-          </div>
-          
-          <div class="card glass-panel">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-              <span style="font-size: 2rem;">🇨🇳</span>
-              <div>
-                <p class="mono" style="font-size: 1.1rem; font-weight: 700;">中文</p>
-                <p style="color: var(--muted); font-size: 0.9rem;" data-translate="basic">Básico</p>
-              </div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-bar-fill" style="width: 40%"></div>
-            </div>
-          </div>
+    <section>
+      <h2><span class="icon-chip">🎯</span>Projetos-chave</h2>
+      <div class="card grid two">
+        <div>
+          <p class="mono"><span class="icon">🧬</span> PORTFÓLIO 660 DIGITAL · 2024</p>
+          <p>Experiência principal com dashboards interativos, galeria multimídia e admin em realtime.</p>
         </div>
-      </section>
+        <div>
+          <p class="mono"><span class="icon">🛰️</span> SENTINEL OPS</p>
+          <p>Command center para operações críticas: sockets, alertas, scripts IA e export seguro.</p>
+        </div>
+        <div>
+          <p class="mono"><span class="icon">💹</span> LUX FINANCE LAB</p>
+          <p>Aplicação financeira multicloud com análises em tempo real, compliance e auditoria.</p>
+        </div>
+        <div>
+          <p class="mono"><span class="icon">📚</span> CYPHER EDU</p>
+          <p>Experiência educacional WebGL com narração interativa, badges e métricas de progresso.</p>
+        </div>
+      </div>
+    </section>
 
-      <section class="grid two">
-        <div class="card">
-          <h2><span class="icon-chip">🏆</span><span data-translate="achievements">Conquistas</span></h2>
-          <ul>
-            <li data-translate="achievement1">🥇 Prêmio Best Developer Experience 2023 - TechCorp Summit</li>
-            <li data-translate="achievement2">⭐ Speaker em 5+ conferências internacionais de tecnologia</li>
-            <li data-translate="achievement3">📝 Autor de 20+ artigos técnicos com 50k+ visualizações</li>
-            <li data-translate="achievement4">🎯 Líder técnico em 3 migrações zero-downtime de alto impacto</li>
-            <li data-translate="achievement5">💡 Criador de 2 bibliotecas open-source com 1k+ stars no GitHub</li>
-            <li data-translate="achievement6">🚀 Mentor de 15+ desenvolvedores júnior para posições sênior</li>
-          </ul>
-        </div>
-        
-        <div class="card">
-          <h2><span class="icon-chip">🔗</span><span data-translate="links">Links & Contatos</span></h2>
-          <ul>
-            <li><strong>Portfolio:</strong> <a href="https://localhost:5173" target="_blank">https://localhost:5173</a></li>
-            <li><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/luizfelippe</a></li>
-            <li><strong>GitHub:</strong> <a href="#" target="_blank">github.com/luizfelippeandrade</a></li>
-            <li><strong>Twitter:</strong> <a href="#" target="_blank">@luizfelippe_dev</a></li>
-            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/luizfelippe.e" target="_blank">@luizfelippe.e</a></li>
-            <li><strong>Medium:</strong> <a href="#" target="_blank">medium.com/@luizfelippe</a></li>
-          </ul>
-          
-          <div class="pill-row" style="margin-top: 1.5rem;">
-            <span class="badge info">📧 Email disponível</span>
-            <span class="badge success">💼 Open to work</span>
-          </div>
-        </div>
-      </section>
-    </article>
-  </main>
+    <section class="grid two">
+      <div class="card">
+        <h2><span class="icon-chip">🌎</span>Idiomas</h2>
+        <p class="mono">Português · C2</p>
+        <p class="mono">Inglês · B2</p>
+        <p class="mono">Espanhol · B1</p>
+        <p class="mono">Francês · A1</p>
+      </div>
+      <div class="card">
+        <h2><span class="icon-chip">🔗</span>Links & Contatos</h2>
+        <ul>
+          <li>Portfolio: https://luizfelippedev.vercel.app/</li>
+          <li>LinkedIn: linkedin.com/in/luizfelippe</li>
+          <li>GitHub: https://github.com/luizFelippedev</li>
+          <li>Instagram: @luizfelippe.e</li>
+        </ul>
+      </div>
+    </section>
+  </article>
 
   <script>
-    // ========== TRANSLATIONS ==========
-    const translations = {
-      pt: {
-        name: "Luiz Felippe Andrade",
-        subtitle: "Software engineer · Experience architect",
-        tagline: "// Transformando ideias em experiências digitais imersivas",
-        summary: "Resumo",
-        summaryText: "Engenheiro de software (graduação em andamento) especializado em plataformas cloud-native com foco em UX sensorial. Desenho e implemento backends escaláveis (Node/Nest, Redis, Mongo/Postgres), frontends cinematográficos (React/Three.js) e pipelines de observabilidade/CI que mantêm produtos premium ativos 24/7. Me posiciono como parceiro estratégico para líderes que precisam transformar ideias em software mensurável.",
-        pill1: "Back-end resiliente",
-        pill2: "Front-end imersivo",
-        pill3: "Cloud & DevOps",
-        pill4: "Realtime & IA",
-        yearsExp: "Anos de experiência",
-        projects: "Projetos entregues",
-        technologies: "Tecnologias dominadas",
-        uptime: "Uptime médio",
-        experience: "Experiência",
-        current: "Atual",
-        skills: "Stack & Skills",
-        education: "Formação & Certificações",
-        degree: "Engenharia de Software",
-        university: "Universidade Presbiteriana Mackenzie",
-        keyProjects: "Projetos-chave",
-        softwareProjects: "Projetos de software",
-        cloudIntegrations: "Cloud & integrações",
-        methodologies: "Metodologias & pilares",
-        labs: "Labs & pesquisas",
-        recentEngagements: "Engajamentos recentes",
-        verticals: "Verticais atendidos",
-        languages: "Idiomas",
-        native: "Nativo",
-        fluent: "Fluente",
-        advanced: "Avançado",
-        intermediate: "Intermediário",
-        basic: "Básico",
-        achievements: "Conquistas",
-        links: "Links & Contatos"
-      },
-      en: {
-        name: "Luiz Felippe Andrade",
-        subtitle: "Software engineer · Experience architect",
-        tagline: "// Transforming ideas into immersive digital experiences",
-        summary: "Summary",
-        summaryText: "Software engineer (undergraduate degree in progress) specialized in cloud-native platforms with a focus on sensory UX. I design and implement scalable backends (Node/Nest, Redis, Mongo/Postgres), cinematic frontends (React/Three.js) and observability/CI pipelines that keep premium products active 24/7. I position myself as a strategic partner for leaders who need to transform ideas into measurable software.",
-        pill1: "Resilient back-end",
-        pill2: "Immersive front-end",
-        pill3: "Cloud & DevOps",
-        pill4: "Realtime & AI",
-        yearsExp: "Years of experience",
-        projects: "Projects delivered",
-        technologies: "Technologies mastered",
-        uptime: "Average uptime",
-        experience: "Experience",
-        current: "Current",
-        skills: "Stack & Skills",
-        education: "Education & Certifications",
-        degree: "Software Engineering",
-        university: "Mackenzie Presbyterian University",
-        keyProjects: "Key Projects",
-        softwareProjects: "Software projects",
-        cloudIntegrations: "Cloud & integrations",
-        methodologies: "Methodologies & pillars",
-        labs: "Labs & research",
-        recentEngagements: "Recent engagements",
-        verticals: "Verticals served",
-        languages: "Languages",
-        native: "Native",
-        fluent: "Fluent",
-        advanced: "Advanced",
-        intermediate: "Intermediate",
-        basic: "Basic",
-        achievements: "Achievements",
-        links: "Links & Contacts"
-      },
-      es: {
-        name: "Luiz Felippe Andrade",
-        subtitle: "Ingeniero de software · Arquitecto de experiencias",
-        tagline: "// Transformando ideas en experiencias digitales inmersivas",
-        summary: "Resumen",
-        summaryText: "Ingeniero de software (licenciatura en curso) especializado en plataformas cloud-native con enfoque en UX sensorial. Diseño e implemento backends escalables (Node/Nest, Redis, Mongo/Postgres), frontends cinematográficos (React/Three.js) y pipelines de observabilidad/CI que mantienen productos premium activos 24/7. Me posiciono como socio estratégico para líderes que necesitan transformar ideas en software medible.",
-        pill1: "Back-end resiliente",
-        pill2: "Front-end inmersivo",
-        pill3: "Cloud & DevOps",
-        pill4: "Tiempo real & IA",
-        yearsExp: "Años de experiencia",
-        projects: "Proyectos entregados",
-        technologies: "Tecnologías dominadas",
-        uptime: "Uptime promedio",
-        experience: "Experiencia",
-        current: "Actual",
-        skills: "Stack & Habilidades",
-        education: "Formación & Certificaciones",
-        degree: "Ingeniería de Software",
-        university: "Universidad Presbiteriana Mackenzie",
-        keyProjects: "Proyectos clave",
-        softwareProjects: "Proyectos de software",
-        cloudIntegrations: "Cloud & integraciones",
-        methodologies: "Metodologías & pilares",
-        labs: "Labs & investigación",
-        recentEngagements: "Compromisos recientes",
-        verticals: "Verticales atendidos",
-        languages: "Idiomas",
-        native: "Nativo",
-        fluent: "Fluido",
-        advanced: "Avanzado",
-        intermediate: "Intermedio",
-        basic: "Básico",
-        achievements: "Logros",
-        links: "Enlaces & Contactos"
-      },
-      fr: {
-        name: "Luiz Felippe Andrade",
-        subtitle: "Ingénieur logiciel · Architecte d'expériences",
-        tagline: "// Transformer des idées en expériences numériques immersives",
-        summary: "Résumé",
-        summaryText: "Ingénieur logiciel (licence en cours) spécialisé dans les plateformes cloud-native avec un focus sur l'UX sensorielle. Je conçois et implémente des backends évolutifs (Node/Nest, Redis, Mongo/Postgres), des frontends cinématographiques (React/Three.js) et des pipelines d'observabilité/CI qui maintiennent des produits premium actifs 24/7. Je me positionne comme partenaire stratégique pour les leaders qui ont besoin de transformer des idées en logiciels mesurables.",
-        pill1: "Back-end résilient",
-        pill2: "Front-end immersif",
-        pill3: "Cloud & DevOps",
-        pill4: "Temps réel & IA",
-        yearsExp: "Années d'expérience",
-        projects: "Projets livrés",
-        technologies: "Technologies maîtrisées",
-        uptime: "Uptime moyen",
-        experience: "Expérience",
-        current: "Actuel",
-        skills: "Stack & Compétences",
-        education: "Formation & Certifications",
-        degree: "Ingénierie Logicielle",
-        university: "Université Presbytérienne Mackenzie",
-        keyProjects: "Projets clés",
-        softwareProjects: "Projets logiciels",
-        cloudIntegrations: "Cloud & intégrations",
-        methodologies: "Méthodologies & piliers",
-        labs: "Labs & recherche",
-        recentEngagements: "Engagements récents",
-        verticals: "Verticales servies",
-        languages: "Langues",
-        native: "Natif",
-        fluent: "Courant",
-        advanced: "Avancé",
-        intermediate: "Intermédiaire",
-        basic: "Basique",
-        achievements: "Réalisations",
-        links: "Liens & Contacts"
-      },
-      de: {
-        name: "Luiz Felippe Andrade",
-        subtitle: "Software-Ingenieur · Erlebnis-Architekt",
-        tagline: "// Ideen in immersive digitale Erlebnisse verwandeln",
-        summary: "Zusammenfassung",
-        summaryText: "Software-Ingenieur (Bachelor-Abschluss in Bearbeitung), spezialisiert auf Cloud-native-Plattformen mit Fokus auf sensorische UX. Ich entwerfe und implementiere skalierbare Backends (Node/Nest, Redis, Mongo/Postgres), filmische Frontends (React/Three.js) und Beobachtbarkeits-/CI-Pipelines, die Premium-Produkte 24/7 aktiv halten. Ich positioniere mich als strategischer Partner für Führungskräfte, die Ideen in messbare Software umwandeln müssen.",
-        pill1: "Widerstandsfähiges Backend",
-        pill2: "Immersives Frontend",
-        pill3: "Cloud & DevOps",
-        pill4: "Echtzeit & KI",
-        yearsExp: "Jahre Erfahrung",
-        projects: "Projekte geliefert",
-        technologies: "Technologien beherrscht",
-        uptime: "Durchschnittliche Betriebszeit",
-        experience: "Erfahrung",
-        current: "Aktuell",
-        skills: "Stack & Fähigkeiten",
-        education: "Ausbildung & Zertifizierungen",
-        degree: "Software-Engineering",
-        university: "Mackenzie Presbyterian University",
-        keyProjects: "Schlüsselprojekte",
-        softwareProjects: "Software-Projekte",
-        cloudIntegrations: "Cloud & Integrationen",
-        methodologies: "Methoden & Säulen",
-        labs: "Labs & Forschung",
-        recentEngagements: "Neueste Engagements",
-        verticals: "Bediente Vertikale",
-        languages: "Sprachen",
-        native: "Muttersprachler",
-        fluent: "Fließend",
-        advanced: "Fortgeschritten",
-        intermediate: "Mittelstufe",
-        basic: "Grundkenntnisse",
-        achievements: "Errungenschaften",
-        links: "Links & Kontakte"
-      },
-      it: {
-        name: "Luiz Felippe Andrade",
-        subtitle: "Ingegnere software · Architetto di esperienze",
-        tagline: "// Trasformare idee in esperienze digitali immersive",
-        summary: "Sommario",
-        summaryText: "Ingegnere software (laurea in corso) specializzato in piattaforme cloud-native con focus su UX sensoriale. Progetto e implemento backend scalabili (Node/Nest, Redis, Mongo/Postgres), frontend cinematografici (React/Three.js) e pipeline di osservabilità/CI che mantengono prodotti premium attivi 24/7. Mi posiziono come partner strategico per leader che devono trasformare idee in software misurabile.",
-        pill1: "Back-end resiliente",
-        pill2: "Front-end immersivo",
-        pill3: "Cloud & DevOps",
-        pill4: "Tempo reale & IA",
-        yearsExp: "Anni di esperienza",
-        projects: "Progetti consegnati",
-        technologies: "Tecnologie padroneggiate",
-        uptime: "Uptime medio",
-        experience: "Esperienza",
-        current: "Attuale",
-        skills: "Stack & Competenze",
-        education: "Formazione & Certificazioni",
-        degree: "Ingegneria del Software",
-        university: "Università Presbiteriana Mackenzie",
-        keyProjects: "Progetti chiave",
-        softwareProjects: "Progetti software",
-        cloudIntegrations: "Cloud & integrazioni",
-        methodologies: "Metodologie & pilastri",
-        labs: "Labs & ricerca",
-        recentEngagements: "Impegni recenti",
-        verticals: "Verticali servite",
-        languages: "Lingue",
-        native: "Nativo",
-        fluent: "Fluente",
-        advanced: "Avanzato",
-        intermediate: "Intermedio",
-        basic: "Base",
-        achievements: "Risultati",
-        links: "Link & Contatti"
-      },
-      ja: {
-        name: "Luiz Felippe Andrade",
-        subtitle: "ソフトウェアエンジニア · エクスペリエンスアーキテクト",
-        tagline: "// アイデアを没入型デジタル体験に変換",
-        summary: "要約",
-        summaryText: "クラウドネイティブプラットフォームに特化したソフトウェアエンジニア（学士号取得中）、感覚的UXに焦点を当てています。スケーラブルなバックエンド（Node/Nest、Redis、Mongo/Postgres）、映画的なフロントエンド（React/Three.js）、およびプレミアム製品を24時間365日稼働させるオブザーバビリティ/CIパイプラインを設計・実装します。アイデアを測定可能なソフトウェアに変換する必要があるリーダーの戦略的パートナーとして自らを位置づけています。",
-        pill1: "レジリエントなバックエンド",
-        pill2: "没入型フロントエンド",
-        pill3: "クラウド＆DevOps",
-        pill4: "リアルタイム＆AI",
-        yearsExp: "経験年数",
-        projects: "納品プロジェクト",
-        technologies: "習得技術",
-        uptime: "平均アップタイム",
-        experience: "経験",
-        current: "現在",
-        skills: "スタック＆スキル",
-        education: "学歴＆資格",
-        degree: "ソフトウェアエンジニアリング",
-        university: "マッケンジー長老派大学",
-        keyProjects: "主要プロジェクト",
-        softwareProjects: "ソフトウェアプロジェクト",
-        cloudIntegrations: "クラウド＆統合",
-        methodologies: "方法論＆柱",
-        labs: "研究所＆研究",
-        recentEngagements: "最近のエンゲージメント",
-        verticals: "サービス提供業界",
-        languages: "言語",
-        native: "ネイティブ",
-        fluent: "流暢",
-        advanced: "上級",
-        intermediate: "中級",
-        basic: "基礎",
-        achievements: "成果",
-        links: "リンク＆連絡先"
-      },
-      zh: {
-        name: "Luiz Felippe Andrade",
-        subtitle: "软件工程师 · 体验架构师",
-        tagline: "// 将想法转化为沉浸式数字体验",
-        summary: "摘要",
-        summaryText: "软件工程师（本科在读），专注于云原生平台和感官用户体验。我设计和实现可扩展的后端（Node/Nest、Redis、Mongo/Postgres）、电影级前端（React/Three.js）以及保持高端产品24/7运行的可观测性/CI管道。我定位为需要将想法转化为可衡量软件的领导者的战略合作伙伴。",
-        pill1: "弹性后端",
-        pill2: "沉浸式前端",
-        pill3: "云 & DevOps",
-        pill4: "实时 & AI",
-        yearsExp: "工作经验",
-        projects: "交付项目",
-        technologies: "掌握技术",
-        uptime: "平均正常运行时间",
-        experience: "经验",
-        current: "当前",
-        skills: "技术栈 & 技能",
-        education: "教育 & 认证",
-        degree: "软件工程",
-        university: "麦肯锡长老会大学",
-        keyProjects: "关键项目",
-        softwareProjects: "软件项目",
-        cloudIntegrations: "云 & 集成",
-        methodologies: "方法论 & 支柱",
-        labs: "实验室 & 研究",
-        recentEngagements: "最近的工作",
-        verticals: "服务行业",
-        languages: "语言",
-        native: "母语",
-        fluent: "流利",
-        advanced: "高级",
-        intermediate: "中级",
-        basic: "基础",
-        achievements: "成就",
-        links: "链接 & 联系方式"
-      }
-    };
+    // ========== CANVAS ANIMATED BACKGROUND ==========
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height, particles = [];
 
-    let currentLang = 'pt';
-
-    function translatePage(lang) {
-      currentLang = lang;
-      const elements = document.querySelectorAll('[data-translate]');
-      elements.forEach(el => {
-        const key = el.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
     }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 2 + 1;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(139, 92, 246, ${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      resize();
+      particles = [];
+      for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      // Draw connections
+      particles.forEach((p1, i) => {
+        particles.slice(i + 1).forEach(p2 => {
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(139, 92, 246, ${0.15 * (1 - distance / 150)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    init();
+    animate();
 
     // ========== LOADER ==========
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loader').classList.add('hide');
-      }, 2500);
+      }, 2000);
     });
-
-    // ========== THEME TOGGLE (8 temas do portfolio) ==========
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const body = document.body;
-
-    const themes = [
-      {
-        name: 'dark',
-        label: 'Dark Matter',
-        background: '5 5 15',
-        foreground: '241 245 249',
-        accent: '#7f5af0',
-        secondary: '#2cb67d'
-      },
-      {
-        name: 'light',
-        label: 'Luminous',
-        background: '245 247 255',
-        foreground: '17 24 39',
-        accent: '#4338ca',
-        secondary: '#14b8a6'
-      },
-      {
-        name: 'minimal',
-        label: 'Monolight',
-        background: '4 4 4',
-        foreground: '245 245 245',
-        accent: '#475569',
-        secondary: '#94a3b8'
-      },
-      {
-        name: 'cyberpunk',
-        label: 'Cyberpunk',
-        background: '8 0 20',
-        foreground: '245 240 255',
-        accent: '#ff2e63',
-        secondary: '#08d9d6'
-      },
-      {
-        name: 'neon',
-        label: 'Neon Pulse',
-        background: '4 0 25',
-        foreground: '238 255 251',
-        accent: '#00f5ff',
-        secondary: '#ff00f5'
-      },
-      {
-        name: 'ocean',
-        label: 'Abyss',
-        background: '3 21 43',
-        foreground: '232 250 255',
-        accent: '#0ea5e9',
-        secondary: '#22d3ee'
-      },
-      {
-        name: 'forest',
-        label: 'Nebula Forest',
-        background: '5 24 12',
-        foreground: '236 250 237',
-        accent: '#16a34a',
-        secondary: '#facc15'
-      },
-      {
-        name: 'sunset',
-        label: 'Aurora',
-        background: '21 10 33',
-        foreground: '255 244 234',
-        accent: '#f97316',
-        secondary: '#fb7185'
-      }
-    ];
-
-    const applyTheme = (themeName) => {
-      const theme = themes.find((t) => t.name === themeName) || themes[0];
-      body.style.setProperty('--color-background', theme.background);
-      body.style.setProperty('--color-foreground', theme.foreground);
-      body.style.setProperty('--color-accent', theme.accent);
-      body.style.setProperty('--color-secondary', theme.secondary);
-      body.style.setProperty('--accent', theme.accent);
-      body.style.setProperty('--secondary', theme.secondary);
-      themeIcon.textContent = theme.label;
-      localStorage.setItem('theme', theme.name);
-      body.setAttribute('data-theme', theme.name === 'light' ? 'light' : 'dark');
-    };
-
-    let themeIndex = 0;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      const idx = themes.findIndex((t) => t.name === savedTheme);
-      themeIndex = idx >= 0 ? idx : 0;
-    }
-    applyTheme(themes[themeIndex].name);
-
-    themeToggle.addEventListener('click', () => {
-      themeIndex = (themeIndex + 1) % themes.length;
-      applyTheme(themes[themeIndex].name);
-      themeToggle.style.transform = 'scale(0.94) rotate(8deg)';
-      setTimeout(() => {
-        themeToggle.style.transform = 'scale(1) rotate(0deg)';
-      }, 240);
-    });
-
-    // ========== LANGUAGE SELECTOR ==========
-    const langSelector = document.getElementById('langSelector');
-    const langDropdown = document.getElementById('langDropdown');
-    const currentLangEl = document.getElementById('currentLang');
-    const currentFlag = document.getElementById('currentFlag');
-    const langOptions = document.querySelectorAll('.lang-option');
-
-    langSelector.addEventListener('click', (e) => {
-      e.stopPropagation();
-      langDropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', () => {
-      langDropdown.classList.remove('show');
-    });
-
-    langDropdown.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
-
-    langOptions.forEach(option => {
-      option.addEventListener('click', () => {
-        const lang = option.getAttribute('data-lang');
-        const flag = option.getAttribute('data-flag');
-        
-        // Update UI
-        currentLangEl.textContent = lang.toUpperCase();
-        currentFlag.textContent = flag;
-        
-        // Update active state
-        langOptions.forEach(opt => opt.classList.remove('active'));
-        option.classList.add('active');
-        
-        // Translate page
-        translatePage(lang);
-        
-        // Close dropdown
-        langDropdown.classList.remove('show');
-        
-        // Save preference
-        localStorage.setItem('language', lang);
-      });
-    });
-
-    // Load saved language
-    const savedLang = localStorage.getItem('language');
-    if (savedLang) {
-      const savedOption = document.querySelector(`[data-lang="${savedLang}"]`);
-      if (savedOption) {
-        savedOption.click();
-      }
-    }
 
     // ========== CUSTOM CURSOR ==========
     const cursor = document.getElementById('cursor');
-    const cursorTrail = document.getElementById('cursorTrail');
+    const cursorGlow = document.getElementById('cursorGlow');
     let mouseX = 0, mouseY = 0;
     let cursorX = 0, cursorY = 0;
-    let trailX = 0, trailY = 0;
+    let glowX = 0, glowY = 0;
 
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
@@ -2483,58 +1173,31 @@
     });
 
     function animateCursor() {
-      const dx = mouseX - cursorX;
-      const dy = mouseY - cursorY;
+      const dxCursor = mouseX - cursorX;
+      const dyCursor = mouseY - cursorY;
+      const dxGlow = mouseX - glowX;
+      const dyGlow = mouseY - glowY;
       
-      cursorX += dx * 0.2;
-      cursorY += dy * 0.2;
+      cursorX += dxCursor * 0.2;
+      cursorY += dyCursor * 0.2;
+      glowX += dxGlow * 0.08;
+      glowY += dyGlow * 0.08;
       
-      const tdx = mouseX - trailX;
-      const tdy = mouseY - trailY;
-      
-      trailX += tdx * 0.1;
-      trailY += tdy * 0.1;
-      
-      cursor.style.left = cursorX - 10 + 'px';
-      cursor.style.top = cursorY - 10 + 'px';
-      
-      cursorTrail.style.left = trailX - 3 + 'px';
-      cursorTrail.style.top = trailY - 3 + 'px';
+      cursor.style.left = cursorX - 8 + 'px';
+      cursor.style.top = cursorY - 8 + 'px';
+      cursorGlow.style.left = glowX - 20 + 'px';
+      cursorGlow.style.top = glowY - 20 + 'px';
       
       requestAnimationFrame(animateCursor);
     }
     animateCursor();
 
     // Cursor interactions
-    const interactives = document.querySelectorAll('a, button, .card, .pill, .icon-chip, .theme-toggle, .lang-selector, .lang-option, .project-card, .stat-card, .back-to-top');
+    const interactives = document.querySelectorAll('a, button, .card, .pill, .icon-chip, .icon, h2');
     interactives.forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('active'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
     });
-
-    const textElements = document.querySelectorAll('p, li, span:not(.icon):not(.icon-chip)');
-    textElements.forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('text'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('text'));
-    });
-
-    // ========== PARTICLES ==========
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 60;
-
-    for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      
-      if (i % 5 === 0) particle.classList.add('large');
-      if (i % 7 === 0) particle.classList.add('glow');
-      
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 8 + 's';
-      particle.style.animationDuration = (Math.random() * 6 + 8) + 's';
-      particlesContainer.appendChild(particle);
-    }
 
     // ========== SCROLL PROGRESS ==========
     const scrollProgress = document.getElementById('scrollProgress');
@@ -2565,6 +1228,89 @@
       sectionObserver.observe(section);
     });
 
+    // ========== CARDS 3D TILT EFFECT ==========
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
+        
+        card.style.transform = `perspective(1500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1500px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+      });
+    });
+
+    // ========== PARALLAX SCROLL EFFECT ==========
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      
+      // Parallax for shapes
+      document.querySelectorAll('.shape').forEach((shape, index) => {
+        const speed = 0.5 + (index * 0.2);
+        shape.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+
+      // Icon chips rotation
+      document.querySelectorAll('.icon-chip').forEach((chip, index) => {
+        const rotation = (scrolled * 0.05) + (index * 30);
+        chip.style.transform = `rotate(${rotation}deg)`;
+      });
+    });
+
+    // ========== TYPING EFFECT ==========
+    const roles = document.querySelectorAll('.role strong');
+    
+    roles.forEach((role, index) => {
+      const text = role.textContent;
+      role.textContent = '';
+      
+      let charIndex = 0;
+      setTimeout(() => {
+        const typeInterval = setInterval(() => {
+          if (charIndex < text.length) {
+            role.textContent += text.charAt(charIndex);
+            charIndex++;
+          } else {
+            clearInterval(typeInterval);
+          }
+        }, 20);
+      }, index * 300);
+    });
+
+    // ========== PILLS STAGGER ANIMATION ==========
+    const pillRows = document.querySelectorAll('.pill-row');
+    
+    const pillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pills = entry.target.querySelectorAll('.pill');
+          pills.forEach((pill, index) => {
+            pill.style.opacity = '0';
+            pill.style.transform = 'translateY(20px) scale(0.8)';
+            
+            setTimeout(() => {
+              pill.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+              pill.style.opacity = '1';
+              pill.style.transform = 'translateY(0) scale(1)';
+            }, index * 80);
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    pillRows.forEach(row => pillObserver.observe(row));
+
     // ========== SMOOTH SCROLL ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -2579,330 +1325,155 @@
       });
     });
 
-    // ========== PARALLAX EFFECT ON CARDS ==========
-    const cards = document.querySelectorAll('.card, .project-card');
-    
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 25;
-        const rotateY = (centerX - x) / 25;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-      });
-      
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-      });
-    });
-
-    // ========== TYPING EFFECT FOR ROLE TITLES ==========
-    const roles = document.querySelectorAll('.role strong');
-    
-    roles.forEach((role, index) => {
-      const text = role.textContent;
-      role.textContent = '';
-      role.style.opacity = '1';
-      
-      let charIndex = 0;
-      const typeInterval = setInterval(() => {
-        if (charIndex < text.length) {
-          role.textContent += text.charAt(charIndex);
-          charIndex++;
-        } else {
-          clearInterval(typeInterval);
-        }
-      }, 40 + (index * 15));
-    });
-
-    // ========== DYNAMIC GRADIENT BACKGROUND ==========
-    let hue = 240;
-    
-    setInterval(() => {
-      hue = (hue + 0.5) % 360;
-      const saturation = isDark ? 70 : 50;
-      const lightness = isDark ? 60 : 70;
-      
-      document.body.style.setProperty('--accent', `hsl(${hue}, ${saturation}%, ${lightness}%)`);
-    }, 100);
-
-    // ========== PILL STAGGER ANIMATION ==========
-    const pillRows = document.querySelectorAll('.pill-row');
-    
-    const pillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const pills = entry.target.querySelectorAll('.pill');
-          pills.forEach((pill, index) => {
-            pill.style.opacity = '0';
-            pill.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-              pill.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-              pill.style.opacity = '1';
-              pill.style.transform = 'translateY(0)';
-            }, index * 60);
-          });
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    pillRows.forEach(row => {
-      pillObserver.observe(row);
-    });
-
-    // ========== ICON CHIP ROTATION ON SCROLL ==========
-    const iconChips = document.querySelectorAll('.icon-chip');
-    
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      iconChips.forEach((chip, index) => {
-        const rotation = (scrolled * 0.08) + (index * 30);
-        chip.style.transform = `rotate(${rotation}deg)`;
-      });
-    });
-
-    // ========== GLITCH EFFECT ON HOVER ==========
-    const glitchElements = document.querySelectorAll('h1');
-    
-    glitchElements.forEach(el => {
-      el.addEventListener('mouseenter', function() {
-        this.style.animation = 'glitch 0.4s ease';
-        setTimeout(() => {
-          this.style.animation = 'gradientShift 6s ease infinite';
-        }, 400);
-      });
-    });
-
-    // ========== EXPERIENCE ITEMS SLIDE IN ==========
-    const expItems = document.querySelectorAll('.timeline-item');
+    // ========== EXPERIENCE ITEMS REVEAL ==========
+    const expItems = document.querySelectorAll('.experience-item');
     
     const expObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
-          const items = document.querySelectorAll('.timeline-item');
-          const index = Array.from(items).indexOf(entry.target);
           setTimeout(() => {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateX(0)';
-          }, index * 250);
+          }, idx * 150);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.2 });
     
     expItems.forEach(item => {
       item.style.opacity = '0';
       item.style.transform = 'translateX(-40px)';
-      item.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      item.style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
       expObserver.observe(item);
     });
 
-    // ========== STAT CARDS ANIMATION ==========
-    const statCards = document.querySelectorAll('.stat-card');
+    // ========== ICON ANIMATIONS ==========
+    const icons = document.querySelectorAll('.contact-item .icon');
     
-    const statObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, idx) => {
-        if (entry.isIntersecting) {
-          const cards = document.querySelectorAll('.stat-card');
-          const index = Array.from(cards).indexOf(entry.target);
-          setTimeout(() => {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'scale(1)';
-            
-            // Animate number
-            const numberEl = entry.target.querySelector('.stat-number');
-            const finalText = numberEl.textContent;
-            const hasPlus = finalText.includes('+');
-            const hasPercent = finalText.includes('%');
-            const hasDecimal = finalText.includes('.');
-            
-            let finalNumber = parseFloat(finalText.replace(/[^0-9.]/g, ''));
-            let currentNumber = 0;
-            const increment = finalNumber / 50;
-            
-            const timer = setInterval(() => {
-              currentNumber += increment;
-              if (currentNumber >= finalNumber) {
-                currentNumber = finalNumber;
-                clearInterval(timer);
-              }
-              
-              let displayText = hasDecimal ? currentNumber.toFixed(1) : Math.floor(currentNumber);
-              if (hasPlus) displayText += '+';
-              if (hasPercent) displayText += '%';
-              
-              numberEl.textContent = displayText;
-            }, 30);
-          }, index * 150);
-        }
-      });
-    }, { threshold: 0.3 });
-    
-    statCards.forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'scale(0.8)';
-      card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      statObserver.observe(card);
+    icons.forEach((icon, index) => {
+      setInterval(() => {
+        icon.style.animation = 'iconBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+        setTimeout(() => {
+          icon.style.animation = '';
+        }, 800);
+      }, 4000 + (index * 600));
     });
 
-    // ========== PROJECT CARDS ANIMATION ==========
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    const projectObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, idx) => {
-        if (entry.isIntersecting) {
-          const cards = document.querySelectorAll('.project-card');
-          const index = Array.from(cards).indexOf(entry.target);
-          setTimeout(() => {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }, index * 100);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    projectCards.forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(30px)';
-      card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      projectObserver.observe(card);
-    });
-
-    // ========== SKILL BAR ANIMATION ==========
-    const skillBars = document.querySelectorAll('.skill-bar-container');
-    
-    const skillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const fill = entry.target.querySelector('.skill-bar-fill');
-          const width = fill.style.width;
-          fill.style.width = '0%';
-          setTimeout(() => {
-            fill.style.width = width;
-          }, 100);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    skillBars.forEach(bar => {
-      skillObserver.observe(bar);
-    });
-
-    // ========== BACK TO TOP BUTTON ==========
-    const backToTop = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
+    const iconBounceStyle = document.createElement('style');
+    iconBounceStyle.textContent = `
+      @keyframes iconBounce {
+        0%, 100% { transform: translateY(0) scale(1); }
+        25% { transform: translateY(-12px) scale(1.1); }
+        50% { transform: translateY(0) scale(1.05); }
+        75% { transform: translateY(-6px) scale(1.08); }
       }
-    });
+    `;
+    document.head.appendChild(iconBounceStyle);
+
+    // ========== GLITCH EFFECT ON HOVER ==========
+    const glitchElements = document.querySelectorAll('h1, h2');
     
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    glitchElements.forEach(el => {
+      el.addEventListener('mouseenter', function() {
+        this.style.animation = 'glitchText 0.4s ease';
+        setTimeout(() => {
+          this.style.animation = '';
+        }, 400);
+      });
+    });
+
+    // ========== MAGNETIC BUTTONS ==========
+    const magneticElements = document.querySelectorAll('.pill, .icon-chip');
+    
+    magneticElements.forEach(el => {
+      el.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+      });
+      
+      el.addEventListener('mouseleave', function() {
+        this.style.transform = 'translate(0, 0)';
       });
     });
 
     // ========== RANDOM PARTICLE GLOW ==========
-    const particles = document.querySelectorAll('.particle');
-    
     setInterval(() => {
-      const randomParticle = particles[Math.floor(Math.random() * particles.length)];
-      randomParticle.style.boxShadow = `0 0 25px ${isDark ? 'rgba(127, 90, 240, 0.9)' : 'rgba(127, 90, 240, 0.6)'}`;
-      randomParticle.style.transform = 'scale(2)';
+      const randomIndex = Math.floor(Math.random() * particles.length);
+      const particle = particles[randomIndex];
+      particle.opacity = 1;
       setTimeout(() => {
-        randomParticle.style.boxShadow = '';
-        randomParticle.style.transform = 'scale(1)';
-      }, 800);
+        particle.opacity = Math.random() * 0.5 + 0.2;
+      }, 500);
     }, 1500);
 
-    // ========== CONSOLE EASTER EGG ==========
-    console.log('%c🚀 Currículo Ultra Avançado v3.0', 'font-size: 20px; font-weight: bold; color: #7f5af0;');
-    console.log('%c⚡ Desenvolvido com React, Three.js, e muito café ☕', 'font-size: 14px; color: #82f3c4;');
-    console.log('%c💼 Contato: luizfelippeandrade@outlook.com', 'font-size: 12px; color: #ff6b9d;');
-    console.log('%c🌐 Portfolio: https://localhost:5173', 'font-size: 12px; color: #ffa500;');
-    console.log('%c\nDigite: resume.info() para mais informações', 'font-size: 11px; color: #fff;');
-
-    window.resume = {
-      info: () => {
-        console.table({
-          'Nome': 'Luiz Felippe Andrade',
-          'Cargo': 'Staff Software Engineer',
-          'Experiência': '8+ anos',
-          'Projetos': '50+',
-          'Uptime': '99.9%',
-          'Idiomas': '8',
-          'Localização': 'São Paulo, BR'
-        });
-      },
-      skills: () => {
-        console.log('🛠️ Skills principais:');
-        console.log('Frontend: React, Next.js, Three.js, TypeScript');
-        console.log('Backend: Node.js, NestJS, GraphQL');
-        console.log('Database: MongoDB, PostgreSQL, Redis');
-        console.log('Cloud: AWS, GCP, Azure');
-        console.log('DevOps: Docker, Kubernetes, Terraform');
-      },
-      contact: () => {
-        console.log('📧 Email: luizfelippeandrade@outlook.com');
-        console.log('🔗 LinkedIn: linkedin.com/in/luizfelippe');
-        console.log('💻 GitHub: github.com/luizfelippeandrade');
-        console.log('📷 Instagram: @luizfelippe.e');
-      }
-    };
-
-    // ========== PERFORMANCE MONITORING ==========
-    if ('PerformanceObserver' in window) {
-      const observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
-          if (entry.entryType === 'paint') {
-            console.log(`⚡ ${entry.name}: ${entry.startTime.toFixed(2)}ms`);
-          }
+    // ========== LIST ITEMS WAVE ANIMATION ==========
+    const listItems = document.querySelectorAll('li');
+    
+    const listObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const items = entry.target.parentElement.querySelectorAll('li');
+          items.forEach((item, idx) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-20px)';
+            setTimeout(() => {
+              item.style.transition = 'all 0.5s ease';
+              item.style.opacity = '1';
+              item.style.transform = 'translateX(0)';
+            }, idx * 100);
+          });
         }
       });
-      observer.observe({ entryTypes: ['paint'] });
-    }
+    }, { threshold: 0.3 });
+    
+    const lists = document.querySelectorAll('ul');
+    lists.forEach(list => listObserver.observe(list));
 
-    // ========== KEYBOARD SHORTCUTS ==========
-    document.addEventListener('keydown', (e) => {
-      // T = Toggle Theme
-      if (e.key === 't' || e.key === 'T') {
-        themeToggle.click();
-      }
+    // ========== MOUSE TRAIL EFFECT ==========
+    const trail = [];
+    const trailLength = 20;
+
+    document.addEventListener('mousemove', (e) => {
+      trail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
       
-      // L = Toggle Language
-      if (e.key === 'l' || e.key === 'L') {
-        langSelector.click();
-      }
-      
-      // ESC = Close dropdowns
-      if (e.key === 'Escape') {
-        langDropdown.classList.remove('show');
-      }
-      
-      // Up Arrow = Back to top
-      if (e.key === 'Home') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-      
-      // Down Arrow = Scroll to bottom
-      if (e.key === 'End') {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      if (trail.length > trailLength) {
+        trail.shift();
       }
     });
 
-    // ========== INITIALIZE ==========
-    console.log('✅ Currículo carregado com sucesso!');
-    console.log('⏱️ Tempo de carregamento:', performance.now().toFixed(2), 'ms');
+    function drawTrail() {
+      trail.forEach((point, index) => {
+        const age = Date.now() - point.time;
+        if (age > 500) {
+          trail.splice(index, 1);
+        }
+      });
+      
+      requestAnimationFrame(drawTrail);
+    }
+    drawTrail();
+
+    // ========== HEADER ANIMATIONS ==========
+    const header = document.querySelector('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.style.transform = 'translateY(-20px)';
+        header.style.opacity = '0.8';
+      } else {
+        header.style.transform = 'translateY(0)';
+        header.style.opacity = '1';
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    header.style.transition = 'all 0.3s ease';
   </script>
 </body>
 </html>

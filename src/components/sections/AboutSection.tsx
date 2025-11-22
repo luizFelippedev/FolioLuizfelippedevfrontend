@@ -38,16 +38,8 @@ export const AboutSection = () => {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-full border border-accent/40 px-6 py-3 text-xs uppercase tracking-[0.3em] text-accent transition hover:bg-accent/10"
           >
-            {t('cta.secondary')} <span aria-hidden>↗</span>
+            {t('cta.secondary')} <span aria-hidden="true">-&gt;</span>
           </Link>
-          <a
-            href="/assets/resume.html"
-            className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-6 py-3 text-xs uppercase tracking-[0.3em] text-foreground/80 transition hover:border-secondary/40 hover:text-secondary"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Currículo · HTML
-          </a>
         </div>
       </motion.div>
 
@@ -69,3 +61,4 @@ export const AboutSection = () => {
     </section>
   );
 };
+

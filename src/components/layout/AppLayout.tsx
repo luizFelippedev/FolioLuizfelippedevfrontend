@@ -5,6 +5,7 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { ParticleField } from '@components/ui/ParticleField';
 import { NeonGridBackground } from '@components/ui/NeonGridBackground';
+import { MobileMaintenanceBanner } from '@components/ui/MobileMaintenanceBanner';
 
 export const AppLayout = () => {
   const navigation = useNavigation();
@@ -47,6 +48,7 @@ export const AppLayout = () => {
         </div>
       ) : null}
       <Outlet />
+      <MobileMaintenanceBanner />
       <Footer />
     </div>
   );

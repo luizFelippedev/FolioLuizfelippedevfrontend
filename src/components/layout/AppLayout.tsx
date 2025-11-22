@@ -5,6 +5,7 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { ParticleField } from '@components/ui/ParticleField';
 import { NeonGridBackground } from '@components/ui/NeonGridBackground';
+import { MobileMaintenanceBanner } from '@components/ui/MobileMaintenanceBanner';
 
 export const AppLayout = () => {
   const navigation = useNavigation();
@@ -22,6 +23,7 @@ export const AppLayout = () => {
       <NeonGridBackground />
       <ParticleField />
       <Header />
+      <MobileMaintenanceBanner />
       {isLoading ? (
         <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-xl">
           <div className="relative flex flex-col items-center gap-4 rounded-3xl border border-white/5 bg-gradient-to-br from-background/80 via-background/60 to-background/80 px-7 py-6 shadow-[0_25px_70px_rgba(0,0,0,0.55)]">

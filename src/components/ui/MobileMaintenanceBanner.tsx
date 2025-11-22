@@ -4,16 +4,15 @@ import { useMediaQuery } from '@hooks/useMediaQuery';
 
 export const MobileMaintenanceBanner = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
-  const [dismissed, setDismissed] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return localStorage.getItem('mobile-maintenance-dismissed') === 'true';
-  });
+  const [dismissed, setDismissed] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    if (!isMobile) return;
+    if (typeof window === 'undefined') return;
     const storedValue = localStorage.getItem('mobile-maintenance-dismissed');
     setDismissed(storedValue === 'true');
-  }, [isMobile]);
+    setHydrated(true);
+  }, []);
 
   const handleDismiss = () => {
     setDismissed(true);
@@ -22,7 +21,7 @@ export const MobileMaintenanceBanner = () => {
     }
   };
 
-  if (!isMobile || dismissed) return null;
+  if (!hydrated || !isMobile || dismissed) return null;
 
   return (
     <div className="sticky top-[5.25rem] z-40 flex items-start gap-3 border-b border-accent/30 bg-background/90 px-4 py-3 backdrop-blur-lg sm:px-6">

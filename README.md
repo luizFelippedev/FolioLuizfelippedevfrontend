@@ -47,6 +47,11 @@ src/
 - Formulário de contato integrado ao endpoint `/api/contact`.
 - Páginas dedicadas com filtros/pesquisas (projetos, blog, certificados).
 
+## 📱 Aviso de manutenção para mobile
+- O aviso é renderizado apenas para telas menores em `src/components/ui/MobileMaintenanceBanner.tsx`.
+- Ele é incluído globalmente no layout (`src/components/layout/AppLayout.tsx`) logo abaixo do Header.
+- O botão de fechar grava a chave `mobile-maintenance-dismissed` no `localStorage`, evitando mostrar o banner novamente no mesmo dispositivo.
+
 Para deploy, basta apontar `VITE_API_URL` para o backend hospedado (ex.: Render/Railway) e subir este diretório em Vercel/Netlify.
 
 ## 🚀 Deploy na Vercel (com backend na Render)

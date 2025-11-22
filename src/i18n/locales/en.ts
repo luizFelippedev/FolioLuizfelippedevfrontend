@@ -692,6 +692,34 @@ const en = {
       }
     }
   }
+  ,
+  patchNotes: {
+    headline: 'PatchNotes - performance and UI improvements.',
+    summary:
+      'We refined desktop/mobile experience, improved responsiveness, added a mobile maintenance notice, and tuned the loading flow.',
+    highlights: [
+      'New mobile notice bar with close and persistence.',
+      'Lighter, more responsive floating banner.',
+      'Contrast adjustments for light/dark modes.'
+    ],
+    changes: [
+      'Home: optimized animated background and gradients to reduce GPU use.',
+      'UI: components now use theme color variables to keep contrast in all modes.',
+      'Layout: mobile banner with CTA to patch notes, better responsiveness on small breakpoints.',
+      'Accessibility: visible focus on CTA and close button of the notice.'
+    ],
+    fixes: [
+      'Fixed overlap of the X button on the mobile notice.',
+      'Typography corrected to avoid broken characters in manutencao.',
+      'Softened card shadows to avoid clipping on small screens.'
+    ],
+    next: [
+      'Enable dark/light automatic by system preference.',
+      'Add realtime uptime status card.',
+      'Publish style guide for interactive components.',
+      'Rework the whole frontend mobile-first with full accessibility and easy navigation.'
+    ]
+  }
 };
 
 export default en;

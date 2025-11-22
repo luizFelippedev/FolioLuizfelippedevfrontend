@@ -419,6 +419,34 @@ const it: LocaleShape = {
       error: 'Qualcosa è andato storto. Riprova.'
     }
   }
+  patchNotes: {
+    ...en.patchNotes,
+    headline: 'PatchNotes - miglioramenti di performance e UI.',
+    summary:
+      'Abbiamo raffinato l esperienza desktop/mobile, migliorato la reattivita, aggiunto un avviso di manutenzione mobile e regolato il flusso di caricamento.',
+    highlights: [
+      'Nuova barra di avviso mobile con chiusura e persistenza.',
+      'Banner flottante piu leggero e reattivo.',
+      'Regolazioni di contrasto per modalita chiaro/scuro.'
+    ],
+    changes: [
+      'Home: sfondo animato e gradienti ottimizzati per ridurre l uso della GPU.',
+      'UI: componenti ora usano variabili di colore del tema per mantenere il contrasto in ogni modalita.',
+      'Layout: banner mobile con CTA ai patch notes, migliore risposta sui breakpoint piccoli.',
+      'Accessibilita: focus visibile su CTA e bottone di chiusura dell avviso.'
+    ],
+    fixes: [
+      'Risolto l overlap del bottone X nell avviso mobile.',
+      'Tipografia corretta per evitare caratteri rotti in manutencao.',
+      'Ombre delle card ammorbidite per evitare clipping su schermi piccoli.'
+    ],
+    next: [
+      'Abilitare dark/light automatico secondo la preferenza di sistema.',
+      'Aggiungere card di stato uptime in tempo reale.',
+      'Pubblicare style guide per componenti interattivi.',
+      'Ripensare tutto il frontend mobile-first con accessibilita completa e navigazione semplice.'
+    ]
+  }
 };
 
 export default it;

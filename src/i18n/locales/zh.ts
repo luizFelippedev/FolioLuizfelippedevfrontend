@@ -384,6 +384,34 @@ const zh: LocaleShape = {
       error: '发送失败，请重试。'
     }
   }
+  patchNotes: {
+    ...en.patchNotes,
+    headline: 'PatchNotes - xingneng he UI gaijin.',
+    summary:
+      'Youhua le desktop/mobile tiyan, tigao le xiangying, tianjia le mobile weihu tishi, youhua le loading liucheng.',
+    highlights: [
+      'Xin de mobile tishi lan, ke guan bi bing baochi.',
+      'Geng qing liang, geng linghuo de fuchu biaoqian.',
+      'Dui qing/an an moshi de duibi diaozheng.'
+    ],
+    changes: [
+      'Home: youhua donghua beijing he gradient, jianshao GPU shiyong.',
+      'UI: zujian shiyong zhuti yanse bianliang baochi duibi.',
+      'Layout: mobile banner he qingqiu patch notes, xiao duankou xiangying geng hao.',
+      'Kekao xing: CTA he guan bi an niu jia kejian de focus.'
+    ],
+    fixes: [
+      'X anniu chongdie wenti xiufu.',
+      'Zifu xiu fu, fangzhi manutencao mojibake.',
+      'Rongying jiarou, fangzhi xiao ping clipping.'
+    ],
+    next: [
+      'Gen ju xitong xihuan zidong dark/light.',
+      'Tianjia shishi uptime zhuangtai ka.',
+      'Fabu hudong zujian de style guide.',
+      'Yong mobile-first he wanquan kexingxing chongjian quanbu frontend.'
+    ]
+  }
 };
 
 export default zh;

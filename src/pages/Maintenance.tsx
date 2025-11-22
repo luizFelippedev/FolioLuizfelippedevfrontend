@@ -1,7 +1,19 @@
 import { FiArrowUpRight, FiCheckCircle, FiClock, FiInfo, FiLayers, FiRefreshCw, FiZap } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const patchNotes = {
+type PatchNotesContent = {
+  version: string;
+  date: string;
+  headline: string;
+  summary: string;
+  highlights: string[];
+  changes: string[];
+  fixes: string[];
+  next: string[];
+};
+
+const patchNotesFallback: PatchNotesContent = {
   version: 'v1.4.0',
   date: '22 Nov 2025',
   headline: 'PatchNotes - melhorias de performance e UI.',
@@ -61,6 +73,17 @@ const Section = ({ title, items }: { title: string; items: string[] }) => (
 );
 
 export const MaintenancePage = () => {
+  const { t } = useTranslation();
+  const localized = t('patchNotes', { returnObjects: true }) as Partial<PatchNotesContent>;
+  const patchNotes: PatchNotesContent = {
+    ...patchNotesFallback,
+    ...localized,
+    highlights: localized?.highlights ?? patchNotesFallback.highlights,
+    changes: localized?.changes ?? patchNotesFallback.changes,
+    fixes: localized?.fixes ?? patchNotesFallback.fixes,
+    next: localized?.next ?? patchNotesFallback.next
+  };
+
   return (
     <main className="page-shell space-y-10 py-24 text-foreground md:space-y-12 md:py-24" aria-labelledby="maintenance-title">
       <header className="relative overflow-hidden rounded-3xl border border-foreground/10 bg-gradient-to-r from-background via-background/70 to-background/50 p-6 shadow-[0_28px_80px_rgba(0,0,0,0.45)] md:p-8">

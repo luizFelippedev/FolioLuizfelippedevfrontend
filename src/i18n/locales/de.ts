@@ -154,6 +154,34 @@ const de: LocaleShape = {
     },
     outro: 'Fragen? Schreib mir, ich kläre jedes Datenschutzthema.'
   }
+  patchNotes: {
+    ...en.patchNotes,
+    headline: 'PatchNotes - Performance- und UI-Verbesserungen.',
+    summary:
+      'Desktop/Mobile-Erlebnis verfeinert, Responsiveness verbessert, mobilen Wartungshinweis hinzugefugt und Ladefluss angepasst.',
+    highlights: [
+      'Neue mobile Hinweisleiste mit Schliessen und Persistenz.',
+      'Leichteres, reaktiveres schwebendes Banner.',
+      'Kontrastanpassungen fur Hell/Dunkel-Modus.'
+    ],
+    changes: [
+      'Home: animierter Hintergrund und Gradients optimiert, um GPU-Last zu senken.',
+      'UI: Komponenten nutzen Theme-Farben, um Kontrast in allen Modi zu halten.',
+      'Layout: mobiles Banner mit CTA zu Patch Notes, bessere Responsiveness auf kleinen Breakpoints.',
+      'Accessibility: sichtbarer Fokus auf CTA und Schliessen-Button.'
+    ],
+    fixes: [
+      'Uberlappung des X-Buttons im mobilen Hinweis behoben.',
+      'Typografie korrigiert, um kaputte Zeichen in manutencao zu vermeiden.',
+      'Karten-Schatten weicher gemacht, um Clipping auf kleinen Screens zu vermeiden.'
+    ],
+    next: [
+      'Dark/Light automatisch nach System-Praferenz aktivieren.',
+      'Realtime-Uptime-Statuskarte hinzufugen.',
+      'Styleguide fur interaktive Komponenten veroffentlichen.',
+      'Gesamtes Frontend mobile-first neu aufbauen mit voller Accessibility und einfacher Navigation.'
+    ]
+  }
 };
 
 export default de;

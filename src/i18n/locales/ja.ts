@@ -416,6 +416,34 @@ const ja: LocaleShape = {
       error: '問題が発生しました。もう一度お試しください。'
     }
   }
+  patchNotes: {
+    ...en.patchNotes,
+    headline: 'PatchNotes - performance to UI no kaizen.',
+    summary:
+      'Desktop/Mobile no keiken o seitei, hanshiyou o kaizen, mobile maintenance notice o t追加, load flow o tune shimashita.',
+    highlights: [
+      'Mobile notice bar: close to kizon.',
+      'Karui hasshiyou no floating banner.',
+      'Hikar/shadow mode no contrast chousei.'
+    ],
+    changes: [
+      'Home: anime background to gradient o saiteki-ka shite GPU riyou o sakugen.',
+      'UI: komponente ga theme no iro variable o tsukatte contrast o iji.',
+      'Layout: mobile banner + CTA to patch notes, chisana breakpoint de no hanshiyou o kaizen.',
+      'Access: CTA to tojiru botan ni mieru focus.'
+    ],
+    fixes: [
+      'Mobile notice no X botan kasanari o shuusei.',
+      'Manutencao no mojibake o fusuru you typografi o shuusei.',
+      'Small screen de no clipping o fusegu tame card shadow o yawarakaku.'
+    ],
+    next: [
+      'System osendaku ni yoru dark/light jido切替.',
+      'Jikan tou realtime uptime status card o追加.',
+      'Interactive component no style guide o koukai.',
+      'Zen frontend o mobile-first + full accessibility + kantan navigation de saikouchiku.'
+    ]
+  }
 };
 
 export default ja;

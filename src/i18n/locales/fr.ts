@@ -647,6 +647,34 @@ const fr = {
       }
     }
   }
+  ,
+  patchNotes: {
+    headline: 'PatchNotes - ameliorations de performance et UI.',
+    summary:
+      'Nous avons affine l experience desktop/mobile, ameliore la reactivite, ajoute un avis de maintenance mobile et ajuste le flux de chargement.',
+    highlights: [
+      'Nouvelle barre d alerte mobile avec fermeture et persistance.',
+      'Banniere flottante plus legere et plus reactive.',
+      'Ajustements de contraste pour modes clair/sombre.'
+    ],
+    changes: [
+      'Home: fond anime et gradients optimises pour reduire l usage GPU.',
+      'UI: composants utilisent les variables de couleur du theme pour garder le contraste.',
+      'Layout: banniere mobile avec CTA vers patch notes, meilleure reactivite sur petits breakpoints.',
+      'Accessibilite: focus visible sur CTA et bouton de fermeture.'
+    ],
+    fixes: [
+      'Correction du chevauchement du bouton X sur l alerte mobile.',
+      'Typographie corrigee pour eviter les caracteres casses dans manutencao.',
+      'Ombres des cartes adoucies pour eviter le clipping sur petits ecrans.'
+    ],
+    next: [
+      'Activer dark/light automatique selon la preference systeme.',
+      'Ajouter une carte de statut d uptime en temps reel.',
+      'Publier un guide de style pour les composants interactifs.',
+      'Refondre tout le frontend mobile-first avec accessibilite complete et navigation simple.'
+    ]
+  }
 };
 
 export default fr;

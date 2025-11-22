@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Orbitron:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Sora:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -67,6 +67,15 @@ body::after {
   pointer-events: none;
   animation: glowDrift 20s ease-in-out infinite;
   transform-style: preserve-3d;
+}
+
+@media (max-width: 768px) {
+  .glow-card {
+    display: none;
+  }
+  .matrix-pattern {
+    display: none;
+  }
 }
 
 .glow-card::before,

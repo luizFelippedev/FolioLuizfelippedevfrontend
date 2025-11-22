@@ -26,8 +26,8 @@ const ThemeSwatch = ({
 }) => (
   <span
     className={clsx(
-      'relative flex h-14 w-14 items-center justify-center rounded-2xl border transition-all',
-      active ? 'border-secondary/70 shadow-[0_12px_30px_rgba(0,0,0,0.35)]' : 'border-white/5 opacity-90'
+      'relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl border transition-all',
+      active ? 'border-secondary/70 shadow-[0_10px_24px_rgba(0,0,0,0.3)]' : 'border-white/5 opacity-90'
     )}
   >
     <span
@@ -35,11 +35,11 @@ const ThemeSwatch = ({
       style={{ opacity: active ? 0.5 : 0.2 }}
     />
     <span
-      className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/15"
+      className="relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-white/15"
       style={{ background: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]}, ${gradient[2]})` }}
     >
       <span className="absolute inset-0 rounded-xl border border-white/20" />
-      <Icon className="relative text-lg text-white drop-shadow-md" />
+      <Icon className="relative text-base sm:text-lg text-white drop-shadow-md" />
     </span>
   </span>
 );
@@ -144,9 +144,9 @@ export const SettingsMenu = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.18 }}
-            className="absolute right-0 top-full z-50 mt-3 max-h-[80vh] w-[22rem] space-y-4 overflow-y-auto rounded-3xl border border-foreground/10 bg-background/95 p-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
+            className="absolute right-0 top-full z-50 mt-3 max-h-[80vh] w-[min(92vw,21rem)] space-y-4 overflow-y-auto rounded-3xl border border-foreground/10 bg-background/92 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:w-[22rem] sm:p-5"
           >
-            <header className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-gradient-to-r from-background via-background/70 to-background/40 p-3">
+            <header className="relative overflow-hidden rounded-2xl border border-foreground/10 bg-gradient-to-r from-background via-background/70 to-background/40 p-3 shadow-[0_10px_24px_rgba(0,0,0,0.18)] sm:shadow-[0_12px_28px_rgba(0,0,0,0.2)]">
               <div className="pointer-events-none absolute inset-0 blur-2xl bg-[radial-gradient(circle_at_20%_0%,rgba(0,232,255,0.2),transparent_35%),radial-gradient(circle_at_85%_0%,rgba(204,95,255,0.2),transparent_35%)]" />
               <div className="relative space-y-1">
                 <p className="text-[0.65rem] uppercase tracking-[0.4em] text-foreground/50">{t('settings.title')}</p>
@@ -162,7 +162,7 @@ export const SettingsMenu = () => {
                     key={tab.key}
                     onClick={() => setActiveTab(tab.key)}
                     className={clsx(
-                      'rounded-xl border px-3 py-2 text-[0.7rem] uppercase tracking-[0.25em] transition',
+                      'rounded-xl border px-2.5 py-2 text-[0.65rem] uppercase tracking-[0.2em] transition sm:px-3 sm:text-[0.7rem]',
                       activeTab === tab.key
                         ? 'border-secondary/70 bg-secondary/10 text-foreground shadow-[0_10px_30px_rgba(0,0,0,0.25)]'
                         : 'border-foreground/10 bg-foreground/5 text-foreground/60 hover:border-foreground/20 hover:text-foreground'
@@ -186,7 +186,7 @@ export const SettingsMenu = () => {
                           key={option.code}
                           onClick={() => setLanguage(option.code)}
                           className={clsx(
-                            'group relative flex min-h-[72px] items-center gap-3 overflow-hidden rounded-2xl border px-3 py-2 text-left text-xs uppercase tracking-[0.3em] transition shadow-[0_12px_26px_rgba(0,0,0,0.18)] backdrop-blur focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary',
+                            'group relative flex min-h-[64px] items-center gap-3 overflow-hidden rounded-2xl border px-3 py-2 text-left text-[0.75rem] uppercase tracking-[0.25em] transition shadow-[0_10px_22px_rgba(0,0,0,0.16)] backdrop-blur focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary sm:min-h-[72px] sm:text-xs',
                             option.code === language
                               ? 'border-secondary/70 bg-white/5 text-foreground'
                               : 'border-foreground/12 bg-background/75 text-foreground/70 hover:border-foreground/20 hover:bg-foreground/5'
@@ -207,7 +207,7 @@ export const SettingsMenu = () => {
                           </span>
                           <div className="min-w-0">
                             <p>{option.native}</p>
-                            <p className="text-[0.55rem] tracking-[0.35em] text-foreground/50 line-clamp-1">{option.label}</p>
+                            <p className="text-[0.55rem] tracking-[0.28em] text-foreground/50 line-clamp-1">{option.label}</p>
                           </div>
                         </button>
                       ))}
@@ -221,8 +221,8 @@ export const SettingsMenu = () => {
                           .map((option) => (
                             <div
                               key={option.code}
-                              className="group relative flex min-h-[64px] items-center gap-3 overflow-hidden rounded-2xl border border-dashed border-secondary/30 px-3 py-2 backdrop-blur"
-                            >
+                          className="group relative flex min-h-[58px] items-center gap-3 overflow-hidden rounded-2xl border border-dashed border-secondary/30 px-3 py-2 backdrop-blur"
+                        >
                               <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-black/35" />
                               <span className="flex h-9 w-9 items-center justify-center rounded-full border border-secondary/40 bg-secondary/10">
                                 <PiGlobeHemisphereWestBold className="text-lg text-secondary" aria-label={option.label} />
@@ -249,7 +249,7 @@ export const SettingsMenu = () => {
                         key={themeOption.name}
                         onClick={() => setTheme(themeOption.name)}
                         className={clsx(
-                          'group relative w-full overflow-hidden rounded-2xl border px-4 py-4 text-left text-[0.65rem] uppercase tracking-[0.25em] transition shadow-[0_14px_32px_rgba(0,0,0,0.2)] backdrop-blur',
+                          'group relative w-full overflow-hidden rounded-2xl border px-3.5 py-3.5 text-left text-[0.65rem] uppercase tracking-[0.2em] transition shadow-[0_14px_32px_rgba(0,0,0,0.18)] backdrop-blur sm:px-4 sm:py-4',
                           themeOption.name === theme
                             ? 'border-secondary/70 bg-white/5 text-foreground'
                             : 'border-foreground/12 bg-background/75 text-foreground/80 hover:border-foreground/20 hover:bg-foreground/5'
@@ -258,24 +258,24 @@ export const SettingsMenu = () => {
                           backgroundImage: `linear-gradient(120deg, ${themeOption.gradient[0]}, ${themeOption.gradient[1]}, ${themeOption.gradient[2]})`,
                           backgroundSize: '200% 200%'
                         }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/35 to-black/55" />
-                        {themeOption.name === theme ? (
-                          <span className="absolute inset-0 bg-gradient-to-r from-secondary/12 via-transparent to-accent/12" />
-                        ) : null}
-                        <div className="relative flex items-center gap-3">
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/35 to-black/55" />
+                          {themeOption.name === theme ? (
+                            <span className="absolute inset-0 bg-gradient-to-r from-secondary/12 via-transparent to-accent/12" />
+                          ) : null}
+                          <div className="relative flex items-center gap-3">
                           <ThemeSwatch
                             icon={themeIconMap[themeOption.name as ThemeName] ?? FiStar}
                             gradient={themeOption.gradient}
                             active={themeOption.name === theme}
                           />
                           <div className="min-w-0">
-                            <p className="text-base font-semibold tracking-[0.3em]">{themeOption.label}</p>
-                            <p className="text-[0.65rem] uppercase tracking-[0.3em] text-foreground/70 line-clamp-1">
+                            <p className="text-[0.95rem] sm:text-base font-semibold tracking-[0.24em]">{themeOption.label}</p>
+                            <p className="text-[0.62rem] sm:text-[0.65rem] uppercase tracking-[0.24em] text-foreground/70 line-clamp-1">
                               {themeOption.description}
                             </p>
                           </div>
-                          <div className="ml-auto flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.25em] text-foreground/60">
+                          <div className="ml-auto flex items-center gap-2 text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] text-foreground/60">
                             <span
                               className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full shadow-[0_0_0_4px_rgba(0,0,0,0.35)]"
                               style={{ background: `linear-gradient(135deg, ${themeOption.gradient[0]}, ${themeOption.gradient[2]})` }}
@@ -307,7 +307,7 @@ export const SettingsMenu = () => {
                       return (
                         <li
                           key={labKey}
-                          className="relative overflow-hidden rounded-xl border border-foreground/12 bg-foreground/5 p-2.5 shadow-[0_8px_18px_rgba(0,0,0,0.15)] backdrop-blur"
+                          className="relative overflow-hidden rounded-xl border border-foreground/12 bg-foreground/5 p-2 shadow-[0_8px_18px_rgba(0,0,0,0.12)] backdrop-blur sm:p-2.5"
                         >
                           <div className="relative flex items-start gap-2.5">
                             <span
@@ -319,22 +319,22 @@ export const SettingsMenu = () => {
                             <div className="flex-1 space-y-1.5">
                               <div className="flex items-start justify-between gap-2">
                                 <div className="space-y-1">
-                                  <p className="text-[0.68rem] uppercase tracking-[0.28em] text-secondary">{lab.title}</p>
-                                  <p className="text-xs text-foreground/70 leading-snug">{lab.description}</p>
+                                  <p className="text-[0.66rem] uppercase tracking-[0.24em] text-secondary">{lab.title}</p>
+                                  <p className="text-[0.86rem] text-foreground/70 leading-snug sm:text-xs">{lab.description}</p>
                                 </div>
                                 <span className="rounded-full bg-secondary/12 px-2 py-[2px] text-[0.55rem] uppercase tracking-[0.26em] text-secondary/90">
                                   {lab.status ?? t('settings.beta')}
                                 </span>
                               </div>
                               <div className="flex items-center justify-between gap-2.5">
-                                <div className="flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.25em] text-foreground/55">
+                                <div className="flex items-center gap-1.5 text-[0.55rem] uppercase tracking-[0.22em] text-foreground/55">
                                   <span className="h-2 w-2 rounded-full bg-secondary shadow-[0_0_0_4px_rgba(0,0,0,0.25)]" />
                                   <span className="font-mono">{labKey}</span>
                                 </div>
                                 <button
                                   onClick={() => toggleLab(labKey)}
                                   className={clsx(
-                                    'rounded-full border px-3 py-1 text-[0.6rem] uppercase tracking-[0.25em] transition shadow-[0_6px_12px_rgba(0,0,0,0.15)]',
+                                    'rounded-full border px-3 py-[6px] text-[0.58rem] uppercase tracking-[0.22em] transition shadow-[0_6px_12px_rgba(0,0,0,0.14)]',
                                     isSubscribed
                                       ? 'border-secondary bg-secondary/15 text-secondary'
                                       : 'border-secondary/30 bg-white/5 text-secondary hover:border-secondary/60'

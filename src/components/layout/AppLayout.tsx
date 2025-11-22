@@ -18,9 +18,11 @@ export const AppLayout = () => {
   const isLoading = navigation.state === 'loading' || initialLoading;
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
-      <NeonGridBackground />
-      <ParticleField />
+    <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
+      <div className="hidden md:block">
+        <NeonGridBackground />
+        <ParticleField />
+      </div>
       <Header />
       {isLoading ? (
         <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-xl">

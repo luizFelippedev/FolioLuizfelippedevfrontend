@@ -7,21 +7,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      /* Palette alinhada ao portfolio (tema Dark Matter) */
-      --color-background: 5 5 15;
-      --color-foreground: 241 245 249;
-      --color-accent: #7f5af0;
-      --color-secondary: #2cb67d;
-      --accent: var(--color-accent);
-      --secondary: var(--color-secondary);
-      --color-surface: rgba(255, 255, 255, 0.04);
-      --color-border: rgba(255, 255, 255, 0.12);
-      --color-muted: rgba(241, 245, 249, 0.65);
-      --color-shadow: rgba(0, 0, 0, 0.8);
-      --gradient-1: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
-      --gradient-2: linear-gradient(135deg, #ff6b9d, #ffa500);
-      --gradient-3: linear-gradient(135deg, var(--color-accent), #ff6b9d, var(--color-secondary));
-
+      --bg-dark: #000020;
+      --bg-light: #f8f9fc;
+      --surface-dark: rgba(5, 5, 15, 0.85);
+      --surface-light: rgba(255, 255, 255, 0.95);
+      --accent: #7f5af0;
+      --accent-light: #9d7ff5;
+      --secondary: #82f3c4;
+      --secondary-dark: #2cb67d;
+      --tertiary: #ff6b9d;
+      --quaternary: #ffa500;
+      --text-dark: #f7f7ff;
+      --text-light: #1a1a2e;
+      --muted-dark: rgba(247, 247, 255, 0.65);
+      --muted-light: rgba(26, 26, 46, 0.65);
+      --border-dark: rgba(255, 255, 255, 0.08);
+      --border-light: rgba(26, 26, 46, 0.12);
+      --shadow-dark: rgba(0, 0, 0, 0.8);
+      --shadow-light: rgba(0, 0, 0, 0.15);
+      --gradient-1: linear-gradient(135deg, var(--accent), var(--secondary));
+      --gradient-2: linear-gradient(135deg, var(--tertiary), var(--quaternary));
+      --gradient-3: linear-gradient(135deg, var(--accent), var(--tertiary), var(--secondary));
       --mono: 'IBM Plex Mono', monospace;
       --sans: 'Space Grotesk', sans-serif;
       --display: 'Sora', sans-serif;
@@ -30,23 +36,23 @@
     }
 
     [data-theme="dark"] {
-      --bg: rgb(var(--color-background));
-      --surface: rgba(5, 5, 15, 0.85);
-      --text: rgb(var(--color-foreground));
-      --muted: var(--color-muted);
-      --border: var(--color-border);
-      --shadow: var(--color-shadow);
+      --bg: var(--bg-dark);
+      --surface: var(--surface-dark);
+      --text: var(--text-dark);
+      --muted: var(--muted-dark);
+      --border: var(--border-dark);
+      --shadow: var(--shadow-dark);
       --card-bg: rgba(255, 255, 255, 0.02);
       --card-hover: rgba(255, 255, 255, 0.05);
     }
 
     [data-theme="light"] {
-      --bg: #f8f9fc;
-      --surface: rgba(255, 255, 255, 0.95);
-      --text: #1a1a2e;
-      --muted: rgba(26, 26, 46, 0.65);
-      --border: rgba(26, 26, 46, 0.12);
-      --shadow: rgba(0, 0, 0, 0.15);
+      --bg: var(--bg-light);
+      --surface: var(--surface-light);
+      --text: var(--text-light);
+      --muted: var(--muted-light);
+      --border: var(--border-light);
+      --shadow: var(--shadow-light);
       --card-bg: rgba(255, 255, 255, 0.6);
       --card-hover: rgba(255, 255, 255, 0.9);
     }
@@ -76,9 +82,9 @@
       position: fixed;
       inset: 0;
       background: 
-        radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.18), transparent 42%),
-        radial-gradient(circle at 80% 0%, rgba(44, 182, 125, 0.14), transparent 40%),
-        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.12), transparent 52%);
+        radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(130, 243, 196, 0.1), transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(127, 90, 240, 0.1), transparent 50%);
       z-index: 0;
       pointer-events: none;
       opacity: 0;
@@ -87,15 +93,15 @@
 
     [data-theme="light"] body::before {
       background: 
-        radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.08), transparent 42%),
-        radial-gradient(circle at 80% 0%, rgba(44, 182, 125, 0.06), transparent 40%),
-        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.06), transparent 52%);
+        radial-gradient(circle at 20% 20%, rgba(127, 90, 240, 0.08), transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(130, 243, 196, 0.06), transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(255, 107, 157, 0.06), transparent 50%);
     }
 
     #cursor {
       width: 20px;
       height: 20px;
-      border: 2px solid var(--color-accent);
+      border: 2px solid var(--accent);
       border-radius: 50%;
       position: fixed;
       pointer-events: none;
@@ -106,20 +112,20 @@
 
     #cursor.active {
       transform: scale(2.5);
-      border-color: var(--color-secondary);
-      background: rgba(44, 182, 125, 0.12);
+      border-color: var(--secondary);
+      background: rgba(130, 243, 196, 0.1);
     }
 
     #cursor.text {
       transform: scale(0.5);
-      background: var(--color-accent);
+      background: var(--accent);
     }
 
     #cursorTrail {
       position: fixed;
       width: 6px;
       height: 6px;
-      background: var(--color-accent);
+      background: var(--accent);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
@@ -310,29 +316,24 @@
       top: 2rem;
       right: 2rem;
       z-index: 1000;
-      min-width: 140px;
-      padding: 0.9rem 1.1rem;
-      border-radius: 999px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
       background: var(--surface);
       border: 2px solid var(--border);
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
       cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 10px 30px var(--shadow);
       overflow: hidden;
-      font-family: var(--mono);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.8rem;
     }
 
     .theme-toggle:hover {
-      transform: translateY(-2px);
+      transform: scale(1.1) rotate(180deg);
       border-color: var(--accent);
-      box-shadow: 0 15px 40px rgba(127, 90, 240, 0.35);
+      box-shadow: 0 15px 40px rgba(127, 90, 240, 0.4);
     }
 
     .theme-toggle::before {
@@ -341,20 +342,23 @@
       inset: 0;
       background: var(--gradient-1);
       opacity: 0;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.4s ease;
     }
 
     .theme-toggle:hover::before {
-      opacity: 0.12;
+      opacity: 0.15;
     }
 
     .theme-icon {
-      font-size: 1rem;
+      font-size: 1.75rem;
+      transition: transform 0.4s ease, opacity 0.4s ease;
       position: relative;
       z-index: 1;
-      color: var(--text);
-      text-align: center;
-      white-space: nowrap;
+    }
+
+    .theme-icon.hide {
+      transform: scale(0) rotate(180deg);
+      opacity: 0;
     }
 
     .lang-selector {
@@ -2315,107 +2319,37 @@
       }, 2500);
     });
 
-    // ========== THEME TOGGLE (8 temas do portfolio) ==========
+    // ========== THEME TOGGLE ==========
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
+    const html = document.documentElement;
     const body = document.body;
 
-    const themes = [
-      {
-        name: 'dark',
-        label: 'Dark Matter',
-        background: '5 5 15',
-        foreground: '241 245 249',
-        accent: '#7f5af0',
-        secondary: '#2cb67d'
-      },
-      {
-        name: 'light',
-        label: 'Luminous',
-        background: '245 247 255',
-        foreground: '17 24 39',
-        accent: '#4338ca',
-        secondary: '#14b8a6'
-      },
-      {
-        name: 'minimal',
-        label: 'Monolight',
-        background: '4 4 4',
-        foreground: '245 245 245',
-        accent: '#475569',
-        secondary: '#94a3b8'
-      },
-      {
-        name: 'cyberpunk',
-        label: 'Cyberpunk',
-        background: '8 0 20',
-        foreground: '245 240 255',
-        accent: '#ff2e63',
-        secondary: '#08d9d6'
-      },
-      {
-        name: 'neon',
-        label: 'Neon Pulse',
-        background: '4 0 25',
-        foreground: '238 255 251',
-        accent: '#00f5ff',
-        secondary: '#ff00f5'
-      },
-      {
-        name: 'ocean',
-        label: 'Abyss',
-        background: '3 21 43',
-        foreground: '232 250 255',
-        accent: '#0ea5e9',
-        secondary: '#22d3ee'
-      },
-      {
-        name: 'forest',
-        label: 'Nebula Forest',
-        background: '5 24 12',
-        foreground: '236 250 237',
-        accent: '#16a34a',
-        secondary: '#facc15'
-      },
-      {
-        name: 'sunset',
-        label: 'Aurora',
-        background: '21 10 33',
-        foreground: '255 244 234',
-        accent: '#f97316',
-        secondary: '#fb7185'
-      }
-    ];
-
-    const applyTheme = (themeName) => {
-      const theme = themes.find((t) => t.name === themeName) || themes[0];
-      body.style.setProperty('--color-background', theme.background);
-      body.style.setProperty('--color-foreground', theme.foreground);
-      body.style.setProperty('--color-accent', theme.accent);
-      body.style.setProperty('--color-secondary', theme.secondary);
-      body.style.setProperty('--accent', theme.accent);
-      body.style.setProperty('--secondary', theme.secondary);
-      themeIcon.textContent = theme.label;
-      localStorage.setItem('theme', theme.name);
-      body.setAttribute('data-theme', theme.name === 'light' ? 'light' : 'dark');
-    };
-
-    let themeIndex = 0;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      const idx = themes.findIndex((t) => t.name === savedTheme);
-      themeIndex = idx >= 0 ? idx : 0;
-    }
-    applyTheme(themes[themeIndex].name);
+    let isDark = true;
 
     themeToggle.addEventListener('click', () => {
-      themeIndex = (themeIndex + 1) % themes.length;
-      applyTheme(themes[themeIndex].name);
-      themeToggle.style.transform = 'scale(0.94) rotate(8deg)';
+      isDark = !isDark;
+      const theme = isDark ? 'dark' : 'light';
+      body.setAttribute('data-theme', theme);
+      themeIcon.textContent = isDark ? '🌙' : '☀️';
+      
+      // Save preference
+      localStorage.setItem('theme', theme);
+      
+      // Animation
+      themeToggle.style.transform = 'scale(0.8) rotate(180deg)';
       setTimeout(() => {
         themeToggle.style.transform = 'scale(1) rotate(0deg)';
-      }, 240);
+      }, 300);
     });
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      isDark = false;
+      body.setAttribute('data-theme', 'light');
+      themeIcon.textContent = '☀️';
+    }
 
     // ========== LANGUAGE SELECTOR ==========
     const langSelector = document.getElementById('langSelector');

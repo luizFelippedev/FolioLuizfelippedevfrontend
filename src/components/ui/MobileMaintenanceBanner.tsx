@@ -78,7 +78,7 @@ export const MobileMaintenanceBanner = () => {
                 <span>Mobile</span>
               </div>
               <Link
-                to="/maintenance"
+                to="/patchnotes"
                 className="inline-flex items-center justify-center rounded-full border border-[rgba(var(--color-foreground),0.12)] bg-[rgba(var(--color-foreground),0.06)] px-3.5 py-[6px] text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground transition hover:border-[rgba(var(--color-secondary),0.6)] hover:bg-[rgba(var(--color-secondary),0.12)] hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--color-secondary),0.6)] focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--color-background))]"
               >
                 Acompanhando

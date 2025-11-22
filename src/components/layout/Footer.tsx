@@ -42,7 +42,7 @@ export const Footer = () => {
             <FiLinkedin /> LinkedIn
           </a>
           <Link
-            to="/maintenance"
+            to="/patchnotes"
             className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-foreground/70 shadow-sm transition hover:border-accent/40 hover:bg-accent/10 hover:text-accent"
           >
             Patch Notes

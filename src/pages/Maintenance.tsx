@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const patchNotes = {
   version: 'v1.4.0',
   date: '22 Nov 2025',
-  headline: 'Patch notes - melhorias de performance e UI.',
+  headline: 'PatchNotes - melhorias de performance e UI.',
   summary:
     'Refinamos a experiencia desktop/mobile, melhoramos responsividade, adicionamos aviso de manutencao mobile e ajustamos o fluxo de carregamento.',
   highlights: [
@@ -140,7 +140,7 @@ export const MaintenancePage = () => {
           <div className="rounded-3xl border border-foreground/10 bg-gradient-to-br from-accent/10 via-secondary/10 to-background p-5 text-foreground shadow-[0_20px_60px_rgba(0,0,0,0.32)]">
             <h4 className="text-sm uppercase tracking-[0.25em] text-foreground/70">Status & suporte</h4>
             <p className="mt-2 text-sm text-foreground/80">
-              Precisa de algo imediato? Fale comigo pelo contato e te atualizo sobre o rollout.
+              Precisa de algo imediato? <Link to="/contact" className="text-secondary hover:text-accent">Fale comigo</Link> e te atualizo sobre o rollout.
             </p>
             <div className="mt-4 flex flex-wrap gap-2 text-xs text-foreground/75">
               <span className="rounded-full border border-foreground/10 px-3 py-1">Uptime monitorado</span>

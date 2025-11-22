@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       { path: 'privacy', element: <PrivacyPage /> },
       { path: 'contact', element: <ContactPage /> },
       { path: 'admin', element: <AdminDashboard /> },
-      { path: 'maintenance', element: <MaintenancePage /> }
+      { path: 'patchnotes', element: <MaintenancePage /> }
     ],
     errorElement: <ErrorPage />
   },

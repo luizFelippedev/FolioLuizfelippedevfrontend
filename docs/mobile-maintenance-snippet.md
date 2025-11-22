@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 
 import { useMediaQuery } from '@hooks/useMediaQuery';
 
+const STORAGE_KEY = 'mobile-maintenance-dismissed';
+
 export const MobileMaintenanceBanner = () => {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [dismissed, setDismissed] = useState(false);
@@ -15,7 +17,7 @@ export const MobileMaintenanceBanner = () => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const storedValue = localStorage.getItem('mobile-maintenance-dismissed');
+    const storedValue = localStorage.getItem(STORAGE_KEY);
     setDismissed(storedValue === 'true');
     setHydrated(true);
   }, []);
@@ -23,7 +25,7 @@ export const MobileMaintenanceBanner = () => {
   const handleDismiss = () => {
     setDismissed(true);
     if (typeof window !== 'undefined') {
-      localStorage.setItem('mobile-maintenance-dismissed', 'true');
+      localStorage.setItem(STORAGE_KEY, 'true');
     }
   };
 

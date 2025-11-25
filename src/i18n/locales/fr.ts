@@ -190,7 +190,7 @@ const fr = {
       {
         title: 'Engineering de plateforme',
         detail: 'Delivery full-stack de dashboards immersifs, APIs temps réel et back-offices sécurisés.',
-        items: ['Full-stack builds', 'Realtime & copilotes IA', 'Playbooks CI/CD + IaC']
+        items: ['Full-stack builds', 'Realtime copilotes', 'Playbooks CI/CD + IaC']
       },
       {
         title: 'Care & growth',
@@ -258,7 +258,7 @@ const fr = {
   certificatesSection: {
     eyebrow: 'Formation continue',
     title: 'Certifications récentes',
-    description: 'Références en IA, cloud et design systémique qui alimentent ce portfolio futuriste.',
+    description: 'References en cloud et design systemique qui alimentent ce portfolio futuriste.',
     cta: 'Voir les certificats'
   },
   labsSection: {
@@ -278,58 +278,75 @@ const fr = {
     description: 'Logs hebdo sur WebGL, architectures realtime, automatisation et UX immersive.',
     cta: 'Blog complet'
   },
-  contactSection: {
-    eyebrow: 'Disponible maintenant',
-    headline: 'On crée quelque chose d’audacieux ?',
-    subheadline: 'Contact direct par email pour projets enterprise, automatisations à l’échelle et produits critiques.',
-    tags: ['Dashboards temps réel', 'Design systems', 'Copilotes IA', 'Workshops'],
-    primaryCta: 'Envoyer un message',
-    secondaryCta: 'Portfolio complet',
-    metrics: [
-      { label: 'SLA de réponse', value: '< 2h', detail: 'Délai moyen avec monitoring actif.' },
-      { label: 'Fuseaux couverts', value: 'LATAM · EU · US', detail: 'Créneaux quotidiens, peu importe le pays.' },
-      { label: 'Mises à jour stack', value: 'Hebdo', detail: 'Rapports de statut et release notes automatiques.' }
-    ],
-    commitmentsHeading: 'Circuit d’engagement',
-    commitments: [
+    contactSection: {
+    eyebrow: "Disponible maintenant",
+    headline: "On construit quelque chose de fou ?",
+    subheadline: "Contact direct par e-mail pour projets enterprise, automatisation a l'echelle et produits critiques.",
+    responseBadge: "Repond en <2h",
+    chips: ["Contact direct", "Projets enterprise", "Reponse rapide", "Design system vivant"],
+    quickCards: [
       {
-        title: 'Discovery & briefing',
-        detail: 'Objectifs, KPIs, parties prenantes et télémétrie alignés avant le design.'
+        title: "Architecture prete a scaler.",
+        detail: "Sprints courts, automatisation forte et focus disponibilite."
       },
       {
-        title: 'Blueprint d’architecture',
-        detail: 'Infra, hébergement, automatisation et intégrations validés avant le code.'
-      },
-      {
-        title: 'Boucle QA temps réel',
-        detail: 'Feature flags, previews et CI/CD pour des revues instantanées.'
-      },
-      {
-        title: 'Handoff & suivi',
-        detail: 'Accès admin, docs et politiques d’alertes restent maintenus.'
+        title: "Code et design alignes.",
+        detail: "UI, design systems, observabilite et contenu synchronises."
       }
     ],
+    tags: ["Dashboards temps reel", "Design systems", "Copilotes realtime", "Ateliers"],
+    primaryCta: "Envoyer un message",
+    secondaryCta: "Voir tout le portfolio",
+    metrics: [
+      { label: "SLA de reponse", value: "< 2h", detail: "Fenetre moyenne quand la surveillance est active." },
+      { label: "Fuseaux couverts", value: "LATAM | EU | US", detail: "Creneaux quotidiens peu importe la region." },
+      { label: "Mises a jour ops", value: "Hebdomadaire", detail: "Rapports de statut et release notes automatiques." }
+    ],
+    commitmentsHeading: "Circuit d'engagement",
+    commitments: [
+      {
+        title: "Discovery & briefing",
+        detail: "Objectifs, KPIs, parties prenantes et telemetrie avant le design."
+      },
+      {
+        title: "Blueprint d'architecture",
+        detail: "Infra, hebergement, automatisation et integrations valides avant le code."
+      },
+      {
+        title: "Boucle QA temps reel",
+        detail: "Feature flags, previews et CI/CD pour des revues instantanees."
+      },
+      {
+        title: "Handoff & suivi",
+        detail: "Acces admin, docs et politiques d'alertes maintenus apres livraison."
+      }
+    ],
+    personal: {
+      title: 'Luiz repond en personne.',
+      detail: 'Pas de file ni bot; ton email ou DM arrive directement chez moi.',
+      cta: 'Dire bonjour'
+    },
     channels: {
       email: {
-        label: 'Email',
-        hint: 'Inbox directe surveillée 24/7',
-        action: 'Copier email'
+        label: "Email",
+        hint: "Boite directe surveillee 24/7",
+        action: "Copier l'email"
       },
       social: {
-        label: 'Instagram',
-        hint: 'DM ouvertes pour sync rapides',
-        action: 'Ouvrir profil'
+        label: "Instagram",
+        hint: "DM ouvertes pour sync rapides",
+        action: "Ouvrir le profil"
       }
     },
     status: {
-      label: 'Maille de notifications',
-      message: 'SMTP + alertes admin déjà configurés.',
-      detail: 'Chaque message déclenche des logs analytics et confirmation de livraison.'
+      label: "Maille de notifications",
+      message: "SMTP + alertes admin deja configures.",
+      detail: "Chaque contact declenche logs analytics et confirmation de livraison."
     },
     copyState: {
-      success: 'Copié !'
+      success: "Copie !"
     },
-    note: 'Stack temps réel, tooling IA et design system vivant prêts pour votre projet.'
+    note: "Stack temps reel et design system vivant prets. Construisons ensemble."
   },
   settings: {
     label: 'Réglages',
@@ -353,8 +370,8 @@ const fr = {
         status: 'Laboratoire design'
       },
       aiAutomation: {
-        title: 'Automations IA',
-        description: 'Déclenchez builds et scripts basés sur les insights IA.',
+        title: 'Automations avancees',
+        description: 'Déclenchez builds et scripts basés sur les signaux telemetry.',
         status: 'Beta privée'
       }
     },
@@ -648,33 +665,87 @@ const fr = {
     }
   }
   ,
-  patchNotes: {
-    headline: 'PatchNotes - ameliorations de performance et UI.',
-    summary:
-      'Nous avons affine l experience desktop/mobile, ameliore la reactivite, ajoute un avis de maintenance mobile et ajuste le flux de chargement.',
+        patchNotes: {
+    headline: 'PatchNotes - performance, SEO et DX.',
+    summary: 'Split des paquets, lazy load, metas SEO, robots/sitemap, focus visible et motion reduit.',
     highlights: [
-      'Nouvelle barre d alerte mobile avec fermeture et persistance.',
-      'Banniere flottante plus legere et plus reactive.',
-      'Ajustements de contraste pour modes clair/sombre.'
+      'Manual chunks vendor/router/query/motion/i18n, retrait de three.js inutile.',
+      'Sections home en lazy load avec Suspense pour reduire le first paint.',
+      'SEO: meta description/OG/robots + sitemap.xml et robots.txt.',
+      'A11y: focus-visible et prefers-reduced-motion.'
     ],
     changes: [
-      'Home: fond anime et gradients optimises pour reduire l usage GPU.',
-      'UI: composants utilisent les variables de couleur du theme pour garder le contraste.',
-      'Layout: banniere mobile avec CTA vers patch notes, meilleure reactivite sur petits breakpoints.',
-      'Accessibilite: focus visible sur CTA et bouton de fermeture.'
+      'Bundle initial plus leger.',
+      'Cartes de contact avec hover/badges plus propres.',
+      'CTA contact garde email et Instagram actifs.'
     ],
     fixes: [
-      'Correction du chevauchement du bouton X sur l alerte mobile.',
-      'Typographie corrigee pour eviter les caracteres casses dans manutencao.',
-      'Ombres des cartes adoucies pour eviter le clipping sur petits ecrans.'
+      'Ajustements recents appliques.',
+      'Meta/textes nettoyes pour eviter les caracteres casses.'
     ],
     next: [
-      'Activer dark/light automatique selon la preference systeme.',
-      'Ajouter une carte de statut d uptime en temps reel.',
-      'Publier un guide de style pour les composants interactifs.',
-      'Refondre tout le frontend mobile-first avec accessibilite complete et navigation simple.'
+      'Isoler react-icons ou passer en SVG inline pour reduire vendor.',
+      'Reduire ou auto-heberger les polices (deux familles).',
+      'Optimiser favicon.png ou passer en WebP.'
     ]
-  }
-};
+  },
+  patchNotesHistory: [
+    {
+      version: 'v1.4.1',
+      date: '22 Nov 2025',
+      headline: 'PatchNotes - performance, SEO et DX.',
+      summary: 'Split des paquets, lazy load, metas SEO, robots/sitemap, focus visible et motion reduit.',
+      highlights: [
+        'Manual chunks vendor/router/query/motion/i18n, retrait de three.js inutile.',
+        'Sections home en lazy load avec Suspense pour reduire le first paint.',
+        'SEO: meta description/OG/robots + sitemap.xml et robots.txt.',
+        'A11y: focus-visible et prefers-reduced-motion.'
+      ],
+      changes: [
+        'Bundle initial plus leger.',
+        'Cartes de contact avec hover/badges plus propres.',
+        'CTA contact garde email et Instagram actifs.'
+      ],
+      fixes: [
+        'Ajustements recents appliques.',
+        'Meta/textes nettoyes pour eviter les caracteres casses.'
+      ],
+      next: [
+        'Isoler react-icons ou passer en SVG inline pour reduire vendor.',
+        'Reduire ou auto-heberger les polices (deux familles).',
+        'Optimiser favicon.png ou passer en WebP.'
+      ]
+    },
+    {
+      version: 'v1.3.0',
+      date: '05 Nov 2025',
+      headline: 'PatchNotes - UI et mobilite.',
+      summary: 'Alerte mobile persistante, contraste ameliore et chargement allege.',
+      highlights: [
+        'Barre mobile avec fermeture et persistance.',
+        'Banniere flottante plus legere et reactive.',
+        'Contraste meilleur pour clair/sombre.'
+      ],
+      changes: [
+        'Home: fond anime optimise pour moins de GPU.',
+        'UI: couleurs via theme pour garder le contraste.',
+        'Layout: banniere mobile avec CTA vers patch notes.',
+        'A11y: focus visible sur CTA et bouton fermer.'
+      ],
+      fixes: [
+        'Chevauchement du bouton X corrige.',
+        'Typo ajustee pour eviter les caracteres casses.',
+        'Ombres adoucies sur cartes petites.'
+      ],
+      next: [
+        'Activer dark/light automatique par systeme.',
+        'Ajouter une carte uptime temps reel.',
+        'Publier un guide de style composants.'
+      ]
+    }
+  ],
 
-export default fr;
+  };
+
+  export default fr;
+

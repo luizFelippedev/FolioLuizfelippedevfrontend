@@ -215,7 +215,7 @@ const es = {
       {
         title: 'Ingeniería de plataformas',
         detail: 'Entrega full-stack de dashboards inmersivos, APIs realtime y admins seguros.',
-        items: ['Full-stack builds', 'Realtime & IA copilots', 'Playbooks de CI/CD + IaC']
+        items: ['Full-stack builds', 'Realtime copilots', 'Playbooks de CI/CD + IaC']
       },
       {
         title: 'Care & growth',
@@ -283,7 +283,7 @@ const es = {
   certificatesSection: {
     eyebrow: 'Formación continua',
     title: 'Certificaciones recientes',
-    description: 'Pesos pesados en IA, cloud y diseño sistémico que alimentan este portafolio futurista.',
+    description: 'Pesos pesados en cloud y diseño sistémico que alimentan este portafolio futurista.',
     cta: 'Ver certificados'
   },
   labsSection: {
@@ -305,35 +305,52 @@ const es = {
   },
   contactSection: {
     eyebrow: 'Disponible ahora',
-    headline: '¿Creamos algo fuera de serie?',
-    subheadline: 'Contacto directo por email para proyectos enterprise, automatizaciones a escala y productos críticos.',
-    tags: ['Dashboards realtime', 'Design systems', 'Copilotos IA', 'Workshops'],
+    headline: '?Creamos algo fuera de serie?',
+    subheadline: 'Contacto directo por email para proyectos enterprise, automatizaci?n a escala y productos cr?ticos.',
+    responseBadge: 'Responde en <2h',
+    chips: ['Contacto directo', 'Proyectos enterprise', 'Respuesta r?pida', 'Design system vivo'],
+    quickCards: [
+      {
+        title: 'Arquitectura lista para escalar.',
+        detail: 'Sprints cortos, automatizaci?n fuerte y foco en disponibilidad.'
+      },
+      {
+        title: 'C?digo y dise?o alineados.',
+        detail: 'UI, design systems, observabilidad y contenido sincronizados.'
+      }
+    ],
+    tags: ['Dashboards enterprise', 'Observabilidad', 'Copilotos realtime', 'Workshops'],
     primaryCta: 'Enviar mensaje',
     secondaryCta: 'Portafolio completo',
     metrics: [
-      { label: 'SLA de respuesta', value: '< 2h', detail: 'Ventana promedio mientras la monitorización está activa.' },
-      { label: 'Cobertura horaria', value: 'LATAM · EU · US', detail: 'Bloques diarios sin importar el país.' },
-      { label: 'Actualizaciones de stack', value: 'Semanal', detail: 'Reportes de estado y release notes automáticos.' }
+      { label: 'SLA de respuesta', value: '< 2h', detail: 'Ventana media mientras la monitorizaci?n est? activa.' },
+      { label: 'Cobertura horaria', value: 'LATAM | EU | US', detail: 'Bloques diarios sin importar el pa?s.' },
+      { label: 'Actualizaciones de stack', value: 'Semanal', detail: 'Reportes de estado y release notes autom?ticos.' }
     ],
     commitmentsHeading: 'Circuito de engagement',
     commitments: [
       {
         title: 'Discovery & briefing',
-        detail: 'Recojo objetivos, KPIs, stakeholders y telemetría antes de diseñar.'
+        detail: 'Recojo objetivos, KPIs, stakeholders y telemetr?a antes de dise?ar.'
       },
       {
         title: 'Blueprint de arquitectura',
-        detail: 'Infra, hosting, automatización e integraciones validadas antes del código.'
+        detail: 'Infra, hosting, automatizaci?n e integraciones validadas antes del c?digo.'
       },
       {
         title: 'Loop de QA realtime',
-        detail: 'Feature flags, previews y CI/CD para revisiones instantáneas.'
+        detail: 'Feature flags, previews y CI/CD para revisiones instant?neas.'
       },
       {
-        title: 'Handoff & soporte',
-        detail: 'Acceso admin, docs y políticas de alertas se mantienen tras la entrega.'
+        title: 'Handoff y cuidado continuo',
+        detail: 'Acceso admin, docs y alertas se mantienen tras la entrega.'
       }
     ],
+    personal: {
+      title: 'Luiz responde en persona.',
+      detail: 'Sin fila ni bot; el email o DM llega directo a mi bandeja.',
+      cta: 'Saludar'
+    },
     channels: {
       email: {
         label: 'Email',
@@ -342,19 +359,19 @@ const es = {
       },
       social: {
         label: 'Instagram',
-        hint: 'DM abiertas para syncs rápidos',
+        hint: 'DM abiertas para syncs r?pidos',
         action: 'Abrir perfil'
       }
     },
     status: {
       label: 'Malla de notificaciones',
       message: 'SMTP + alertas del admin ya configurados.',
-      detail: 'Cada envío dispara logs de analytics y confirmación de entrega.'
+      detail: 'Cada env?o dispara logs de analytics y confirmaci?n de entrega.'
     },
     copyState: {
-      success: '¡Copiado!'
+      success: '?Copiado!'
     },
-    note: 'Stack realtime, tooling de IA y diseño vivo listos para tu proyecto.'
+    note: 'Stack realtime y dise?o vivo listos para tu proyecto. Construyamos algo juntos.'
   },
   settings: {
     label: 'Configuración',
@@ -378,8 +395,8 @@ const es = {
         status: 'Laboratorio de diseño'
       },
       aiAutomation: {
-        title: 'Automatizaciones con IA',
-        description: 'Dispara builds y scripts según insights de IA.',
+        title: 'Automatizaciones avanzadas',
+        description: 'Dispara builds y scripts según se?ales.',
         status: 'Beta privada'
       }
     },
@@ -673,33 +690,87 @@ const es = {
     }
   }
   ,
-  patchNotes: {
-    headline: 'PatchNotes - mejoras de rendimiento y UI.',
-    summary:
-      'Refinamos la experiencia desktop/mobile, mejoramos la respuesta, agregamos aviso de mantenimiento mobile y ajustamos el flujo de carga.',
+        patchNotes: {
+    headline: 'PatchNotes - rendimiento, SEO y DX.',
+    summary: 'Split de paquetes, lazy load, metas SEO, robots/sitemap, focus visible y motion reducido.',
     highlights: [
-      'Nueva barra de aviso mobile con cierre y persistencia.',
-      'Banner flotante mas liviano y responsivo.',
-      'Ajustes de contraste para modos claro/oscuro.'
+      'Manual chunks para vendor/router/query/motion/i18n y three.js no usado.',
+      'Secciones de home en lazy load con Suspense para bajar el first paint.',
+      'SEO: meta description/OG/robots mas sitemap.xml y robots.txt.',
+      'A11y: focus-visible y prefers-reduced-motion.'
     ],
     changes: [
-      'Home: optimizado fondo animado y gradientes para reducir uso de GPU.',
-      'UI: componentes ahora usan variables de color del tema para mantener contraste en todos los modos.',
-      'Layout: banner mobile con CTA a patch notes, mejor respuesta en breakpoints pequenos.',
-      'Accesibilidad: foco visible en CTA y boton de cierre del aviso.'
+      'Bundle inicial mas liviano.',
+      'Tarjetas de contacto con hover/badges limpios.',
+      'CTA de contacto mantiene email e Instagram activos.'
     ],
     fixes: [
-      'Arreglo del solapamiento del boton X en el aviso mobile.',
-      'Tipografia corregida para evitar caracteres rotos en manutencao.',
-      'Sombras suavizadas en tarjetas para evitar clipping en pantallas pequenas.'
+      'Ajustes recientes aplicados.',
+      'Meta/texto limpiados para evitar caracteres rotos.'
     ],
     next: [
-      'Activar dark/light automatico segun preferencia del sistema.',
-      'Agregar card de status de uptime en tiempo real.',
-      'Publicar guia de estilo para componentes interactivos.',
-      'Reformular todo el frontend mobile-first con accesibilidad completa y navegacion sencilla.'
+      'Separar react-icons o usar SVG inline para achicar vendor.',
+      'Reducir u hospedar fuentes (dos familias).',
+      'Optimizar favicon.png o pasar a WebP.'
     ]
-  }
-};
+  },
+  patchNotesHistory: [
+    {
+      version: 'v1.4.1',
+      date: '22 Nov 2025',
+      headline: 'PatchNotes - rendimiento, SEO y DX.',
+      summary: 'Split de paquetes, lazy load, metas SEO, robots/sitemap, focus visible y motion reducido.',
+      highlights: [
+        'Manual chunks para vendor/router/query/motion/i18n y three.js no usado.',
+        'Secciones de home en lazy load con Suspense para bajar el first paint.',
+        'SEO: meta description/OG/robots mas sitemap.xml y robots.txt.',
+        'A11y: focus-visible y prefers-reduced-motion.'
+      ],
+      changes: [
+        'Bundle inicial mas liviano.',
+        'Tarjetas de contacto con hover/badges limpios.',
+        'CTA de contacto mantiene email e Instagram activos.'
+      ],
+      fixes: [
+        'Ajustes recientes aplicados.',
+        'Meta/texto limpiados para evitar caracteres rotos.'
+      ],
+      next: [
+        'Separar react-icons o usar SVG inline para achicar vendor.',
+        'Reducir u hospedar fuentes (dos familias).',
+        'Optimizar favicon.png o pasar a WebP.'
+      ]
+    },
+    {
+      version: 'v1.3.0',
+      date: '05 Nov 2025',
+      headline: 'PatchNotes - UI y movilidad.',
+      summary: 'Aviso mobile persistente, contraste mejor y carga mas ligera.',
+      highlights: [
+        'Barra mobile con cierre y persistencia.',
+        'Banner flotante mas ligero y responsivo.',
+        'Contraste mejor para claro/oscuro.'
+      ],
+      changes: [
+        'Home: fondo animado optimizado para menor GPU.',
+        'UI: colores por tema para sostener contraste.',
+        'Layout: banner mobile con CTA a patch notes.',
+        'A11y: foco visible en CTA y boton de cierre.'
+      ],
+      fixes: [
+        'Corregido solapamiento del boton X.',
+        'Tipografia ajustada para evitar caracteres rotos.',
+        'Sombras suavizadas en tarjetas pequenas.'
+      ],
+      next: [
+        'Activar dark/light automatico por sistema.',
+        'Agregar card de uptime en tiempo real.',
+        'Publicar guia de estilo de componentes.'
+      ]
+    }
+  ],
 
-export default es;
+  };
+
+  export default es;
+

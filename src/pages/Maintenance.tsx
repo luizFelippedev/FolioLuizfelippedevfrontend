@@ -1,6 +1,7 @@
 import { FiArrowUpRight, FiCheckCircle, FiClock, FiInfo, FiLayers, FiRefreshCw, FiZap } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useMemo, useState } from 'react';
 
 type PatchNotesContent = {
   version: string;
@@ -13,33 +14,56 @@ type PatchNotesContent = {
   next: string[];
 };
 
-const patchNotesFallback: PatchNotesContent = {
-  version: 'v1.4.0',
+const latestFallback: PatchNotesContent = {
+  version: 'v1.4.1',
   date: '22 Nov 2025',
-  headline: 'PatchNotes - melhorias de performance e UI.',
+  headline: 'PatchNotes - performance, SEO e DX.',
   summary:
-    'Refinamos a experiencia desktop/mobile, melhoramos responsividade, adicionamos aviso de manutencao mobile e ajustamos o fluxo de carregamento.',
+    'Split de pacotes, lazy load, metas SEO, robots/sitemap, foco visivel e motion reduzido. Manual chunks, remoção de three.js não usado.',
   highlights: [
-    'Nova barra de aviso mobile com botao de fechar e persistencia.',
-    'Layout mais leve e responsivo no banner flutuante.',
-    'Ajustes de contraste para temas claro/escuro.'
+    'Manual chunks para vendor/router/query/motion/i18n.',
+    'Seções da home em lazy load com Suspense para reduzir o first paint.',
+    'SEO: meta description/OG/robots + sitemap.xml e robots.txt.',
+    'A11y: focus-visible e suporte a prefers-reduced-motion.'
   ],
   changes: [
-    'Home: otimizacao do fundo animado e do gradiente para reduzir uso de GPU.',
-    'UI: componentes agora usam variaveis de cor do tema para manter contraste em todos os modos.',
-    'Layout: banner mobile com CTA para patch notes, responsividade melhorada em breakpoints menores.',
-    'Acessibilidade: foco visivel em CTA e botao de fechar do aviso.'
+    'Bundle inicial menor.',
+    'Cartões de contato com hover/badges limpos.',
+    'CTA de contato mantém email e Instagram ativos.'
+  ],
+  fixes: ['Menções a AI removidas.', 'Texto/meta limpos para evitar caracteres quebrados.'],
+  next: [
+    'Separar react-icons ou usar SVG inline para reduzir vendor.',
+    'Hospedar ou reduzir fontes para duas famílias.',
+    'Otimizar favicon.png ou trocar para WebP.'
+  ]
+};
+
+const previousFallback: PatchNotesContent = {
+  version: 'v1.3.0',
+  date: '05 Nov 2025',
+  headline: 'PatchNotes - UI e mobilidade.',
+  summary: 'Aviso mobile com persistência, contraste ajustado e carregamento mais leve.',
+  highlights: [
+    'Barra mobile com botão de fechar e persistência.',
+    'Banner flutuante mais leve e responsivo.',
+    'Contraste melhor para temas claro/escuro.'
+  ],
+  changes: [
+    'Home: fundo animado otimizado para reduzir GPU.',
+    'UI: cores via tema para manter contraste.',
+    'Layout: banner mobile com CTA para patch notes.',
+    'Acessibilidade: foco visível em CTA e botão de fechar.'
   ],
   fixes: [
-    'Correcao do overlap do botao X no aviso mobile.',
-    'Tipografia corrigida para evitar caracteres quebrados em manutencao.',
-    'Suavizacao de sombras em cartoes para evitar clipping em telas pequenas.'
+    'Corrigido overlap do botão X no aviso mobile.',
+    'Tipografia ajustada para evitar caracteres quebrados.',
+    'Sombras suavizadas em cartões em telas pequenas.'
   ],
   next: [
-    'Liberar dark/light automatico conforme preferencia do sistema.',
+    'Liberar dark/light automático pelo sistema.',
     'Adicionar card de status de uptime em tempo real.',
-    'Publicar guia de estilo para componentes interativos.',
-    'Reformular todo o frontend para mobile-first com acessibilidade total e conteudo facil de navegar.'
+    'Guia de estilo para componentes interativos.'
   ]
 };
 
@@ -74,21 +98,49 @@ const Section = ({ title, items }: { title: string; items: string[] }) => (
 
 export const MaintenancePage = () => {
   const { t } = useTranslation();
-  const localized = t('patchNotes', { returnObjects: true }) as Partial<PatchNotesContent>;
-  const patchNotes: PatchNotesContent = {
-    ...patchNotesFallback,
-    ...localized,
-    highlights: localized?.highlights ?? patchNotesFallback.highlights,
-    changes: localized?.changes ?? patchNotesFallback.changes,
-    fixes: localized?.fixes ?? patchNotesFallback.fixes,
-    next: localized?.next ?? patchNotesFallback.next
-  };
+  const localizedLatest = t('patchNotes', { returnObjects: true }) as Partial<PatchNotesContent>;
+  const localizedHistory = t('patchNotesHistory', { returnObjects: true }) as PatchNotesContent[];
+
+  const history = useMemo<PatchNotesContent[]>(() => {
+    if (Array.isArray(localizedHistory) && localizedHistory.length > 0) {
+      return localizedHistory;
+    }
+    const mergedLatest: PatchNotesContent = {
+      ...latestFallback,
+      ...localizedLatest,
+      highlights: localizedLatest?.highlights ?? latestFallback.highlights,
+      changes: localizedLatest?.changes ?? latestFallback.changes,
+      fixes: localizedLatest?.fixes ?? latestFallback.fixes,
+      next: localizedLatest?.next ?? latestFallback.next
+    };
+    return [mergedLatest, previousFallback];
+  }, [localizedHistory, localizedLatest]);
+
+  const [selectedVersion, setSelectedVersion] = useState<string>(history[0]?.version ?? latestFallback.version);
+  const patchNotes = history.find((entry) => entry.version === selectedVersion) ?? history[0] ?? latestFallback;
 
   return (
     <main className="page-shell space-y-10 py-24 text-foreground md:space-y-12 md:py-24" aria-labelledby="maintenance-title">
       <header className="relative overflow-hidden rounded-3xl border border-foreground/10 bg-gradient-to-r from-background via-background/70 to-background/50 p-6 shadow-[0_28px_80px_rgba(0,0,0,0.45)] md:p-8">
         <div className="absolute inset-0 blur-3xl bg-[radial-gradient(circle_at_20%_20%,rgba(93,102,255,0.28),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(0,232,255,0.22),transparent_30%)]" />
         <div className="relative space-y-4">
+          <div className="flex flex-wrap items-center gap-3 text-sm text-foreground/80">
+            <label className="text-xs uppercase tracking-[0.2em]" htmlFor="version-select">
+              Selecionar versão
+            </label>
+            <select
+              id="version-select"
+              className="rounded-full border border-foreground/15 bg-background/80 px-3 py-2 text-sm text-foreground focus-visible:outline focus-visible:outline-accent"
+              value={selectedVersion}
+              onChange={(e) => setSelectedVersion(e.target.value)}
+            >
+              {history.map((entry) => (
+                <option key={entry.version} value={entry.version}>
+                  {entry.version} - {entry.date}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className="flex flex-wrap items-center gap-2" aria-label="Metadados de versao">
             <Pill ariaLabel="Patch Notes">
               <FiZap className="text-accent" />

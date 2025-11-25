@@ -205,7 +205,7 @@ const ja: LocaleShape = {
       {
         title: 'Platform Engineering',
         detail: '没入型ダッシュボード、Realtime API、堅牢な管理ツールをフルスタックで提供。',
-        items: ['Full-stack builds', 'Realtime & AI Copilots', 'CI/CD・IaCプレイブック']
+        items: ['Full-stack builds', 'Realtime Copilots', 'CI/CD・IaCプレイブック']
       },
       {
         title: 'Care & Growth',
@@ -260,7 +260,7 @@ const ja: LocaleShape = {
   certificatesSection: {
     eyebrow: '継続学習',
     title: '最新の認定',
-    description: 'AI・クラウド・システムデザインのヘビー級がこのポートフォリオを支えます。',
+    description: '・クラウド・システムデザインのヘビー級がこのポートフォリオを支えます。',
     cta: '認定を見る'
   },
   labsSection: {
@@ -281,57 +281,74 @@ const ja: LocaleShape = {
     cta: 'ブログへ'
   },
   contactSection: {
-    eyebrow: '受付中',
-    headline: '挑戦的なプロジェクトを一緒に？',
-    subheadline: 'エンタープライズ案件・大規模オートメーション・クリティカルなプロダクトはメール経由で直接対応します。',
-    tags: ['リアルタイムダッシュボード', 'デザインシステム', 'AIコパイロット', 'ワークショップ'],
-    primaryCta: 'メッセージを送る',
-    secondaryCta: 'フルポートフォリオ',
-    metrics: [
-      { label: '回答 SLA', value: '< 2h', detail: '監視が稼働している間の平均レスポンス。' },
-      { label: '対応タイムゾーン', value: 'LATAM · EU · US', detail: '地域を問わず毎日スロットを用意。' },
-      { label: 'スタック更新', value: '毎週', detail: 'ステータスレポートとリリースノートを自動送信。' }
-    ],
-    commitmentsHeading: 'エンゲージメントフロー',
-    commitments: [
+    eyebrow: '????',
+    headline: '???????????????????',
+    subheadline: '????????????????????????????????????????????',
+    responseBadge: '??2???????',
+    chips: ['???????', '??????????', '???', '?????????????'],
+    quickCards: [
       {
-        title: 'Discovery & ブリーフィング',
-        detail: 'デザイン前にゴール・KPI・ステークホルダー・テレメトリを整理。'
+        title: '???????????????',
+        detail: '????????????????????'
       },
       {
-        title: 'アーキテクチャ青写真',
-        detail: 'インフラ・ホスティング・自動化・連携をコーディング前に確定。'
-      },
-      {
-        title: 'Realtime QA ループ',
-        detail: 'フィーチャーフラグとプレビューURL、CI/CDで即レビュー。'
-      },
-      {
-        title: 'ハンドオフ & ケア',
-        detail: '納品後も管理画面、ドキュメント、アラートポリシーを維持。'
+        title: '????????????',
+        detail: 'UI????????????????????????????????'
       }
     ],
+    tags: ['?????????????', '????????', '??????', '???????'],
+    primaryCta: '????????',
+    secondaryCta: '??????????',
+    metrics: [
+      { label: '??SLA', value: '< 2h', detail: '?????????????????' },
+      { label: '????????', value: 'LATAM | EU | US', detail: '????????????????' },
+      { label: '????????', value: '??', detail: '???????????????????????' }
+    ],
+    commitmentsHeading: '???????????',
+    commitments: [
+      {
+        title: '??????? & ???????',
+        detail: '????KPI???????????????????????????'
+      },
+      {
+        title: '?????????',
+        detail: '?????????????????????????????????'
+      },
+      {
+        title: '??????QA???',
+        detail: '???????????????URL?CI/CD???????????'
+      },
+      {
+        title: '????????',
+        detail: '????????????????????????????'
+      }
+    ],
+    personal: {
+      title: 'Luiz ga jikishin ni henjin shimasu.',
+      detail: 'Bot mo queue mo nashi. Email ya DM ga chokusetsu todokimasu.',
+      cta: 'Hi wo okuru'
+    },
     channels: {
       email: {
-        label: 'メール',
-        hint: '24/7監視のダイレクト受信箱',
-        action: 'メールをコピー'
+        label: 'Email',
+        hint: '24/7???????????? inbox',
+        action: '???????'
       },
       social: {
         label: 'Instagram',
-        hint: '素早い同期用にDMオープン',
-        action: 'プロフィールを開く'
+        hint: 'DM???????????',
+        action: '?????????'
       }
     },
     status: {
-      label: '通知メッシュ',
-      message: 'SMTPと管理者アラートはすでに稼働。',
-      detail: '送信ごとに分析ログと配信確認を記録します。'
+      label: '??????',
+      message: 'SMTP????????????????',
+      detail: '???????????????????????'
     },
     copyState: {
-      success: 'コピーしました！'
+      success: '????????'
     },
-    note: 'リアルタイムスタック、AIツール、生きたデザインシステムで次のローンチを組み立てましょう。'
+    note: '????????????????????????????????? ???????????'
   },
   settings: {
     ...en.settings,
@@ -415,35 +432,88 @@ const ja: LocaleShape = {
       success: '送信しました。ありがとうございます！',
       error: '問題が発生しました。もう一度お試しください。'
     }
-  }
-  patchNotes: {
-    ...en.patchNotes,
-    headline: 'PatchNotes - performance to UI no kaizen.',
-    summary:
-      'Desktop/Mobile no keiken o seitei, hanshiyou o kaizen, mobile maintenance notice o t追加, load flow o tune shimashita.',
+  },
+        patchNotes: {
+    headline: 'PatchNotes - performance, SEO, DX',
+    summary: 'Manual chunks, lazy load, SEO meta/robots/sitemap, focus-visible, motion reduce.',
     highlights: [
-      'Mobile notice bar: close to kizon.',
-      'Karui hasshiyou no floating banner.',
-      'Hikar/shadow mode no contrast chousei.'
+      'vendor/router/query/motion/i18n manual chunk, unused three.js removed.',
+      'Home sections lazy load + Suspense for lighter first paint.',
+      'SEO: meta description/OG/robots plus sitemap.xml, robots.txt.',
+      'A11y: focus-visible outline and prefers-reduced-motion.'
     ],
     changes: [
-      'Home: anime background to gradient o saiteki-ka shite GPU riyou o sakugen.',
-      'UI: komponente ga theme no iro variable o tsukatte contrast o iji.',
-      'Layout: mobile banner + CTA to patch notes, chisana breakpoint de no hanshiyou o kaizen.',
-      'Access: CTA to tojiru botan ni mieru focus.'
+      'Initial bundle smaller.',
+      'Contact cards hover/badges cleaned.',
+      'Contact CTA keeps email and Instagram active.'
     ],
     fixes: [
-      'Mobile notice no X botan kasanari o shuusei.',
-      'Manutencao no mojibake o fusuru you typografi o shuusei.',
-      'Small screen de no clipping o fusegu tame card shadow o yawarakaku.'
+      'Recent removals applied.',
+      'Meta/text cleaned to avoid broken chars.'
     ],
     next: [
-      'System osendaku ni yoru dark/light jido切替.',
-      'Jikan tou realtime uptime status card o追加.',
-      'Interactive component no style guide o koukai.',
-      'Zen frontend o mobile-first + full accessibility + kantan navigation de saikouchiku.'
+      'Split react-icons or use SVG inline to shrink vendor.',
+      'Trim fonts to two families / self-host.',
+      'Optimize favicon.png or move to WebP.'
     ]
-  }
-};
+  },
+  patchNotesHistory: [
+    {
+      version: 'v1.4.1',
+      date: '22 Nov 2025',
+      headline: 'PatchNotes - performance, SEO, DX',
+      summary: 'Manual chunks, lazy load, SEO meta/robots/sitemap, focus-visible, motion reduce.',
+      highlights: [
+        'vendor/router/query/motion/i18n manual chunk, unused three.js removed.',
+        'Home sections lazy load + Suspense for lighter first paint.',
+        'SEO: meta description/OG/robots plus sitemap.xml, robots.txt.',
+        'A11y: focus-visible outline and prefers-reduced-motion.'
+      ],
+      changes: [
+        'Initial bundle smaller.',
+        'Contact cards hover/badges cleaned.',
+        'Contact CTA keeps email and Instagram active.'
+      ],
+      fixes: [
+        'Recent removals applied.',
+        'Meta/text cleaned to avoid broken chars.'
+      ],
+      next: [
+        'Split react-icons or use SVG inline to shrink vendor.',
+        'Trim fonts to two families / self-host.',
+        'Optimize favicon.png or move to WebP.'
+      ]
+    },
+    {
+      version: 'v1.3.0',
+      date: '05 Nov 2025',
+      headline: 'PatchNotes - UI and mobility',
+      summary: 'Mobile notice with persistence, better contrast, lighter load.',
+      highlights: [
+        'Mobile bar with close and persistence.',
+        'Lighter floating banner.',
+        'Better contrast for light/dark.'
+      ],
+      changes: [
+        'Home: animated background tuned to reduce GPU.',
+        'UI: theme colors keep contrast.',
+        'Layout: mobile banner with CTA to patch notes.',
+        'A11y: visible focus on CTA and close button.'
+      ],
+      fixes: [
+        'Fixed overlap of X button.',
+        'Typography adjusted to avoid broken chars.',
+        'Softer shadows on small cards.'
+      ],
+      next: [
+        'Enable dark/light automatic by system.',
+        'Add realtime uptime card.',
+        'Publish style guide for components.'
+      ]
+    }
+  ],
 
-export default ja;
+  };
+
+  export default ja;
+

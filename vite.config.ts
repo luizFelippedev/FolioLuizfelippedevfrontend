@@ -9,6 +9,22 @@ export default defineConfig({
   server: {
     port: 5173
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react-router-dom')) return 'router';
+            if (id.includes('@tanstack/react-query')) return 'query';
+            if (id.includes('framer-motion')) return 'motion';
+            if (id.includes('react-i18next') || id.includes('i18next')) return 'i18n';
+            return 'vendor';
+          }
+        }
+      }
+    },
+    chunkSizeWarningLimit: 900
+  },
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, './src/components'),

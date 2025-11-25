@@ -205,7 +205,7 @@ const it: LocaleShape = {
       {
         title: 'Ingegneria di piattaforma',
         detail: 'Delivery full-stack di dashboard immersivi, API realtime e admin sicuri.',
-        items: ['Full-stack builds', 'Realtime & copiloti IA', 'Playbook CI/CD + IaC']
+        items: ['Full-stack builds', 'Realtime copiloti', 'Playbook CI/CD + IaC']
       },
       {
         title: 'Care & growth',
@@ -261,7 +261,7 @@ const it: LocaleShape = {
   certificatesSection: {
     eyebrow: 'Formazione continua',
     title: 'Certificazioni recenti',
-    description: 'Heavy hitter in AI, cloud e design sistemico che alimentano questo portfolio.',
+    description: 'Heavy hitter in cloud e design sistemico che alimentano questo portfolio.',
     cta: 'Vedi certificati'
   },
   labsSection: {
@@ -283,35 +283,52 @@ const it: LocaleShape = {
   },
   contactSection: {
     eyebrow: 'Disponibile ora',
-    headline: 'Pronto a creare qualcosa di audace?',
-    subheadline: 'Contatto diretto via email per progetti enterprise, automazione su scala e prodotti critici.',
-    tags: ['Dashboard realtime', 'Design systems', 'Copiloti IA', 'Workshop'],
-    primaryCta: 'Invia messaggio',
-    secondaryCta: 'Portfolio completo',
+    headline: 'Creiamo qualcosa fuori dal comune?',
+    subheadline: 'Contatto diretto via email per progetti enterprise, automazione su larga scala e prodotti critici.',
+    responseBadge: 'Risponde in <2h',
+    chips: ['Contatto diretto', 'Progetti enterprise', 'Risposta rapida', 'Design system vivo'],
+    quickCards: [
+      {
+        title: 'Architettura pronta a scalare.',
+        detail: 'Sprint brevi, automazione forte e focus sulla disponibilit?.'
+      },
+      {
+        title: 'Codice e design allineati.',
+        detail: 'UI, design system, observability e contenuti in sincrono.'
+      }
+    ],
+    tags: ['Dashboard enterprise', 'Osservabilit?', 'Copilot realtime', 'Workshop'],
+    primaryCta: 'Invia un messaggio',
+    secondaryCta: 'Vedi il portfolio completo',
     metrics: [
       { label: 'SLA di risposta', value: '< 2h', detail: 'Finestra media con monitoraggio attivo.' },
-      { label: 'Fusi coperti', value: 'LATAM · EU · US', detail: 'Slot giornalieri indipendentemente dal paese.' },
-      { label: 'Aggiornamenti stack', value: 'Settimanali', detail: 'Report di stato e release notes automatici.' }
+      { label: 'Fusi coperti', value: 'LATAM | EU | US', detail: 'Slot giornalieri per sync a prescindere dal paese.' },
+      { label: 'Aggiornamenti stack', value: 'Settimanale', detail: 'Report di stato e release notes automatiche.' }
     ],
-    commitmentsHeading: 'Percorso di ingaggio',
+    commitmentsHeading: 'Circuito di ingaggio',
     commitments: [
       {
         title: 'Discovery & briefing',
-        detail: 'Obiettivi, KPI, stakeholder e telemetria prima del design.'
+        detail: 'Obiettivi, KPI, stakeholder e telemetria raccolti prima del design.'
       },
       {
-        title: 'Blueprint architetturale',
-        detail: 'Infra, hosting, automazioni e integrazioni approvate prima del codice.'
+        title: 'Blueprint di architettura',
+        detail: 'Infra, hosting, automazione e integrazioni approvate prima del codice.'
       },
       {
         title: 'Loop QA realtime',
-        detail: 'Feature flag, link di preview e CI/CD per feedback immediato.'
+        detail: 'Feature flag, link di preview e CI/CD per revisioni istantanee.'
       },
       {
-        title: 'Handoff & supporto',
-        detail: 'Accesso admin, documentazione e policy di alert mantenuti anche dopo.'
+        title: 'Handoff & cura',
+        detail: 'Accesso admin, documentazione e alert mantenuti dopo la consegna.'
       }
     ],
+    personal: {
+      title: 'Luiz risponde di persona.',
+      detail: 'Niente coda o bot: email o DM arrivano direttamente a me.',
+      cta: 'Saluta'
+    },
     channels: {
       email: {
         label: 'Email',
@@ -320,19 +337,19 @@ const it: LocaleShape = {
       },
       social: {
         label: 'Instagram',
-        hint: 'DM aperti per sync rapidi',
+        hint: 'DM aperte per sync rapidi',
         action: 'Apri profilo'
       }
     },
     status: {
       label: 'Rete di notifiche',
-      message: 'SMTP + alert nel pannello già configurati.',
+      message: 'SMTP + alert admin gi? configurati.',
       detail: 'Ogni invio genera log analytics e conferma di consegna.'
     },
     copyState: {
       success: 'Copiato!'
     },
-    note: 'Stack realtime, strumenti AI e design system vivo pronti per il prossimo progetto.'
+    note: 'Stack realtime e design system vivo pronti. Progettiamo qualcosa insieme.'
   },
   settings: {
     ...en.settings,
@@ -418,35 +435,88 @@ const it: LocaleShape = {
       success: 'Messaggio inviato. Grazie!',
       error: 'Qualcosa è andato storto. Riprova.'
     }
-  }
-  patchNotes: {
-    ...en.patchNotes,
-    headline: 'PatchNotes - miglioramenti di performance e UI.',
-    summary:
-      'Abbiamo raffinato l esperienza desktop/mobile, migliorato la reattivita, aggiunto un avviso di manutenzione mobile e regolato il flusso di caricamento.',
+  },
+        patchNotes: {
+    headline: 'PatchNotes - performance, SEO e DX.',
+    summary: 'Split dei pacchetti, lazy load, meta SEO, robots/sitemap, focus visibile e motion ridotto.',
     highlights: [
-      'Nuova barra di avviso mobile con chiusura e persistenza.',
-      'Banner flottante piu leggero e reattivo.',
-      'Regolazioni di contrasto per modalita chiaro/scuro.'
+      'Manual chunks per vendor/router/query/motion/i18n, rimosso three.js non usato.',
+      'Sezioni home in lazy load con Suspense per ridurre il first paint.',
+      'SEO: meta description/OG/robots + sitemap.xml e robots.txt.',
+      'A11y: focus-visible e prefers-reduced-motion.'
     ],
     changes: [
-      'Home: sfondo animato e gradienti ottimizzati per ridurre l uso della GPU.',
-      'UI: componenti ora usano variabili di colore del tema per mantenere il contrasto in ogni modalita.',
-      'Layout: banner mobile con CTA ai patch notes, migliore risposta sui breakpoint piccoli.',
-      'Accessibilita: focus visibile su CTA e bottone di chiusura dell avviso.'
+      'Bundle iniziale piu leggero.',
+      'Card contatto con hover/badge piu puliti.',
+      'CTA contatto mantiene email e Instagram attivi.'
     ],
     fixes: [
-      'Risolto l overlap del bottone X nell avviso mobile.',
-      'Tipografia corretta per evitare caratteri rotti in manutencao.',
-      'Ombre delle card ammorbidite per evitare clipping su schermi piccoli.'
+      'Ultime rimozioni applicate.',
+      'Meta/testi puliti per evitare caratteri rotti.'
     ],
     next: [
-      'Abilitare dark/light automatico secondo la preferenza di sistema.',
-      'Aggiungere card di stato uptime in tempo reale.',
-      'Pubblicare style guide per componenti interattivi.',
-      'Ripensare tutto il frontend mobile-first con accessibilita completa e navigazione semplice.'
+      'Separare react-icons o usare SVG inline per ridurre vendor.',
+      'Ridurre/ospitare font a due famiglie.',
+      'Ottimizzare favicon.png o passare a WebP.'
     ]
-  }
-};
+  },
+  patchNotesHistory: [
+    {
+      version: 'v1.4.1',
+      date: '22 Nov 2025',
+      headline: 'PatchNotes - performance, SEO e DX.',
+      summary: 'Split dei pacchetti, lazy load, meta SEO, robots/sitemap, focus visibile e motion ridotto.',
+      highlights: [
+        'Manual chunks per vendor/router/query/motion/i18n, rimosso three.js non usato.',
+        'Sezioni home in lazy load con Suspense per ridurre il first paint.',
+        'SEO: meta description/OG/robots + sitemap.xml e robots.txt.',
+        'A11y: focus-visible e prefers-reduced-motion.'
+      ],
+      changes: [
+        'Bundle iniziale piu leggero.',
+        'Card contatto con hover/badge piu puliti.',
+        'CTA contatto mantiene email e Instagram attivi.'
+      ],
+      fixes: [
+        'Ultime rimozioni applicate.',
+        'Meta/testi puliti per evitare caratteri rotti.'
+      ],
+      next: [
+        'Separare react-icons o usare SVG inline per ridurre vendor.',
+        'Ridurre/ospitare font a due famiglie.',
+        'Ottimizzare favicon.png o passare a WebP.'
+      ]
+    },
+    {
+      version: 'v1.3.0',
+      date: '05 Nov 2025',
+      headline: 'PatchNotes - UI e mobilita.',
+      summary: 'Avviso mobile persistente, contrasto migliore e caricamento piu leggero.',
+      highlights: [
+        'Barra mobile con chiusura e persistenza.',
+        'Banner flottante piu leggero e reattivo.',
+        'Contrasto migliore per chiaro/scuro.'
+      ],
+      changes: [
+        'Home: sfondo animato ottimizzato per meno GPU.',
+        'UI: colori tramite tema per mantenere contrasto.',
+        'Layout: banner mobile con CTA ai patch notes.',
+        'A11y: focus visibile su CTA e bottone chiusura.'
+      ],
+      fixes: [
+        'Risolto overlap del bottone X.',
+        'Tipografia corretta per evitare caratteri rotti.',
+        'Ombre ammorbidite su card piccole.'
+      ],
+      next: [
+        'Abilitare dark/light automatico da sistema.',
+        'Aggiungere card uptime realtime.',
+        'Pubblicare style guide componenti.'
+      ]
+    }
+  ],
 
-export default it;
+  };
+
+  export default it;
+

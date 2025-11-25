@@ -189,7 +189,7 @@ const zh: LocaleShape = {
       {
         title: '平台工程',
         detail: '交付沉浸式仪表盘、实时 API 与安全后台。',
-        items: ['全栈交付', '实时 & AI Copilot', 'CI/CD + IaC 手册']
+        items: ['全栈交付', '实时 &  Copilot', 'CI/CD + IaC 手册']
       },
       {
         title: 'Care & Growth',
@@ -228,7 +228,7 @@ const zh: LocaleShape = {
   certificatesSection: {
     eyebrow: '持续学习',
     title: '最新认证',
-    description: 'AI、云与系统设计领域的重量级认证，支撑整个作品集。',
+    description: '、云与系统设计领域的重量级认证，支撑整个作品集。',
     cta: '查看证书'
   },
   labsSection: {
@@ -249,57 +249,74 @@ const zh: LocaleShape = {
     cta: '前往博客'
   },
   contactSection: {
-    eyebrow: '可用',
-    headline: '准备打造大胆项目？',
-    subheadline: '企业级项目、规模化自动化和关键产品，直接通过邮箱沟通。',
-    tags: ['实时仪表盘', '设计系统', 'AI 副驾', '工作坊'],
-    primaryCta: '发送消息',
-    secondaryCta: '查看全部',
-    metrics: [
-      { label: '响应 SLA', value: '< 2h', detail: '监控开启时的平均回复时间。' },
-      { label: '覆盖时区', value: 'LATAM · EU · US', detail: '无论地区每天都有同步时段。' },
-      { label: '技术栈更新', value: '每周', detail: '状态报告与版本说明自动发送。' }
-    ],
-    commitmentsHeading: '合作流程',
-    commitments: [
+    eyebrow: '????',
+    headline: '??????????',
+    subheadline: '?????????????????????????',
+    responseBadge: '??2?????',
+    chips: ['????', '????', '????', '??????'],
+    quickCards: [
       {
-        title: 'Discovery & Briefing',
-        detail: '在设计前确认目标、KPI、干系人与遥测需求。'
+        title: '?????????',
+        detail: '???????????????'
       },
       {
-        title: '架构蓝图',
-        detail: '基础设施、托管、自动化与集成先于编码锁定。'
-      },
-      {
-        title: '实时 QA 回路',
-        detail: 'Feature flag、预览链接与 CI/CD 让审阅即刻发生。'
-      },
-      {
-        title: '交付与维护',
-        detail: '交付后继续维护后台访问、文档与告警策略。'
+        title: '????????',
+        detail: 'UI????????????????????'
       }
     ],
+    tags: ['????', '????', '????', '???'],
+    primaryCta: '????',
+    secondaryCta: '???????',
+    metrics: [
+      { label: '??SLA', value: '< 2h', detail: '?????????????' },
+      { label: '????', value: 'LATAM | EU | US', detail: '?????????????' },
+      { label: '????', value: '??', detail: '??????????????' }
+    ],
+    commitmentsHeading: '????',
+    commitments: [
+      {
+        title: '?????',
+        detail: '?????????KPI??????????'
+      },
+      {
+        title: '????',
+        detail: '???????????????????????'
+      },
+      {
+        title: '??QA??',
+        detail: 'Feature flag??????CI/CD???????'
+      },
+      {
+        title: '???????',
+        detail: '????????????????????'
+      }
+    ],
+    personal: {
+      title: 'Luiz?????',
+      detail: '????????????DM???????',
+      cta: '????'
+    },
     channels: {
       email: {
-        label: '邮箱',
-        hint: '24/7 监控的直连收件箱',
-        action: '复制邮箱'
+        label: 'Email',
+        hint: '24/7???????',
+        action: '????'
       },
       social: {
         label: 'Instagram',
-        hint: 'DM 开放，随时快速同步',
-        action: '打开主页'
+        hint: 'DM?????????',
+        action: '????'
       }
     },
     status: {
-      label: '通知矩阵',
-      message: 'SMTP 与后台告警已启用。',
-      detail: '每条留言都会写入分析日志并确认投递。'
+      label: '????',
+      message: 'SMTP??????????',
+      detail: '??????????????????'
     },
     copyState: {
-      success: '已复制！'
+      success: '????'
     },
-    note: '实时技术栈、AI 工具与活态设计系统随时待命，一起打造下一次发布。'
+    note: '?????????????????????????????'
   },
   settings: {
     ...en.settings,
@@ -383,35 +400,88 @@ const zh: LocaleShape = {
       success: '消息已发送，感谢！',
       error: '发送失败，请重试。'
     }
-  }
-  patchNotes: {
-    ...en.patchNotes,
-    headline: 'PatchNotes - xingneng he UI gaijin.',
-    summary:
-      'Youhua le desktop/mobile tiyan, tigao le xiangying, tianjia le mobile weihu tishi, youhua le loading liucheng.',
+  },
+        patchNotes: {
+    headline: 'PatchNotes - xingneng, SEO, DX',
+    summary: 'Shou dong fen bao, lazy load, SEO meta/robots/sitemap, focus ke jian, jianshao donghua.',
     highlights: [
-      'Xin de mobile tishi lan, ke guan bi bing baochi.',
-      'Geng qing liang, geng linghuo de fuchu biaoqian.',
-      'Dui qing/an an moshi de duibi diaozheng.'
+      'vendor/router/query/motion/i18n shou dong fen bao, yi chu three.js.',
+      'Shou ye kuai su lazy load + Suspense, jian qing shou ping.',
+      'SEO: meta description/OG/robots, jia sitemap.xml he robots.txt.',
+      'A11y: focus-visible he prefers-reduced-motion.'
     ],
     changes: [
-      'Home: youhua donghua beijing he gradient, jianshao GPU shiyong.',
-      'UI: zujian shiyong zhuti yanse bianliang baochi duibi.',
-      'Layout: mobile banner he qingqiu patch notes, xiao duankou xiangying geng hao.',
-      'Kekao xing: CTA he guan bi an niu jia kejian de focus.'
+      'Chu shi bundle geng xiao.',
+      'Lianluo ka hover/badge geng jingjian.',
+      'Lianxi CTA baoliu Email he Instagram.'
     ],
     fixes: [
-      'X anniu chongdie wenti xiufu.',
-      'Zifu xiu fu, fangzhi manutencao mojibake.',
-      'Rongying jiarou, fangzhi xiao ping clipping.'
+      'Zui xin tiaozheng yijing yingyong.',
+      'Qingli meta/wenzi bi mian luan ma.'
     ],
     next: [
-      'Gen ju xitong xihuan zidong dark/light.',
-      'Tianjia shishi uptime zhuangtai ka.',
-      'Fabu hudong zujian de style guide.',
-      'Yong mobile-first he wanquan kexingxing chongjian quanbu frontend.'
+      'fen li react-icons huo yong SVG inline suoxiao vendor.',
+      'jianshao ziti dao liang ge xi lie huo zizhu jiazai.',
+      'youhua favicon.png huo huan WebP.'
     ]
-  }
-};
+  },
+  patchNotesHistory: [
+    {
+      version: 'v1.4.1',
+      date: '22 Nov 2025',
+      headline: 'PatchNotes - xingneng, SEO, DX',
+      summary: 'Shou dong fen bao, lazy load, SEO meta/robots/sitemap, focus ke jian, jianshao donghua.',
+      highlights: [
+        'vendor/router/query/motion/i18n shou dong fen bao, yi chu three.js.',
+        'Shou ye kuai su lazy load + Suspense, jian qing shou ping.',
+        'SEO: meta description/OG/robots, jia sitemap.xml he robots.txt.',
+        'A11y: focus-visible he prefers-reduced-motion.'
+      ],
+      changes: [
+        'Chu shi bundle geng xiao.',
+        'Lianluo ka hover/badge geng jingjian.',
+        'Lianxi CTA baoliu Email he Instagram.'
+      ],
+      fixes: [
+        'Zui xin tiaozheng yijing yingyong.',
+        'Qingli meta/wenzi bi mian luan ma.'
+      ],
+      next: [
+        'fen li react-icons huo yong SVG inline suoxiao vendor.',
+        'jianshao ziti dao liang ge xi lie huo zizhu jiazai.',
+        'youhua favicon.png huo huan WebP.'
+      ]
+    },
+    {
+      version: 'v1.3.0',
+      date: '05 Nov 2025',
+      headline: 'PatchNotes - UI he yidong',
+      summary: 'Shouji tixing chi cun, duibi geng hao, jia zai geng qing.',
+      highlights: [
+        'Yidong tixing dai guanbi he cunchu.',
+        'Qing liang de fuxuankuang guanggao.',
+        'Geng hao de duibi yong yu hei/bai.'
+      ],
+      changes: [
+        'Shouye: donghua beijing youhua jianshao GPU.',
+        'UI: zhutise baochi duibi.',
+        'Layout: yidong guanggao dai CTA daoxiang patch notes.',
+        'A11y: kexian jiaodian yu guanbi anniu.'
+      ],
+      fixes: [
+        'Xiufu le yidong tixing X anniu diejia.',
+        'Zhengli ziti fangzhi luanma.',
+        'Ruosuo ka pian yinying.'
+      ],
+      next: [
+        'Jiqi you anliang moshi zidong qiehuan.',
+        'Tianjia shishang uptime ka pian.',
+        'Fabiao jiaohu zujian fengge zhinan.'
+      ]
+    }
+  ],
 
-export default zh;
+  };
+
+  export default zh;
+

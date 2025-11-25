@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://luizfelippe.dev/sitemap.xml

@@ -153,35 +153,88 @@ const de: LocaleShape = {
       contact: 'Du kannst jederzeit Löschung oder Export deiner Einreichungen anfragen.'
     },
     outro: 'Fragen? Schreib mir, ich kläre jedes Datenschutzthema.'
-  }
-  patchNotes: {
-    ...en.patchNotes,
-    headline: 'PatchNotes - Performance- und UI-Verbesserungen.',
-    summary:
-      'Desktop/Mobile-Erlebnis verfeinert, Responsiveness verbessert, mobilen Wartungshinweis hinzugefugt und Ladefluss angepasst.',
+  },
+        patchNotes: {
+    headline: 'PatchNotes - Performance, SEO und DX.',
+    summary: 'Package-Splits, Lazy Load, SEO-Metas, robots/sitemap, sichtbarer Fokus und weniger Motion.',
     highlights: [
-      'Neue mobile Hinweisleiste mit Schliessen und Persistenz.',
-      'Leichteres, reaktiveres schwebendes Banner.',
-      'Kontrastanpassungen fur Hell/Dunkel-Modus.'
+      'Manual chunks fuer vendor/router/query/motion/i18n, ungenutztes three.js entfernt.',
+      'Home-Sektionen per Lazy Load + Suspense fuer schnelleren First Paint.',
+      'SEO: meta description/OG/robots plus sitemap.xml und robots.txt.',
+      'A11y: focus-visible Outline und prefers-reduced-motion Support.'
     ],
     changes: [
-      'Home: animierter Hintergrund und Gradients optimiert, um GPU-Last zu senken.',
-      'UI: Komponenten nutzen Theme-Farben, um Kontrast in allen Modi zu halten.',
-      'Layout: mobiles Banner mit CTA zu Patch Notes, bessere Responsiveness auf kleinen Breakpoints.',
-      'Accessibility: sichtbarer Fokus auf CTA und Schliessen-Button.'
+      'Kleineres Initial-Bundle.',
+      'Kontaktkarten mit sauberem Hover/Badges.',
+      'CTA Kontakt behaelt E-Mail und Instagram.'
     ],
     fixes: [
-      'Uberlappung des X-Buttons im mobilen Hinweis behoben.',
-      'Typografie korrigiert, um kaputte Zeichen in manutencao zu vermeiden.',
-      'Karten-Schatten weicher gemacht, um Clipping auf kleinen Screens zu vermeiden.'
+      'Letzte Anpassungen angewandt.',
+      'Meta/Text bereinigt gegen kaputte Zeichen.'
     ],
     next: [
-      'Dark/Light automatisch nach System-Praferenz aktivieren.',
-      'Realtime-Uptime-Statuskarte hinzufugen.',
-      'Styleguide fur interaktive Komponenten veroffentlichen.',
-      'Gesamtes Frontend mobile-first neu aufbauen mit voller Accessibility und einfacher Navigation.'
+      'react-icons splitten oder SVG inline nutzen.',
+      'Fonts auf zwei Familien reduzieren oder self-host.',
+      'favicon.png optimieren oder auf WebP wechseln.'
     ]
-  }
-};
+  },
+  patchNotesHistory: [
+    {
+      version: 'v1.4.1',
+      date: '22 Nov 2025',
+      headline: 'PatchNotes - Performance, SEO und DX.',
+      summary: 'Package-Splits, Lazy Load, SEO-Metas, robots/sitemap, sichtbarer Fokus und weniger Motion.',
+      highlights: [
+        'Manual chunks fuer vendor/router/query/motion/i18n, ungenutztes three.js entfernt.',
+        'Home-Sektionen per Lazy Load + Suspense fuer schnelleren First Paint.',
+        'SEO: meta description/OG/robots plus sitemap.xml und robots.txt.',
+        'A11y: focus-visible Outline und prefers-reduced-motion Support.'
+      ],
+      changes: [
+        'Kleineres Initial-Bundle.',
+        'Kontaktkarten mit sauberem Hover/Badges.',
+        'CTA Kontakt behaelt E-Mail und Instagram.'
+      ],
+      fixes: [
+        'Letzte Anpassungen angewandt.',
+        'Meta/Text bereinigt gegen kaputte Zeichen.'
+      ],
+      next: [
+        'react-icons splitten oder SVG inline nutzen.',
+        'Fonts auf zwei Familien reduzieren oder self-host.',
+        'favicon.png optimieren oder auf WebP wechseln.'
+      ]
+    },
+    {
+      version: 'v1.3.0',
+      date: '05 Nov 2025',
+      headline: 'PatchNotes - UI und Mobilitat.',
+      summary: 'Mobiler Hinweis mit Persistenz, besserer Kontrast und leichteres Laden.',
+      highlights: [
+        'Mobile Bar mit Close und Persistenz.',
+        'Leichteres, reaktives Banner.',
+        'Besserer Kontrast fuer Hell/Dunkel.'
+      ],
+      changes: [
+        'Home: animierter Hintergrund optimiert fuer weniger GPU.',
+        'UI: Theme-Farben fuer Kontrast.',
+        'Layout: Mobile Banner mit CTA zu Patch Notes.',
+        'A11y: sichtbarer Fokus auf CTA und Close.'
+      ],
+      fixes: [
+        'Overlap des X-Buttons behoben.',
+        'Typografie angepasst gegen kaputte Zeichen.',
+        'Schatten weicher auf kleinen Screens.'
+      ],
+      next: [
+        'Dark/Light automatisch nach System.',
+        'Realtime-Uptime-Karte hinzufuegen.',
+        'Styleguide fuer interaktive Komponenten.'
+      ]
+    }
+  ],
 
-export default de;
+  };
+
+  export default de;
+

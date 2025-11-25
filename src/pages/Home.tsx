@@ -1,20 +1,34 @@
+import { lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import { Hero } from '@components/sections/Hero';
-import { ProjectsSpotlight } from '@components/sections/ProjectsSpotlight';
-import { SystemStatus } from '@components/sections/SystemStatus';
-import { CertificatesGrid } from '@components/sections/CertificatesGrid';
-import { BlogPreview } from '@components/sections/BlogPreview';
-import { ContactCTA } from '@components/sections/ContactCTA';
-import { SkillsMarquee } from '@components/sections/SkillsMarquee';
-import { AboutSection } from '@components/sections/AboutSection';
-import { ExperienceTimeline } from '@components/sections/ExperienceTimeline';
-import { LabsShowcase } from '@components/sections/LabsShowcase';
-import { ServicesShowcase } from '@components/sections/ServicesShowcase';
+
+const SkillsMarquee = lazy(() => import('@components/sections/SkillsMarquee').then((m) => ({ default: m.SkillsMarquee })));
+const AboutSection = lazy(() => import('@components/sections/AboutSection').then((m) => ({ default: m.AboutSection })));
+const ExperienceTimeline = lazy(() =>
+  import('@components/sections/ExperienceTimeline').then((m) => ({ default: m.ExperienceTimeline }))
+);
+const ServicesShowcase = lazy(() =>
+  import('@components/sections/ServicesShowcase').then((m) => ({ default: m.ServicesShowcase }))
+);
+const ProjectsSpotlight = lazy(() =>
+  import('@components/sections/ProjectsSpotlight').then((m) => ({ default: m.ProjectsSpotlight }))
+);
+const SystemStatus = lazy(() => import('@components/sections/SystemStatus').then((m) => ({ default: m.SystemStatus })));
+const CertificatesGrid = lazy(() =>
+  import('@components/sections/CertificatesGrid').then((m) => ({ default: m.CertificatesGrid }))
+);
+const LabsShowcase = lazy(() => import('@components/sections/LabsShowcase').then((m) => ({ default: m.LabsShowcase })));
+const BlogPreview = lazy(() => import('@components/sections/BlogPreview').then((m) => ({ default: m.BlogPreview })));
+const ContactCTA = lazy(() => import('@components/sections/ContactCTA').then((m) => ({ default: m.ContactCTA })));
 
 export const Home = () => {
   const { t } = useTranslation();
+
+  const LazyShell = ({ height = 'h-48' }: { height?: string }) => (
+    <div className={`animate-pulse rounded-3xl border border-foreground/10 bg-foreground/5 ${height}`} />
+  );
 
   return (
     <main className="relative flex flex-col gap-20 overflow-hidden pb-28 pt-32">
@@ -66,16 +80,36 @@ export const Home = () => {
         </div>
       </div>
 
-      <SkillsMarquee />
-      <AboutSection />
-      <ExperienceTimeline />
-      <ServicesShowcase />
-      <ProjectsSpotlight />
-      <SystemStatus />
-      <CertificatesGrid />
-      <LabsShowcase />
-      <BlogPreview />
-      <ContactCTA />
+      <Suspense fallback={<LazyShell height="h-20" />}>
+        <SkillsMarquee />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-64" />}>
+        <AboutSection />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-72" />}>
+        <ExperienceTimeline />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-64" />}>
+        <ServicesShowcase />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-80" />}>
+        <ProjectsSpotlight />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-72" />}>
+        <SystemStatus />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-72" />}>
+        <CertificatesGrid />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-64" />}>
+        <LabsShowcase />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-64" />}>
+        <BlogPreview />
+      </Suspense>
+      <Suspense fallback={<LazyShell height="h-80" />}>
+        <ContactCTA />
+      </Suspense>
     </main>
   );
 };

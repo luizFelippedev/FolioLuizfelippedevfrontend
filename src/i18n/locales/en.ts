@@ -61,7 +61,7 @@ const en = {
       highlight: 'with automation, cloud and cinematic UIs'
     },
     description:
-      'Software Engineering student (about 2 years to graduate). I started with a Python calculator at 12 and now tackle complex challenges: distributed architectures, tough integrations, scaled automations, realtime data, AI and premium UX. I deliver front-end, back-end, databases, APIs, automations and observability with clean, resilient, scalable code.',
+      'Software Engineering student (about 2 years to graduate). I started with a Python calculator at 12 and now tackle complex challenges: distributed architectures, tough integrations, scaled automations, realtime data and premium UX. I deliver front-end, back-end, databases, APIs, automations and observability with clean, resilient, scalable code.',
     highlights: [
       {
         title: 'Advanced full-stack',
@@ -235,7 +235,7 @@ const en = {
       {
         title: 'Platform engineering',
         detail: 'Full-stack delivery for immersive dashboards, realtime APIs and secure admin tools.',
-        items: ['Full-stack builds', 'Realtime & AI copilots', 'CI/CD + IaC playbooks']
+        items: ['Full-stack builds', 'Realtime copilots', 'CI/CD + IaC playbooks']
       },
       {
         title: 'Care & growth',
@@ -303,7 +303,7 @@ const en = {
   certificatesSection: {
     eyebrow: 'Continuous learning',
     title: 'Recent certifications',
-    description: 'Heavy hitters in AI, cloud and systemic design powering this futuristic portfolio.',
+    description: 'Heavy hitters in cloud and systemic design powering this futuristic portfolio.',
     cta: 'View certificates'
   },
   labsSection: {
@@ -327,12 +327,24 @@ const en = {
     eyebrow: 'Available now',
     headline: 'Ready to build something bold?',
     subheadline: 'Direct email for enterprise builds, automation at scale and critical products.',
-    tags: ['Realtime dashboards', 'Design systems', 'AI copilots', 'Workshops'],
+    responseBadge: 'Replies in under 2h',
+    chips: ['Direct contact', 'Enterprise projects', 'Rapid syncs', 'Living design system'],
+    quickCards: [
+      {
+        title: 'Architecture ready for scale.',
+        detail: 'Short sprints, strong automation and availability focus.'
+      },
+      {
+        title: 'Code and design in sync.',
+        detail: 'UI dev, design systems, observability and content aligned.'
+      }
+    ],
+    tags: ['Realtime dashboards', 'Design systems', 'Realtime copilots', 'Workshops'],
     primaryCta: 'Send a message',
     secondaryCta: 'See full portfolio',
     metrics: [
       { label: 'Response SLA', value: '< 2h', detail: 'Average reply window while monitoring is active.' },
-      { label: 'Timezone coverage', value: 'LATAM · EU · US', detail: 'Daily sync slots regardless of region.' },
+      { label: 'Timezone coverage', value: 'LATAM | EU | US', detail: 'Daily sync slots regardless of region.' },
       { label: 'Ops updates', value: 'Weekly', detail: 'Status reports and release notes shipped automatically.' }
     ],
     commitmentsHeading: 'Engagement circuit',
@@ -354,6 +366,11 @@ const en = {
         detail: 'Admin access, docs and alert policies stay maintained after delivery.'
       }
     ],
+    personal: {
+      title: 'Luiz replies personally.',
+      detail: 'No handoff or support queue. Email or DM lands straight with me.',
+      cta: 'Say hi'
+    },
     channels: {
       email: {
         label: 'Email',
@@ -374,7 +391,7 @@ const en = {
     copyState: {
       success: 'Copied!'
     },
-    note: 'Equipped with realtime stack, AI tooling and a living design system. Let’s architect something together.'
+    note: 'Equipped with realtime stack and a living design system. Let\'s architect something together.'
   },
   settings: {
     label: 'Config',
@@ -398,8 +415,8 @@ const en = {
         status: 'Designer lab'
       },
       aiAutomation: {
-        title: 'AI automations',
-        description: 'Trigger builds and scripts based on AI insights.',
+        title: 'Automation triggers',
+        description: 'Trigger builds and scripts based on telemetry signals.',
         status: 'Private beta'
       }
     },
@@ -693,33 +710,86 @@ const en = {
     }
   }
   ,
-  patchNotes: {
-    headline: 'PatchNotes - performance and UI improvements.',
-    summary:
-      'We refined desktop/mobile experience, improved responsiveness, added a mobile maintenance notice, and tuned the loading flow.',
+      patchNotes: {
+    headline: 'PatchNotes - performance, SEO and DX.',
+    summary: 'Package splits, lazy load, SEO metas, robots/sitemap, focus visible and reduced motion.',
     highlights: [
-      'New mobile notice bar with close and persistence.',
-      'Lighter, more responsive floating banner.',
-      'Contrast adjustments for light/dark modes.'
+      'Manual chunks for vendor/router/query/motion/i18n, removed unused three.js.',
+      'Home sections lazy loaded with Suspense to shrink first paint.',
+      'SEO: meta description/OG/robots plus sitemap.xml and robots.txt.',
+      'A11y: focus-visible outline and prefers-reduced-motion support.'
     ],
     changes: [
-      'Home: optimized animated background and gradients to reduce GPU use.',
-      'UI: components now use theme color variables to keep contrast in all modes.',
-      'Layout: mobile banner with CTA to patch notes, better responsiveness on small breakpoints.',
-      'Accessibility: visible focus on CTA and close button of the notice.'
+      'Initial bundle smaller.',
+      'Contact cards with cleaner hover/badges.',
+      'Contact CTA keeps email and Instagram active.'
     ],
     fixes: [
-      'Fixed overlap of the X button on the mobile notice.',
-      'Typography corrected to avoid broken characters in manutencao.',
-      'Softened card shadows to avoid clipping on small screens.'
+      'Recent removals applied.',
+      'Meta/text cleaned to avoid broken chars.'
     ],
     next: [
-      'Enable dark/light automatic by system preference.',
-      'Add realtime uptime status card.',
-      'Publish style guide for interactive components.',
-      'Rework the whole frontend mobile-first with full accessibility and easy navigation.'
+      'Split react-icons or inline SVGs to shrink vendor.',
+      'Self-host or reduce fonts to two families.',
+      'Optimize favicon.png or swap to WebP.'
     ]
-  }
+  },
+  patchNotesHistory: [
+    {
+      version: 'v1.4.1',
+      date: '22 Nov 2025',
+      headline: 'PatchNotes - performance, SEO and DX.',
+      summary: 'Package splits, lazy load, SEO metas, robots/sitemap, focus visible and reduced motion.',
+      highlights: [
+        'Manual chunks for vendor/router/query/motion/i18n, removed unused three.js.',
+        'Home sections lazy loaded with Suspense to shrink first paint.',
+        'SEO: meta description/OG/robots plus sitemap.xml and robots.txt.',
+        'A11y: focus-visible outline and prefers-reduced-motion support.'
+      ],
+      changes: [
+        'Initial bundle smaller.',
+        'Contact cards with cleaner hover/badges.',
+        'Contact CTA keeps email and Instagram active.'
+      ],
+      fixes: [
+        'Recent removals applied.',
+        'Meta/text cleaned to avoid broken chars.'
+      ],
+      next: [
+        'Split react-icons or inline SVGs to shrink vendor.',
+        'Self-host or reduce fonts to two families.',
+        'Optimize favicon.png or swap to WebP.'
+      ]
+    },
+    {
+      version: 'v1.3.0',
+      date: '05 Nov 2025',
+      headline: 'PatchNotes - UI and mobility.',
+      summary: 'Mobile notice with persistence, better contrast, lighter loading.',
+      highlights: [
+        'Mobile bar with close and persistence.',
+        'Lighter floating banner.',
+        'Contrast tweaks for light/dark.'
+      ],
+      changes: [
+        'Home: animated background optimized to reduce GPU.',
+        'UI: theme colors to keep contrast.',
+        'Layout: mobile banner with CTA to patch notes.',
+        'A11y: visible focus on CTA and close button.'
+      ],
+      fixes: [
+        'Fixed X button overlap on mobile notice.',
+        'Typography adjusted to avoid broken chars.',
+        'Softer shadows on cards for small screens.'
+      ],
+      next: [
+        'Enable dark/light automatic by system.',
+        'Add realtime uptime status card.',
+        'Publish style guide for interactive components.'
+      ]
+    }
+  ],
+
 };
 
 export default en;

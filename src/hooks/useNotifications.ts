@@ -10,11 +10,6 @@ export interface NotificationMessage {
   timestamp: number;
 }
 
-const deriveBaseUrl = () => {
-  if (env.websocketUrl) return env.websocketUrl.replace(/\/?socket\.io.*$/, '');
-  return env.apiUrl.replace(/\/api$/, '');
-};
-
 export const useNotifications = (channel = 'admin-alerts') => {
   const [messages, setMessages] = useState<NotificationMessage[]>([]);
   const [connected, setConnected] = useState(false);
@@ -22,9 +17,8 @@ export const useNotifications = (channel = 'admin-alerts') => {
   const socketRef = useRef<Socket | null>(null);
 
   useEffect(() => {
-    const base = deriveBaseUrl();
-    const socket = io(`${base}/notifications`, {
-      transports: ['websocket'],
+    const socket = io(`${env.websocketBase}/notifications`, {
+      transports: ['websocket', 'polling'],
       withCredentials: true
     });
     socketRef.current = socket;

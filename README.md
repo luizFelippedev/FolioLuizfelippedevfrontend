@@ -19,11 +19,12 @@ npm run preview      # servir build localmente
 ```
 
 ## 🌐 Variáveis (.env)
-Copie `.env.example` para `.env` e ajuste quando for consumir sua API hospedada:
+Copie `.env.example` para `.env` e preencha de acordo com o ambiente (não faça commit desse arquivo):
 ```
-VITE_API_URL=http://localhost:4000/api
-VITE_WS_URL=ws://localhost:4000/socket.io/?EIO=4&transport=websocket
+VITE_API_URL=https://api.seudominio.com/api
+VITE_WS_URL=wss://api.seudominio.com
 ```
+Para desenvolvimento local, você pode apontar para `http://localhost:4000`, mas mantenha o `.env` apenas na sua máquina ou no provedor de deploy.
 
 ## 🧱 Estrutura
 ```
@@ -59,7 +60,7 @@ Para deploy, basta apontar `VITE_API_URL` para o backend hospedado (ex.: Render/
    - Runtime: Node 18 ou 20
 3) **Variáveis na Vercel**:
    - `VITE_API_URL=https://<app>.onrender.com/api`
-   - `VITE_WS_URL=wss://<app>.onrender.com` (ou deixe vazio para derivar do API se seu código suportar)
+   - `VITE_WS_URL=wss://<app>.onrender.com` (pode deixar vazio para derivar do host do API)
 4) **Deploy**: finalize e teste rotas críticas (`/`, `/projects`, `/certificates`, `/blog`, `/contact`, `/admin`).  
 5) **Domínio**: adicione seu domínio e, se quiser, crie subdomínio `api.seudominio.com` apontando para o backend no Render (CNAME); ajuste `VITE_API_URL` depois.
 

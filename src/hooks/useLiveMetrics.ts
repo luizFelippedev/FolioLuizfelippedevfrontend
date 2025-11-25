@@ -11,11 +11,8 @@ export const useLiveMetrics = () => {
   const socketRef = useRef<Socket | null>(null);
 
   useEffect(() => {
-    const base = env.websocketUrl
-      ? env.websocketUrl.replace(/\/?socket\.io.*$/, '')
-      : env.apiUrl.replace(/\/api$/, '');
-    const socket = io(`${base}/notifications`, {
-      transports: ['websocket'],
+    const socket = io(`${env.websocketBase}/notifications`, {
+      transports: ['websocket', 'polling'],
       withCredentials: true
     });
     socketRef.current = socket;

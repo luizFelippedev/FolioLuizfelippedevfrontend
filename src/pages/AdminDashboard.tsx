@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { io, type Socket } from 'socket.io-client';
 import { useTranslation } from 'react-i18next';
 
+import { env } from '@config/env';
 import { api } from '@lib/api';
 import { AdminResourceManager } from '@components/admin/AdminResourceManager';
 import { AdminNotificationsPanel } from '@components/admin/AdminNotificationsPanel';
@@ -100,11 +101,8 @@ export const AdminDashboard = () => {
   });
 
   useEffect(() => {
-    const deriveBase = () => api.defaults.baseURL?.replace(/\/api$/, '') ?? '';
-    const base = deriveBase();
-    if (!base) return;
-    const socket: Socket = io(`${base}/notifications`, {
-      transports: ['websocket'],
+    const socket: Socket = io(`${env.websocketBase}/notifications`, {
+      transports: ['websocket', 'polling'],
       withCredentials: true
     });
 
